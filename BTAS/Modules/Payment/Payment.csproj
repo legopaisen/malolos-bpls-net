@@ -1,0 +1,253 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B285F593-98A3-432E-92A0-BC60FECFD210}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Amellar.Modules.Payment</RootNamespace>
+    <AssemblyName>Payment</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmAdditionalPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdditionalPayment.Designer.cs">
+      <DependentUpon>frmAdditionalPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCancelPayment.Designer.cs">
+      <DependentUpon>frmCancelPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentMadeUnderProtest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentMadeUnderProtest.Designer.cs">
+      <DependentUpon>frmPaymentMadeUnderProtest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaymentMultiCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaymentMultiCheck.Designer.cs">
+      <DependentUpon>frmPaymentMultiCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayorInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayorInfo.Designer.cs">
+      <DependentUpon>frmPayorInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAdditionalPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAdditionalPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCancelPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentMadeUnderProtest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPaymentMadeUnderProtest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaymentMultiCheck.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPaymentMultiCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayorInfo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPayorInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\AppSettings\AppSettings.csproj">
+      <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
+      <Name>AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\AuditTrail\AuditTrail.csproj">
+      <Project>{1CC0E2E7-9FF7-4765-933A-E6F5E16A73F7}</Project>
+      <Name>AuditTrail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BPLSApp\BPLSApp.csproj">
+      <Project>{20D0578E-E939-4D1F-8416-B6CA0B7C1DFC}</Project>
+      <Name>BPLSApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\ContainerWithShadow\ContainerWithShadow.csproj">
+      <Project>{7980FDBA-671F-4F89-80B4-B79783BA0C6E}</Project>
+      <Name>ContainerWithShadow</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\DataConnector\DataConnector\DataConnector.csproj">
+      <Project>{7C12DA36-676A-49B3-B59D-C07C96539620}</Project>
+      <Name>DataConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\LogIn\LogIn.csproj">
+      <Project>{1228A386-001F-4C3B-8A67-D473414930DE}</Project>
+      <Name>LogIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Reports\Reports.csproj">
+      <Project>{2EBDE3CD-F448-4758-A3A2-1436BB218FAE}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchBusiness\SearchBusiness.csproj">
+      <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
+      <Name>SearchBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchOwner\SearchOwner.csproj">
+      <Project>{12DA147C-5376-46D6-9AB3-B22957A326E8}</Project>
+      <Name>SearchOwner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SOA\SOA.csproj">
+      <Project>{9425CCB1-3071-4BA3-8874-3806C3A22AB3}</Project>
+      <Name>SOA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\StringUtilities\StringUtilities.csproj">
+      <Project>{F7CAB867-EDEF-4E74-91BF-6C5385DCF513}</Project>
+      <Name>StringUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\TransactionLog\TransactionLog\TransactionLog.csproj">
+      <Project>{3914CB7E-813E-4BE4-960D-764FC3B8ED15}</Project>
+      <Name>TransactionLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bank\Bank.csproj">
+      <Project>{0F3D9C4F-C865-43E7-84A8-C4DA9C5E54E1}</Project>
+      <Name>Bank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Billing\Billing.csproj">
+      <Project>{158FF213-554C-4F45-990A-75B8025EDFFC}</Project>
+      <Name>Billing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CashTender\CashTender.csproj">
+      <Project>{A88E89EB-7B0C-4435-8EED-19E49753F782}</Project>
+      <Name>CashTender</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LiquidationReports\LiquidationReports.csproj">
+      <Project>{1CE44C9C-5D1B-40F2-9AE8-28C6E8165F9B}</Project>
+      <Name>LiquidationReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewBankModule\NewBankModule.csproj">
+      <Project>{250BFA18-E5BA-48E0-B341-48AED80B607B}</Project>
+      <Name>NewBankModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PaymentHistory\PaymentHistory.csproj">
+      <Project>{EAB31B55-911F-47F0-99F7-12FA3E477716}</Project>
+      <Name>PaymentHistory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Posting\Posting.csproj">
+      <Project>{2450E518-A7F6-4CEF-B36E-042AAD62D1C1}</Project>
+      <Name>Posting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxVSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

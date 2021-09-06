@@ -1,0 +1,418 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7C597503-3746-4E77-BE55-B3D33E57A70E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReturnDeclareOR</RootNamespace>
+    <AssemblyName>Utilities</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=2.111.6.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Common\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuditTrailBase.cs" />
+    <Compile Include="AuditTrailModule.cs" />
+    <Compile Include="AuditTrailRecord.cs" />
+    <Compile Include="AuditTrailUser.cs" />
+    <Compile Include="AuditTrailUserTrans.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="frmSignatories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSignatories.Designer.cs">
+      <DependentUpon>frmSignatories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fees.cs" />
+    <Compile Include="Fire.cs" />
+    <Compile Include="frmApprover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApprover.Designer.cs">
+      <DependentUpon>frmApprover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuditTrail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAuditTrail.Designer.cs">
+      <DependentUpon>frmAuditTrail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBarangay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBarangay.Designer.cs">
+      <DependentUpon>frmBarangay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBnsTypeCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBnsTypeCode.Designer.cs">
+      <DependentUpon>frmBnsTypeCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCertMonitoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertMonitoring.Designer.cs">
+      <DependentUpon>frmCertMonitoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConfig.Designer.cs">
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDBCRConverter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDBCRConverter.Designer.cs">
+      <DependentUpon>frmDBCRConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefaultCodes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefaultCodes.Designer.cs">
+      <DependentUpon>frmDefaultCodes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefaultValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefaultValues.Designer.cs">
+      <DependentUpon>frmDefaultValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDefaultValuesSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDefaultValuesSet.Designer.cs">
+      <DependentUpon>frmDefaultValuesSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDueDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDueDate.Designer.cs">
+      <DependentUpon>frmDueDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDueDateNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDueDateNew.designer.cs">
+      <DependentUpon>frmDueDateNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExemptedBuss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExemptedBuss.Designer.cs">
+      <DependentUpon>frmExemptedBuss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExemptionFeebyBrgy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExemptionFeebyBrgy.designer.cs">
+      <DependentUpon>frmExemptionFeebyBrgy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGross.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGross.designer.cs">
+      <DependentUpon>frmGross.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPaperTrail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPaperTrail.Designer.cs">
+      <DependentUpon>frmPaperTrail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPermitSignatory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPermitSignatory.Designer.cs">
+      <DependentUpon>frmPermitSignatory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintSchedule.Designer.cs">
+      <DependentUpon>frmPrintSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportSched.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportSched.Designer.cs">
+      <DependentUpon>frmReportSched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRevYear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRevYear.designer.cs">
+      <DependentUpon>frmRevYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSchedule.Designer.cs">
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduleOthers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScheduleOthers.Designer.cs">
+      <DependentUpon>frmScheduleOthers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplOrd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplOrd.Designer.cs">
+      <DependentUpon>frmSplOrd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License.cs" />
+    <Compile Include="PrintOtherReports.cs" />
+    <Compile Include="PrintSchedule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QuarterConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuarterConfig.Designer.cs">
+      <DependentUpon>QuarterConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RangeConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RangeConfig.Designer.cs">
+      <DependentUpon>RangeConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmSignatories.resx">
+      <DependentUpon>frmSignatories.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmApprover.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmApprover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAuditTrail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAuditTrail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBarangay.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBarangay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBnsTypeCode.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBnsTypeCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertMonitoring.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCertMonitoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDBCRConverter.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDBCRConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefaultCodes.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDefaultCodes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefaultValues.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDefaultValues.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDefaultValuesSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDefaultValuesSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDueDate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDueDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDueDateNew.resx">
+      <DependentUpon>frmDueDateNew.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExemptedBuss.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmExemptedBuss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExemptionFeebyBrgy.resx">
+      <DependentUpon>frmExemptionFeebyBrgy.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGross.resx">
+      <DependentUpon>frmGross.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaperTrail.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPaperTrail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPermitSignatory.resx">
+      <DependentUpon>frmPermitSignatory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintSchedule.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPrintSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportSched.resx">
+      <DependentUpon>frmReportSched.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRevYear.resx">
+      <DependentUpon>frmRevYear.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSchedule.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduleOthers.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmScheduleOthers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplOrd.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmSplOrd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuarterConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuarterConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RangeConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>RangeConfig.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\BIN\BIN.csproj">
+      <Project>{CE43BE3A-CE4E-44EE-B643-7C7112BA1D86}</Project>
+      <Name>BIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\AppSettings\AppSettings.csproj">
+      <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
+      <Name>AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\AuditTrail\AuditTrail.csproj">
+      <Project>{1CC0E2E7-9FF7-4765-933A-E6F5E16A73F7}</Project>
+      <Name>AuditTrail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BusinessType\BusinessType.csproj">
+      <Project>{B86728B1-CE3F-4BB6-ACF3-BF7D91A1C8BE}</Project>
+      <Name>BusinessType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\DataConnector\DataConnector\DataConnector.csproj">
+      <Project>{7C12DA36-676A-49B3-B59D-C07C96539620}</Project>
+      <Name>DataConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\MultiColumnComboBox\MultiColumnComboBox.csproj">
+      <Project>{4DD47A19-1A17-4C59-94BA-575E0C2ECC17}</Project>
+      <Name>MultiColumnComboBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\PrintUtilities\PrintUtilities.csproj">
+      <Project>{87FAE22B-B9DD-4D2F-8683-B58C8D587B38}</Project>
+      <Name>PrintUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchBusiness\SearchBusiness.csproj">
+      <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
+      <Name>SearchBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\StringUtilities\StringUtilities.csproj">
+      <Project>{F7CAB867-EDEF-4E74-91BF-6C5385DCF513}</Project>
+      <Name>StringUtilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxVSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

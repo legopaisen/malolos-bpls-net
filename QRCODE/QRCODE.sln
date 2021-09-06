@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCODE", "QRCODE\QRCODE.csproj", "{8D3B3073-FD5B-45B0-8513-EB35B94295DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRDataConnector", "QRCODE\Common\DataConnector\DataConnector\QRDataConnector.csproj", "{7C12DA36-676A-49B3-B59D-C07C96539620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QREncryptUtilities", "QRCODE\Common\EncryptUtilities\QREncryptUtilities.csproj", "{EB833D79-9D87-48EC-B396-79AACE685253}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|x86.ActiveCfg = Debug|x86
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Debug|x86.Build.0 = Debug|x86
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|x64.Build.0 = Release|Any CPU
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|x86.ActiveCfg = Release|x86
+		{8D3B3073-FD5B-45B0-8513-EB35B94295DE}.Release|x86.Build.0 = Release|x86
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|x64.Build.0 = Debug|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|x86.ActiveCfg = Debug|x86
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Debug|x86.Build.0 = Debug|x86
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|x64.ActiveCfg = Release|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|x64.Build.0 = Release|Any CPU
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|x86.ActiveCfg = Release|x86
+		{7C12DA36-676A-49B3-B59D-C07C96539620}.Release|x86.Build.0 = Release|x86
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|x64.ActiveCfg = Debug|x64
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|x64.Build.0 = Debug|x64
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|x86.ActiveCfg = Debug|x86
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Debug|x86.Build.0 = Debug|x86
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|x64.ActiveCfg = Release|x64
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|x64.Build.0 = Release|x64
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|x86.ActiveCfg = Release|x86
+		{EB833D79-9D87-48EC-B396-79AACE685253}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

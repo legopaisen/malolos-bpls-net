@@ -1,0 +1,540 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{984790A8-F5CA-4D57-8D4D-633274C3311A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BTAS</RootNamespace>
+    <AssemblyName>BTAS</AssemblyName>
+    <ApplicationIcon>bpls-btas.ico</ApplicationIcon>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <StartupObject>BTAS.Program</StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Navigator, Version=2.8.5.0, Culture=neutral, PublicKeyToken=09b1fd14b47a78e6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\dll\ComponentFactory.Krypton.Navigator.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Ribbon, Version=2.8.5.0, Culture=neutral, PublicKeyToken=ca7912ff32f9150d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\dll\ComponentFactory.Krypton.Ribbon.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=65a84d45e882d207, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\dll\ComponentFactory.Krypton.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContainerWithShadow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContainerWithShadow.Designer.cs">
+      <DependentUpon>ContainerWithShadow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainFormACE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainFormACE.Designer.cs">
+      <DependentUpon>frmMainFormACE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOtherReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOtherReports.Designer.cs">
+      <DependentUpon>frmOtherReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDelqBrgy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDelqBrgy.Designer.cs">
+      <DependentUpon>frmDelqBrgy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLiquidation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLiquidation.Designer.cs">
+      <DependentUpon>frmLiquidation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainForm.Designer.cs">
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFPCert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFPCert.designer.cs">
+      <DependentUpon>frmFPCert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ContainerWithShadow.resx">
+      <DependentUpon>ContainerWithShadow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainFormACE.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMainFormACE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOtherReports.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmOtherReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDelqBrgy.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDelqBrgy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLiquidation.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmLiquidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFPCert.resx">
+      <DependentUpon>frmFPCert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BPS\Modules\BusinessReports\BusinessReports.csproj">
+      <Project>{14990D2B-28AD-4859-B5D3-76DF11717908}</Project>
+      <Name>BusinessReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BPS\Modules\Utilities\Utilities.csproj">
+      <Project>{7C597503-3746-4E77-BE55-B3D33E57A70E}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\AuditTrail\AuditTrail.csproj">
+      <Project>{1CC0E2E7-9FF7-4765-933A-E6F5E16A73F7}</Project>
+      <Name>AuditTrail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\AppSettings\AppSettings.csproj">
+      <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
+      <Name>AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\BIN\BIN.csproj">
+      <Project>{CE43BE3A-CE4E-44EE-B643-7C7112BA1D86}</Project>
+      <Name>BIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\BPLSApp\BPLSApp.csproj">
+      <Project>{20D0578E-E939-4D1F-8416-B6CA0B7C1DFC}</Project>
+      <Name>BPLSApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\BusinessType\BusinessType.csproj">
+      <Project>{B86728B1-CE3F-4BB6-ACF3-BF7D91A1C8BE}</Project>
+      <Name>BusinessType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\DataConnector\DataConnector\DataConnector.csproj">
+      <Project>{7C12DA36-676A-49B3-B59D-C07C96539620}</Project>
+      <Name>DataConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\DILGReport\DILGReport.csproj">
+      <Project>{57FF7483-B696-403C-AEAA-6820F7E94D5A}</Project>
+      <Name>DILGReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\LogIn\LogIn.csproj">
+      <Project>{1228A386-001F-4C3B-8A67-D473414930DE}</Project>
+      <Name>LogIn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Message_Box\Message_Box.csproj">
+      <Project>{C500A219-C859-4745-A8B0-7D7B04A18B59}</Project>
+      <Name>Message_Box</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ModuleRights\ModuleRights.csproj">
+      <Project>{B617F81E-BC86-415A-9C18-0D928AFF34FD}</Project>
+      <Name>ModuleRights</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Reports\Reports.csproj">
+      <Project>{2EBDE3CD-F448-4758-A3A2-1436BB218FAE}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\ReportTools\ReportTools.csproj">
+      <Project>{EE2E48A2-3890-485A-B0B6-75741C318B85}</Project>
+      <Name>ReportTools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SearchBusiness\SearchBusiness.csproj">
+      <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
+      <Name>SearchBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\SOA\SOA.csproj">
+      <Project>{9425CCB1-3071-4BA3-8874-3806C3A22AB3}</Project>
+      <Name>SOA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\StringUtilities\StringUtilities.csproj">
+      <Project>{F7CAB867-EDEF-4E74-91BF-6C5385DCF513}</Project>
+      <Name>StringUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\TaskManager\TaskManager.csproj">
+      <Project>{BC2B9481-D499-4C28-B978-5BE4EFB4A958}</Project>
+      <Name>TaskManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\Tools\Tools.csproj">
+      <Project>{ADA963C3-E2E4-4DD7-BF8A-1ECA24D71660}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\User\User.csproj">
+      <Project>{ABD47872-98A8-465D-B6EF-1C4C8004EE4C}</Project>
+      <Name>User</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\BadChecks\BadChecks.csproj">
+      <Project>{A08A1C7F-4EE2-435E-9761-F97E85EA7F1C}</Project>
+      <Name>BadChecks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Bank\Bank.csproj">
+      <Project>{0F3D9C4F-C865-43E7-84A8-C4DA9C5E54E1}</Project>
+      <Name>Bank</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Billing\Billing.csproj">
+      <Project>{158FF213-554C-4F45-990A-75B8025EDFFC}</Project>
+      <Name>Billing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Collectibles\Collectibles\Collectibles.csproj">
+      <Project>{8D82D500-0BEE-4CEF-B107-0DC6429FBDFC}</Project>
+      <Name>Collectibles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\CompromiseAgreement\CompromiseAgreement.csproj">
+      <Project>{AA972770-E29E-4A68-BB92-7ED5012ECC79}</Project>
+      <Name>CompromiseAgreement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\DebitCreditTransaction\DebitCreditTransaction\DebitCreditTransaction.csproj">
+      <Project>{82BFC4FD-9838-4320-BED8-DFC44BEC4E8B}</Project>
+      <Name>DebitCreditTransaction</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Delinquency\Delinquency\Delinquency.csproj">
+      <Project>{81BFC39D-7CB5-433D-8095-AF9A65E09A4F}</Project>
+      <Name>Delinquency</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\LiquidationReports\LiquidationReports.csproj">
+      <Project>{1CE44C9C-5D1B-40F2-9AE8-28C6E8165F9B}</Project>
+      <Name>LiquidationReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\NewBankModule\NewBankModule.csproj">
+      <Project>{250BFA18-E5BA-48E0-B341-48AED80B607B}</Project>
+      <Name>NewBankModule</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\PaymentHistory\PaymentHistory.csproj">
+      <Project>{EAB31B55-911F-47F0-99F7-12FA3E477716}</Project>
+      <Name>PaymentHistory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Payment\Payment.csproj">
+      <Project>{B285F593-98A3-432E-92A0-BC60FECFD210}</Project>
+      <Name>Payment</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\Posting\Posting.csproj">
+      <Project>{2450E518-A7F6-4CEF-B36E-042AAD62D1C1}</Project>
+      <Name>Posting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\RCD\RCD.csproj">
+      <Project>{D37900CB-C5BA-492C-B30F-8FE7B04A344F}</Project>
+      <Name>RCD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\ReturnDeclareOR\ReturnDeclareOR.csproj">
+      <Project>{420F83BE-7583-483B-A3AD-598824EAC130}</Project>
+      <Name>ReturnDeclareOR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\TellerSetup\TellerSetup.csproj">
+      <Project>{BCF00B5B-89F1-48D3-815E-54A6D47A2086}</Project>
+      <Name>TellerSetup</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modules\TreasurersModule\TreasurersModule.csproj">
+      <Project>{9ECA4A43-4AD6-4407-9253-BDCAEC9B8A1F}</Project>
+      <Name>TreasurersModule</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpls_bta.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ABiling.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment_history2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-records_delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment_history21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soa-view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Billing-cancel1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permit_update1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BusinessTax-Monitoring1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BusinessTax-Monitoring_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Gross-Monitoring1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_bta2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-cencelledor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-collection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-CreditMemos_ExcessCheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-CreditMemos_ExcessTax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\abstract-postedor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\business-unrenewed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collection-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\collection-summary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compromise-agreement.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dc-ce_log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\debitcredit-report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deficiency-record.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deliquency-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deliquency-summary.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquidation-reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_cancelled-checks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\other-reports.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\payment-protest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RCD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RCD-reprint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\summary-collection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teller-reportcollection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\teller-transaction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bps-nav_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bps-nav_logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpls-btas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bpls-btas.ico" />
+    <None Include="Resources\waive-surcharge-penalty.png" />
+    <None Include="Resources\ace-abstract-collection.png" />
+    <None Include="Resources\reprint-rcd1.png" />
+    <None Include="Resources\reprint-rcd.png" />
+    <None Include="Resources\notice-delinquency.png" />
+    <None Include="Resources\billing-permit-update.png" />
+    <None Include="Resources\or-declaration.png" />
+    <None Include="Resources\retire-billing.png" />
+    <None Include="Resources\debit-credit-tagging.png" />
+    <None Include="Resources\reprint-or1.png" />
+    <None Include="Resources\permit-update-1.png" />
+    <None Include="Resources\revenue-examination.png" />
+    <None Include="Resources\cancel-or.png" />
+    <None Include="Resources\billing-cancelled.png" />
+    <None Include="Resources\debit-credit-reports.png" />
+    <None Include="Resources\abstract-posted-OR.png" />
+    <None Include="Resources\abstract-cancelled-OR.png" />
+    <None Include="Resources\abstract-checks.png" />
+    <None Include="Resources\abstract-collection1.png" />
+    <None Include="Resources\bpls-text-trans.png" />
+    <None Include="Resources\app-bg-bpls-2.bmp" />
+    <None Include="Resources\payment-history.png" />
+    <None Include="Resources\user-setup.png" />
+    <None Include="Resources\pay-online.png" />
+    <None Include="Resources\pay-offline.png" />
+    <None Include="Resources\pay-cancel.png" />
+    <None Include="Resources\posting-edit.png" />
+    <None Include="Resources\posting-delete.png" />
+    <None Include="Resources\posting-add.png" />
+    <None Include="Resources\abstract.png" />
+    <None Include="Resources\task-manager1.png" />
+    <None Include="Resources\report-manager1.png" />
+    <None Include="Resources\app-bg-business.bmp" />
+    <None Include="Resources\dilg-report.png" />
+    <None Include="Resources\summary-of-collection.png" />
+    <None Include="Resources\delinquency-report.png" />
+    <None Include="Resources\blgf-reports.png" />
+    <None Include="Resources\retirement-business.png" />
+    <None Include="Resources\compromise-agreement1.png" />
+    <None Include="Resources\report-manager.png" />
+    <None Include="Resources\report-files.png" />
+    <None Include="Resources\certificate.png" />
+    <None Include="Resources\other-reports1.png" />
+    <None Include="Resources\DILG.png" />
+    <None Include="Resources\payment_debit-credit.png" />
+    <None Include="Resources\data-query.png" />
+    <None Include="Resources\abstract-debitMemo.png" />
+    <None Include="Resources\abstract-CreditMemo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="stdole">
+      <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

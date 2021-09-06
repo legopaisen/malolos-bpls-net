@@ -1,0 +1,383 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{14990D2B-28AD-4859-B5D3-76DF11717908}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Amellar.Modules.BusinessReports</RootNamespace>
+    <AssemblyName>BusinessReports</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmApplication.designer.cs">
+      <DependentUpon>frmApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBussCert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBussCert.Designer.cs">
+      <DependentUpon>frmBussCert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBussList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBussList.Designer.cs">
+      <DependentUpon>frmBussList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBussReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBussReport.Designer.cs">
+      <DependentUpon>frmBussReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCertifications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertifications.designer.cs">
+      <DependentUpon>frmCertifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCertPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertPayment.Designer.cs">
+      <DependentUpon>frmCertPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCompGross.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompGross.designer.cs">
+      <DependentUpon>frmCompGross.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEarlyBird.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEarlyBird.designer.cs">
+      <DependentUpon>frmEarlyBird.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpGender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpGender.Designer.cs">
+      <DependentUpon>frmEmpGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatePeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatePeriod.Designer.cs">
+      <DependentUpon>frmDatePeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEPSClearance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEPSClearance.Designer.cs">
+      <DependentUpon>frmEPSClearance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGender.Designer.cs">
+      <DependentUpon>frmGender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInspectionReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInspectionReport.Designer.cs">
+      <DependentUpon>frmInspectionReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNoBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNoBusiness.designer.cs">
+      <DependentUpon>frmNoBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNotices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNotices.Designer.cs">
+      <DependentUpon>frmNotices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCertification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCertification.Designer.cs">
+      <DependentUpon>frmCertification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmORRange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmORRange.Designer.cs">
+      <DependentUpon>frmORRange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportListBnsQtrPaid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportListBnsQtrPaid.Designer.cs">
+      <DependentUpon>frmReportListBnsQtrPaid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRetCert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRetCert.designer.cs">
+      <DependentUpon>frmRetCert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerifyBusinesses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerifyBusinesses.designer.cs">
+      <DependentUpon>frmVerifyBusinesses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmApplication.resx">
+      <DependentUpon>frmApplication.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBussCert.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBussCert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBussList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBussList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBussReport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBussReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertifications.resx">
+      <DependentUpon>frmCertifications.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertPayment.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCertPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCompGross.resx">
+      <DependentUpon>frmCompGross.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatePeriod.resx">
+      <DependentUpon>frmDatePeriod.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEarlyBird.resx">
+      <DependentUpon>frmEarlyBird.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpGender.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEmpGender.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEPSClearance.resx">
+      <DependentUpon>frmEPSClearance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGender.resx">
+      <DependentUpon>frmGender.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInspectionReport.resx">
+      <DependentUpon>frmInspectionReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNoBusiness.resx">
+      <DependentUpon>frmNoBusiness.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNotices.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNotices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCertification.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCertification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmORRange.resx">
+      <DependentUpon>frmORRange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportListBnsQtrPaid.resx">
+      <DependentUpon>frmReportListBnsQtrPaid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRetCert.resx">
+      <DependentUpon>frmRetCert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerifyBusinesses.resx">
+      <DependentUpon>frmVerifyBusinesses.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\AppSettings\AppSettings.csproj">
+      <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
+      <Name>AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\AuditTrail\AuditTrail.csproj">
+      <Project>{1CC0E2E7-9FF7-4765-933A-E6F5E16A73F7}</Project>
+      <Name>AuditTrail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BIN\BIN.csproj">
+      <Project>{CE43BE3A-CE4E-44EE-B643-7C7112BA1D86}</Project>
+      <Name>BIN</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BusinessType\BusinessType.csproj">
+      <Project>{B86728B1-CE3F-4BB6-ACF3-BF7D91A1C8BE}</Project>
+      <Name>BusinessType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\DataConnector\DataConnector\DataConnector.csproj">
+      <Project>{7C12DA36-676A-49B3-B59D-C07C96539620}</Project>
+      <Name>DataConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\DynamicProgressBar\DynamicProgressBar.csproj">
+      <Project>{B04D048F-7347-4336-8359-EDBCCA79CED5}</Project>
+      <Name>DynamicProgressBar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\frmBns_Rec\frmBns_Rec.csproj">
+      <Project>{4FC6B603-A68E-40DF-8B37-1BE37B123075}</Project>
+      <Name>frmBns_Rec</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Message_Box\Message_Box.csproj">
+      <Project>{C500A219-C859-4745-A8B0-7D7B04A18B59}</Project>
+      <Name>Message_Box</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Reports\Reports.csproj">
+      <Project>{2EBDE3CD-F448-4758-A3A2-1436BB218FAE}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchBusiness\SearchBusiness.csproj">
+      <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
+      <Name>SearchBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchOwner\SearchOwner.csproj">
+      <Project>{12DA147C-5376-46D6-9AB3-B22957A326E8}</Project>
+      <Name>SearchOwner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\StringUtilities\StringUtilities.csproj">
+      <Project>{F7CAB867-EDEF-4E74-91BF-6C5385DCF513}</Project>
+      <Name>StringUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Tools\Tools.csproj">
+      <Project>{ADA963C3-E2E4-4DD7-BF8A-1ECA24D71660}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ApplicationRequirements\ApplicationRequirements.csproj">
+      <Project>{E963F46B-1954-48A1-B5BA-3A7B54B558A7}</Project>
+      <Name>ApplicationRequirements</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InspectionTool\InspectionTool.csproj">
+      <Project>{AC389457-EBC0-4795-A74C-ED4C68BD4FF1}</Project>
+      <Name>InspectionTool</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxVSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-white.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ph_seal_bulacan_malolos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\signature_placeholder.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

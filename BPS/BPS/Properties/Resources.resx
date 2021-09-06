@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="exempted_buss" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exempted_buss.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report-manager1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report-manager1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="special-application-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\special-application-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="users" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\users.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="module_rights" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\module_rights.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_new-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_new-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="permits-certificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\permits-certificate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BPLS copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BPLS copy.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_new-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_new-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="discovery-delinquent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\discovery-delinquent.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="birthday" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\birthday.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Unofficial-Business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Unofficial-Business.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owership-record" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\owership-record.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="replace-owner-accounts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\replace-owner-accounts.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Background_bps" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_bps.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Defecient-Business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Defecient-Business.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="waive-surcharge-penalty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\waive-surcharge-penalty.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="deficient-businesses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deficient-businesses.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_record-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_record-delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="barangay_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\barangay_list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-print-form" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-print-form.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hold-records" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hold-records.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Inspector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inspector.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="replace-bin-owner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\replace-bin-owner.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ren" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ren.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-roll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-roll.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="list-business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list-business.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_record-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_record-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="certificate-retirement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\certificate-retirement.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="permit_update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\permit_update.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="permit-update-application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\permit-update-application.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zoning-certifiation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zoning-certifiation.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scheds_tax_fees" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scheds_tax_fees.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-list" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-list.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unofficial-businesses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unofficial-businesses.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="List-Employee-Gender" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\List-Employee-Gender1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="special-permit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\special-permit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ABiling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ABiling.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_record-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_record-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="set_dfault" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\set_dfault.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="detailed-use" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\detailed-use.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cancel-application" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cancel-application.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report-files" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report-files.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="summaryreport_brgy-sec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\summaryreport_brgy-sec.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-reassesment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-reassesment.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checklist" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\checklist.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_retirement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_retirement.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_new-edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_new-edit1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportlist-gender" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reportlist-gender.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Arnew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Arnew.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete-owner" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete-owner.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_renewal-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_renewal-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="system-config-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\system-config-2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="renewal-application-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\renewal-application-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BillState" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BillState.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bps-nav_addbusrec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bps-nav_addbusrec.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="certificateretirement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\certificateretirement.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unrenewed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\unrenewed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PaperTrail" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PaperTrail.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bill.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="discovery-delinquent1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\discovery-delinquent1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DILG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DILG.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inspector-module" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inspector-module.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="working-permit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\working-permit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\exit.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Special-Ordinance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Special-Ordinance.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bns_rec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bns_rec.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bpls-BPS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bpls-BPS.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="certificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\certificate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="summarybusiness-yearreg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\summarybusiness-yearreg.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\x.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Print" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Print.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="health-certificate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\health-certificate.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Background_bta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Background_bta2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sanitary-permit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sanitary-permit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Record-Update-Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Record-Update-Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="violation_table_ace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\violation_table_ace.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bps-nav_renewbusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bps-nav_renewbusiness.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="special-application-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\special-application-edit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logout.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report-manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report-manager.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="due_date_setup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\due_date_setup.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="data-query" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data-query.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maplist-wpermit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maplist-wpermit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ListBusinesses_not-mapped" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ListBusinesses_not-mapped.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-permita-ace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-permita-ace.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ace-inspector" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ace-inspector.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="renewal-application-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\renewal-application-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noticessaved-wpermit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noticessaved-wpermit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_specialpermit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_specialpermit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bpls-text-trans" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bpls-text-trans.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-setup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-setup.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Special-Ordinance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Special-Ordinance.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ABus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ABus.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\file.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Record-Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Record-Update.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_new-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_new-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="renewal-application-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\renewal-application-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="assessment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\assessment.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="task-manager" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\task-manager1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_cancel.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="inspection-certifiation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\inspection-certifiation.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bps-nav_exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bps-nav_exit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-requirements" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-requirements.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-retire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-retire.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="report-files1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\report-files1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noticessaved-woutpermit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\noticessaved-woutpermit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Violation-table" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Violation-table.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="special-application-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\special-application-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit-owner-info" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\edit-owner-info.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="owner-query" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\owner-query1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="list-retirement" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list-retirement.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_record-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_record-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Business Record" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Business Record.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cdo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cdo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="summary-business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\summary-business.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="retirement-report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\retirement-report.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="certificatespecial" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\certificatespecial.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="data-build-up-tools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data-build-up-tools.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Summary_business-by-Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Summary_business-by-Section.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OnQueue-Business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OnQueue-Business.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bps-nav_applybusiness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bps-nav_applybusiness.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="list-lessor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\list-lessor.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bps-nav_logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bps-nav_logout.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="summarybusiness-records" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\summarybusiness-records.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BSP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BSP1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_renewal-view" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_renewal-view.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dilg-report" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dilg-report.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="retirement-ace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\retirement-ace.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Business-permit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Business-permit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maplist-woutpermit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maplist-woutpermit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="app-bg-business" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\app-bg-business.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="application_renewal-add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\application_renewal-add.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="notice-delinquency" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notice-delinquency.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scheds_other_chrgs" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\scheds_other_chrgs.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mappedbusiness-onqueue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mappedbusiness-onqueue.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="app-bg-bpls-2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\app-bg-bpls-2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="business_permit_signatory" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_permit_signatory.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

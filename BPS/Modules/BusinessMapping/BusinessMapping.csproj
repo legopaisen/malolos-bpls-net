@@ -1,0 +1,257 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CAB4E274-B945-4985-B984-620457A4FCFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessMapping</RootNamespace>
+    <AssemblyName>BusinessMapping</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComponentFactory.Krypton.Toolkit, Version=2.8.5.0, Culture=neutral, PublicKeyToken=a87e673e9ecb6e8e, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCleansingTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCleansingTool.Designer.cs">
+      <DependentUpon>frmCleansingTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSummaryReportsUnofficial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSummaryReportsUnofficial.Designer.cs">
+      <DependentUpon>frmSummaryReportsUnofficial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSummaryReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSummaryReports.Designer.cs">
+      <DependentUpon>frmSummaryReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EncoderReport.cs" />
+    <Compile Include="frmAddlBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddlBusiness.Designer.cs">
+      <DependentUpon>frmAddlBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangeType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangeType.Designer.cs">
+      <DependentUpon>frmChangeType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncoderReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEncoderReport.Designer.cs">
+      <DependentUpon>frmEncoderReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmForm.Designer.cs">
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMapping.Designer.cs">
+      <DependentUpon>frmMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportTest.Designer.cs">
+      <DependentUpon>frmReportTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping.cs" />
+    <Compile Include="MappingOfficial.cs" />
+    <Compile Include="MappingUnofficial.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCleansingTool.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmCleansingTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSummaryReportsUnofficial.resx">
+      <DependentUpon>frmSummaryReportsUnofficial.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSummaryReports.resx">
+      <DependentUpon>frmSummaryReports.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddlBusiness.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAddlBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangeType.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmChangeType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncoderReport.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmEncoderReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMapping.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmReportTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\AppSettings\AppSettings.csproj">
+      <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
+      <Name>AppSettings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\AuditTrail\AuditTrail.csproj">
+      <Project>{1CC0E2E7-9FF7-4765-933A-E6F5E16A73F7}</Project>
+      <Name>AuditTrail</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BPLSApp\BPLSApp.csproj">
+      <Project>{20D0578E-E939-4D1F-8416-B6CA0B7C1DFC}</Project>
+      <Name>BPLSApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\BusinessType\BusinessType.csproj">
+      <Project>{B86728B1-CE3F-4BB6-ACF3-BF7D91A1C8BE}</Project>
+      <Name>BusinessType</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\DataConnector\DataConnector\DataConnector.csproj">
+      <Project>{7C12DA36-676A-49B3-B59D-C07C96539620}</Project>
+      <Name>DataConnector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\frmBns_Rec\frmBns_Rec.csproj">
+      <Project>{4FC6B603-A68E-40DF-8B37-1BE37B123075}</Project>
+      <Name>frmBns_Rec</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\PrintUtilities\PrintUtilities.csproj">
+      <Project>{87FAE22B-B9DD-4D2F-8683-B58C8D587B38}</Project>
+      <Name>PrintUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchBusiness\SearchBusiness.csproj">
+      <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
+      <Name>SearchBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\SearchOwner\SearchOwner.csproj">
+      <Project>{12DA147C-5376-46D6-9AB3-B22957A326E8}</Project>
+      <Name>SearchOwner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\StringUtilities\StringUtilities.csproj">
+      <Project>{F7CAB867-EDEF-4E74-91BF-6C5385DCF513}</Project>
+      <Name>StringUtilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\Tools\Tools.csproj">
+      <Project>{ADA963C3-E2E4-4DD7-BF8A-1ECA24D71660}</Project>
+      <Name>Tools</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InspectorsDetails\InspectorsDetails.csproj">
+      <Project>{AAF16BD0-1BD4-4845-ADE9-1A19F502F8AA}</Project>
+      <Name>InspectorsDetails</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxVSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSPrinter7Lib">
+      <Guid>{A8561640-E93C-11D3-AC3B-CE6078F7B616}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

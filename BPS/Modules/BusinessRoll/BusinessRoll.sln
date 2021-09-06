@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 8.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessRoll", "BusinessRoll\BusinessRoll.csproj", "{97D39AA2-D1A5-4093-BB9F-EFF7095DE44B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{97D39AA2-D1A5-4093-BB9F-EFF7095DE44B}.Debug|x86.ActiveCfg = Debug|x86
+		{97D39AA2-D1A5-4093-BB9F-EFF7095DE44B}.Debug|x86.Build.0 = Debug|x86
+		{97D39AA2-D1A5-4093-BB9F-EFF7095DE44B}.Release|x86.ActiveCfg = Release|x86
+		{97D39AA2-D1A5-4093-BB9F-EFF7095DE44B}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

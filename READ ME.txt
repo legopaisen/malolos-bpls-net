@@ -1,0 +1,3 @@
+put the "QR" folder in BIN folders of BPS/BTAS
+
+make sure to change the config on "QR" folder
