@@ -370,6 +370,8 @@
     <None Include="Resources\Ph_seal_bulacan_malolos.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CPDO-engr-benjamin-sig.png" />
+    <None Include="Resources\grace-cabasal-sig.png" />
     <Content Include="Resources\signature_placeholder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

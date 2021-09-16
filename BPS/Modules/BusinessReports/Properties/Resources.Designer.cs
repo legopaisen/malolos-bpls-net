@@ -67,6 +67,20 @@ namespace Amellar.Modules.BusinessReports.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap CPDO_engr_benjamin_sig {
+            get {
+                object obj = ResourceManager.GetObject("CPDO_engr_benjamin_sig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap grace_cabasal_sig {
+            get {
+                object obj = ResourceManager.GetObject("grace_cabasal_sig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Ph_seal_bulacan_malolos {
             get {
                 object obj = ResourceManager.GetObject("Ph_seal_bulacan_malolos", resourceCulture);
