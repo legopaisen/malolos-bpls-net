@@ -378,7 +378,33 @@ namespace Amellar.BPLS.Billing
                     }
                     pTmp.Close();
                     // RMC 20160517 additional clean-up in cancel billing (e)
-                } 
+                }
+
+                //MCR 20210803 (s)
+                OracleResultSet pCmd = new OracleResultSet();
+                pCmd.Query = "insert into soa_monitoring_hist (select bin,status,memo,refno,sysdate from soa_monitoring where bin = :1)";
+                pCmd.AddParameter(":1", strBin);
+                pCmd.ExecuteNonQuery();
+
+                pCmd.Query = "delete from soa_monitoring where bin = :1";
+                pCmd.AddParameter(":1", strBin);
+                pCmd.ExecuteNonQuery();
+
+                if (AppSettingsManager.GetConfigValue("75") == "Y")
+                {
+                    String sValue = "", sRefNo = "";
+                    sRefNo = GetSOARefNo(BillingForm.BIN);
+                    pSet = new OracleResultSet();
+                    pSet.Query = "select BO_VOID_REF_NO('" + sRefNo + "') from dual";
+                    if (pSet.Execute())
+                        if (pSet.Read())
+                            sValue = pSet.GetString(0);
+                    pSet.Close();
+                }
+                //MCR 20210803(e)
+
+                pCmd.Close();
+                pSet.Close();
 
                 string strObj = strBin.Trim() + "/" + strYear;
                 if (AuditTrail.InsertTrail("AICB", "taxdues", StringUtilities.HandleApostrophe(strObj)) == 0)
@@ -399,6 +425,19 @@ namespace Amellar.BPLS.Billing
 
                 BillingForm.Close();    // RMC 20110826 added auto-close after saving 
             }
+        }
+
+        private string GetSOARefNo(string sBin)
+        {
+            String sValue = "";
+            OracleResultSet pSet = new OracleResultSet();
+            pSet.Query = "select refno from soa_monitoring where bin = '" + sBin + "'";
+            if (pSet.Execute())
+                if (pSet.Read())
+                    sValue = pSet.GetString(0);
+            pSet.Close();
+
+            return sValue;
         }
 
         // RMC 20110826 added validation if billing exists (s)

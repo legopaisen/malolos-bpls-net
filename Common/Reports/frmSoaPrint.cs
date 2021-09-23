@@ -266,7 +266,7 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
 
                 //axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1000;BIN|P.STATUS|STATUS|LINE/ NATURE OF BUSINESS|AREA|BILL NO.|BILL DATE";
                 //axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1000;BIN|Prev Stat|Status|Line/ Nature of Business|Area|Bill No.|Bill Date";
-                axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1000;BIN|Prev Stat|Status|Line/ Nature of Business||Bill No.|";  // RMC 20161208 removed other info in SOA for binan
+                axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1500;BIN|Prev Stat|Status|Line/ Nature of Business||Bill No.|Ref No.";  // RMC 20161208 removed other info in SOA for binan
                 axVSPrinter1.FontBold = false;
 
                 if (bPreprinted == false)
@@ -274,7 +274,7 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
 
                 }
                 //axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1000;" + sBin + "|" + AppSettingsManager.GetPrevBnsStat(sBin) +"|" + sList.BPLSAppSettings[i].sBnsStat.Trim() + "|" + AppSettingsManager.GetBnsDesc(sList.BPLSAppSettings[i].sBnsCode.Trim()) + "|" + sArea + "|" + AppSettingsManager.GetBillNoAndDate(sBin, sSOATaxYear, sList.BPLSAppSettings[i].sBnsCode.Trim(), 0) + "|" + AppSettingsManager.GetBillNoAndDate(sBin, sSOATaxYear, sList.BPLSAppSettings[i].sBnsCode.Trim(), 1);
-                axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1000;" + sBin + "|" + AppSettingsManager.GetPrevBnsStat(sBin) + "|" + sList.BPLSAppSettings[i].sBnsStat.Trim() + "|" + AppSettingsManager.GetBnsDesc(sList.BPLSAppSettings[i].sBnsCode.Trim()) + "||" + AppSettingsManager.GetBillNoAndDate(sBin, sSOATaxYear, sList.BPLSAppSettings[i].sBnsCode.Trim(), 0) + "|";  // RMC 20161208 removed other info in SOA for binan
+                axVSPrinter1.Table = "<2100|<1000|<1000|<3400|<700|<1600|<1500;" + sBin + "|" + AppSettingsManager.GetPrevBnsStat(sBin) + "|" + sList.BPLSAppSettings[i].sBnsStat.Trim() + "|" + AppSettingsManager.GetBnsDesc(sList.BPLSAppSettings[i].sBnsCode.Trim()) + "||" + AppSettingsManager.GetBillNoAndDate(sBin, sSOATaxYear, sList.BPLSAppSettings[i].sBnsCode.Trim(), 0) + "|" + GetSOARefNo(sBin);  // RMC 20161208 removed other info in SOA for binan
                 axVSPrinter1.FontBold = true;
 
                 if (bPreprinted == false)
@@ -1420,6 +1420,19 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
         {
 
         }
- 
+
+        private string GetSOARefNo(string sBin)
+        {
+            String sValue = "";
+
+            OracleResultSet pSet = new OracleResultSet();
+            pSet.Query = "select refno from soa_monitoring where bin = '" + sBin + "'";
+            if (pSet.Execute())
+                if (pSet.Read())
+                    sValue = pSet.GetString(0);
+            pSet.Close();
+
+            return sValue;
+        }
     }
 }
