@@ -237,6 +237,7 @@ namespace BTAS
             this.btnTreasurerModule,
             this.kryptonRibbonTab3,
             this.kryptonRibbonTab2});
+            this.kryptonRibbon1.SelectedContext = null;
             this.kryptonRibbon1.SelectedTab = this.tabPaymentRecords;
             this.kryptonRibbon1.Size = new System.Drawing.Size(1016, 143);
             this.kryptonRibbon1.TabIndex = 0;

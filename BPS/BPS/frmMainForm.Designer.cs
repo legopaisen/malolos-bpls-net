@@ -401,7 +401,6 @@ namespace BPLSBilling
             this.tabEPS,
             this.tabZoning,
             this.tabSanitary});
-            this.flmFileMenu.SelectedContext = null;
             this.flmFileMenu.SelectedTab = this.tabRecords;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;

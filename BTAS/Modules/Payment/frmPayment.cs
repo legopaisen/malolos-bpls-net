@@ -7277,8 +7277,6 @@ namespace Amellar.Modules.Payment
                 }
             pSet.Close();
 
-           
-
             pSet.Query = string.Format("update retired_bns_temp set or_no = '{0}' where bin = '{1}'", txtORNo.Text, m_sBIN);
             pSet.ExecuteNonQuery();
 
@@ -8796,6 +8794,34 @@ namespace Amellar.Modules.Payment
                             if (pSet.Read())
                                 sValue = pSet.GetString(0);
                         pSet.Close();
+
+                        //MCR 20210927 (s)
+                        String sBillNo = AppSettingsManager.GetBillNoAndDate(bin.GetBin(), txtTaxYear.Text, txtBnsCode.Text, 0);
+                        pSet.Query = "select * from business_que where bin = '" + bin.GetBin() + "' and bns_user = 'SYS_PROG'"; // to check if from online registration
+                        if (pSet.Execute())
+                            if (pSet.Read())
+                            {
+                                pSet = new OracleResultSet();
+                                sQuery = "insert into multisys_ref values (";
+                                sQuery += "'" + sBillNo + "',";
+                                sQuery += "'" + sRefNo + "',";
+                                sQuery += fAmountDueT + ",";
+                                sQuery += 1 + ",";
+                                sQuery += "to_date('" + AppSettingsManager.GetSystemDate().ToString("MM/dd/yyyy HH:mm:ss") + "','MM/dd/yyyy HH24:MI:SS'))";
+                                pSet.Query = sQuery;
+                                pSet.ExecuteNonQuery();
+                            }
+                        pSet.Close();
+
+                        pSet.Query = "select BO_SEND_PAID_NOTIF('" + bin.GetBin() + "'," + fAmountDueT + ",1,'" + AppSettingsManager.TellerUser.UserCode + "') from dual";
+                        if (pSet.Execute())
+                        {
+                            if (pSet.Read())
+                                sValue = pSet.GetString(0);
+                        }
+                        pSet.Close();
+
+                        //MCR 20210927 (s)
                     }
                     //MCR 20210708 (e)
 
@@ -9577,7 +9603,6 @@ namespace Amellar.Modules.Payment
                                 result3.Close();
 
                                 GetTransTableValues(m_sBIN);    // RMC 20171122 added capturing of new DTI no., DTI date, and Memoranda in Permit-Update transfer of ownership
-                                
 
                                 if (m_sPlaceOccupancy == "OWNED")
                                 {
@@ -9609,10 +9634,6 @@ namespace Amellar.Modules.Payment
                             }
                         result2.Close();
                     }
-                    if (sApplType == "CTYP")
-                    {
-                    }
-
                     if (sApplType == "CBNS")
                     {
                         String sNewBnsName;

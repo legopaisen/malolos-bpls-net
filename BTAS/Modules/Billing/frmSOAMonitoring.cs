@@ -41,6 +41,7 @@ namespace Amellar.BPLS.Billing
             string sTaxYear = string.Empty;
             string sOwnCode = string.Empty;
             string sBnsUser = string.Empty;
+            string sTransaction = string.Empty; //MCR20210927
             double dAmt = 0;
             DateTime dtBill = AppSettingsManager.GetSystemDate();
             OracleResultSet res = new OracleResultSet();
@@ -65,6 +66,7 @@ namespace Amellar.BPLS.Billing
                         {
                             sTaxYear = res2.GetString("tax_year");
                             sOwnCode = res2.GetString("own_code");
+                            sTransaction = res2.GetString("bns_user");
                         }
                         else
                         {
@@ -74,13 +76,19 @@ namespace Amellar.BPLS.Billing
                                 {
                                     sTaxYear = res3.GetString("tax_year");
                                     sOwnCode = res3.GetString("own_code");
+                                    sTransaction = res2.GetString("bns_user");
                                 }
 
                         }
                     res2.Close();
                     res3.Close();
 
-                    dgvList.Rows.Add(sBIN, dAmt.ToString("#,##0.00"), sBnsUser, dtBill.ToShortDateString(), sTaxYear, sOwnCode);
+                    if (sTransaction == "SYS_PROG")
+                        sTransaction = "WEB";
+                    else
+                        sTransaction = "LOCAL";
+
+                    dgvList.Rows.Add(sBIN, dAmt.ToString("#,##0.00"), sBnsUser, dtBill.ToShortDateString(), sTaxYear, sOwnCode, sTransaction);
                 }
             res.Close();
             dgvList.ClearSelection();

@@ -62,6 +62,7 @@ namespace Amellar.BPLS.Billing
             this.DateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaxYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ownercode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,7 +252,8 @@ namespace Amellar.BPLS.Billing
             this.AssessedBy,
             this.DateTime,
             this.TaxYear,
-            this.ownercode});
+            this.ownercode,
+            this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -338,7 +340,7 @@ namespace Amellar.BPLS.Billing
             // 
             this.BIN.HeaderText = "BIN";
             this.BIN.Name = "BIN";
-            this.BIN.Width = 200;
+            this.BIN.Width = 170;
             // 
             // CurrDue
             // 
@@ -347,7 +349,7 @@ namespace Amellar.BPLS.Billing
             this.CurrDue.HeaderText = "CURR. TAX DUE";
             this.CurrDue.Name = "CurrDue";
             this.CurrDue.ReadOnly = true;
-            this.CurrDue.Width = 150;
+            this.CurrDue.Width = 130;
             // 
             // AssessedBy
             // 
@@ -361,13 +363,14 @@ namespace Amellar.BPLS.Billing
             this.DateTime.HeaderText = "DATE BILLED";
             this.DateTime.Name = "DateTime";
             this.DateTime.ReadOnly = true;
-            this.DateTime.Width = 125;
+            this.DateTime.Width = 110;
             // 
             // TaxYear
             // 
             this.TaxYear.HeaderText = "TAX YEAR";
             this.TaxYear.Name = "TaxYear";
             this.TaxYear.ReadOnly = true;
+            this.TaxYear.Width = 90;
             // 
             // ownercode
             // 
@@ -375,6 +378,12 @@ namespace Amellar.BPLS.Billing
             this.ownercode.Name = "ownercode";
             this.ownercode.ReadOnly = true;
             this.ownercode.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "TRANS";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 50;
             // 
             // frmSOAMonitoring
             // 
@@ -451,5 +460,6 @@ namespace Amellar.BPLS.Billing
         private System.Windows.Forms.DataGridViewTextBoxColumn DateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TaxYear;
         private System.Windows.Forms.DataGridViewTextBoxColumn ownercode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
