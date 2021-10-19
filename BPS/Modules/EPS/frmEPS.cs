@@ -32,6 +32,7 @@ namespace Amellar.Modules.EPS
 
         private void frmEPS_Load(object sender, EventArgs e)
         {
+            btnPrintTrail.Visible = false;
             bin1.GetLGUCode = ConfigurationAttributes.LGUCode;
             bin1.GetDistCode = ConfigurationAttributes.DistCode;
             m_strModule = "BILLING";
