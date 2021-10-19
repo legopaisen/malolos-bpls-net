@@ -401,6 +401,7 @@ namespace BPLSBilling
             this.tabEPS,
             this.tabZoning,
             this.tabSanitary});
+            this.flmFileMenu.SelectedContext = null;
             this.flmFileMenu.SelectedTab = this.tabRecords;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;
@@ -1010,6 +1011,8 @@ namespace BPLSBilling
             // 
             // kryptonRibbonGroup27
             // 
+            this.kryptonRibbonGroup27.AllowCollapsed = false;
+            this.kryptonRibbonGroup27.DialogBoxLauncher = false;
             this.kryptonRibbonGroup27.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup27.Image")));
             this.kryptonRibbonGroup27.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple33,
@@ -1101,12 +1104,13 @@ namespace BPLSBilling
             // 
             // kryptonRibbonGroup34
             // 
+            this.kryptonRibbonGroup34.AllowCollapsed = false;
+            this.kryptonRibbonGroup34.DialogBoxLauncher = false;
             this.kryptonRibbonGroup34.Image = global::BPLSBilling.Properties.Resources.checklist;
             this.kryptonRibbonGroup34.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
             this.kryptonRibbonGroupTriple66});
             this.kryptonRibbonGroup34.Tag = null;
             this.kryptonRibbonGroup34.TextLine1 = "SOA Monitoring";
-            this.kryptonRibbonGroup34.Visible = false;
             // 
             // kryptonRibbonGroupTriple66
             // 

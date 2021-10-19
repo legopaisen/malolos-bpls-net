@@ -188,7 +188,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -231,6 +230,10 @@
     <ProjectReference Include="..\..\..\Common\Message_Box\Message_Box.csproj">
       <Project>{C500A219-C859-4745-A8B0-7D7B04A18B59}</Project>
       <Name>Message_Box</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\PrintUtilities\PrintUtilities.csproj">
+      <Project>{87FAE22B-B9DD-4D2F-8683-B58C8D587B38}</Project>
+      <Name>PrintUtilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common\SearchBusiness\SearchBusiness.csproj">
       <Project>{06E69321-B073-49B0-8B66-B8E523065E17}</Project>
