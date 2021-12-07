@@ -28,8 +28,8 @@ namespace Amellar.BPLS.Billing
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtTaxYear = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -40,6 +40,11 @@ namespace Amellar.BPLS.Billing
             this.label5 = new System.Windows.Forms.Label();
             this.txtOwnersName = new System.Windows.Forms.TextBox();
             this.dgvTaxFees = new System.Windows.Forms.DataGridView();
+            this.Compute = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.TaxFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeesCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FeesType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.btnBusinessAgent = new System.Windows.Forms.Button();
@@ -88,11 +93,7 @@ namespace Amellar.BPLS.Billing
             this.chkTagReass = new System.Windows.Forms.CheckBox();
             this.btnPayHist = new System.Windows.Forms.Button();
             this.frameWithShadow7 = new Amellar.Common.SOA.FrameWithShadow();
-            this.Compute = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.TaxFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FeesCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FeesType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chkCTC = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddlInfo)).BeginInit();
             this.SuspendLayout();
@@ -203,6 +204,44 @@ namespace Amellar.BPLS.Billing
             this.dgvTaxFees.TabIndex = 27;
             this.dgvTaxFees.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaxFees_CellContentDoubleClick);
             this.dgvTaxFees.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaxFees_CellContentClick);
+            // 
+            // Compute
+            // 
+            this.Compute.HeaderText = "";
+            this.Compute.Name = "Compute";
+            this.Compute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Compute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Compute.Width = 20;
+            // 
+            // TaxFees
+            // 
+            this.TaxFees.HeaderText = "Taxes, Fees and Additional Charges";
+            this.TaxFees.Name = "TaxFees";
+            this.TaxFees.ReadOnly = true;
+            this.TaxFees.Width = 250;
+            // 
+            // Amount
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 80;
+            // 
+            // FeesCode
+            // 
+            this.FeesCode.HeaderText = "";
+            this.FeesCode.Name = "FeesCode";
+            this.FeesCode.ReadOnly = true;
+            this.FeesCode.Visible = false;
+            // 
+            // FeesType
+            // 
+            this.FeesType.HeaderText = "";
+            this.FeesType.Name = "FeesType";
+            this.FeesType.ReadOnly = true;
+            this.FeesType.Visible = false;
             // 
             // txtTotal
             // 
@@ -319,7 +358,7 @@ namespace Amellar.BPLS.Billing
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(371, 266);
+            this.label8.Location = new System.Drawing.Point(370, 280);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 18;
@@ -327,7 +366,7 @@ namespace Amellar.BPLS.Billing
             // 
             // txtCapital
             // 
-            this.txtCapital.Location = new System.Drawing.Point(430, 263);
+            this.txtCapital.Location = new System.Drawing.Point(429, 277);
             this.txtCapital.Name = "txtCapital";
             this.txtCapital.ReadOnly = true;
             this.txtCapital.Size = new System.Drawing.Size(100, 20);
@@ -339,7 +378,7 @@ namespace Amellar.BPLS.Billing
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(371, 292);
+            this.label9.Location = new System.Drawing.Point(370, 306);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 20;
@@ -347,7 +386,7 @@ namespace Amellar.BPLS.Billing
             // 
             // txtGross
             // 
-            this.txtGross.Location = new System.Drawing.Point(430, 289);
+            this.txtGross.Location = new System.Drawing.Point(429, 303);
             this.txtGross.Name = "txtGross";
             this.txtGross.ReadOnly = true;
             this.txtGross.Size = new System.Drawing.Size(100, 20);
@@ -359,7 +398,7 @@ namespace Amellar.BPLS.Billing
             // 
             // txtPreGross
             // 
-            this.txtPreGross.Location = new System.Drawing.Point(430, 315);
+            this.txtPreGross.Location = new System.Drawing.Point(429, 329);
             this.txtPreGross.Name = "txtPreGross";
             this.txtPreGross.ReadOnly = true;
             this.txtPreGross.Size = new System.Drawing.Size(100, 20);
@@ -370,7 +409,7 @@ namespace Amellar.BPLS.Billing
             // 
             // txtVATGross
             // 
-            this.txtVATGross.Location = new System.Drawing.Point(430, 341);
+            this.txtVATGross.Location = new System.Drawing.Point(429, 355);
             this.txtVATGross.Name = "txtVATGross";
             this.txtVATGross.ReadOnly = true;
             this.txtVATGross.Size = new System.Drawing.Size(100, 20);
@@ -384,7 +423,7 @@ namespace Amellar.BPLS.Billing
             this.lblGross.AutoSize = true;
             this.lblGross.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGross.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblGross.Location = new System.Drawing.Point(371, 318);
+            this.lblGross.Location = new System.Drawing.Point(370, 332);
             this.lblGross.Name = "lblGross";
             this.lblGross.Size = new System.Drawing.Size(53, 13);
             this.lblGross.TabIndex = 24;
@@ -393,7 +432,7 @@ namespace Amellar.BPLS.Billing
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(371, 344);
+            this.label11.Location = new System.Drawing.Point(370, 358);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 25;
@@ -484,7 +523,7 @@ namespace Amellar.BPLS.Billing
             // 
             // txtAdjGross
             // 
-            this.txtAdjGross.Location = new System.Drawing.Point(430, 315);
+            this.txtAdjGross.Location = new System.Drawing.Point(429, 329);
             this.txtAdjGross.Name = "txtAdjGross";
             this.txtAdjGross.ReadOnly = true;
             this.txtAdjGross.Size = new System.Drawing.Size(100, 20);
@@ -686,43 +725,17 @@ namespace Amellar.BPLS.Billing
             this.frameWithShadow7.Size = new System.Drawing.Size(144, 48);
             this.frameWithShadow7.TabIndex = 61;
             // 
-            // Compute
+            // chkCTC
             // 
-            this.Compute.HeaderText = "";
-            this.Compute.Name = "Compute";
-            this.Compute.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Compute.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Compute.Width = 20;
-            // 
-            // TaxFees
-            // 
-            this.TaxFees.HeaderText = "Taxes, Fees and Additional Charges";
-            this.TaxFees.Name = "TaxFees";
-            this.TaxFees.ReadOnly = true;
-            this.TaxFees.Width = 250;
-            // 
-            // Amount
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 80;
-            // 
-            // FeesCode
-            // 
-            this.FeesCode.HeaderText = "";
-            this.FeesCode.Name = "FeesCode";
-            this.FeesCode.ReadOnly = true;
-            this.FeesCode.Visible = false;
-            // 
-            // FeesType
-            // 
-            this.FeesType.HeaderText = "";
-            this.FeesType.Name = "FeesType";
-            this.FeesType.ReadOnly = true;
-            this.FeesType.Visible = false;
+            this.chkCTC.AutoSize = true;
+            this.chkCTC.Enabled = false;
+            this.chkCTC.Location = new System.Drawing.Point(373, 260);
+            this.chkCTC.Name = "chkCTC";
+            this.chkCTC.Size = new System.Drawing.Size(71, 17);
+            this.chkCTC.TabIndex = 62;
+            this.chkCTC.Text = "CTC Paid";
+            this.chkCTC.UseVisualStyleBackColor = true;
+            this.chkCTC.Visible = false;
             // 
             // frmBilling
             // 
@@ -730,6 +743,7 @@ namespace Amellar.BPLS.Billing
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(547, 717);
+            this.Controls.Add(this.chkCTC);
             this.Controls.Add(this.btnPayHist);
             this.Controls.Add(this.frameWithShadow7);
             this.Controls.Add(this.chkTagReass);
@@ -865,5 +879,6 @@ namespace Amellar.BPLS.Billing
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeesCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeesType;
+        public System.Windows.Forms.CheckBox chkCTC;
     }
 }
