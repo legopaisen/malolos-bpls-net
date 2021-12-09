@@ -373,6 +373,7 @@
     <None Include="Resources\CPDO-engr-benjamin-sig.png" />
     <None Include="Resources\grace-cabasal-sig.png" />
     <Content Include="Resources\signature_placeholder.png" />
+    <None Include="Resources\zoning-dept-logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

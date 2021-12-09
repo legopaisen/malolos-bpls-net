@@ -104,7 +104,7 @@ namespace Amellar.Modules.Utilities
                 btnEdit.Enabled = false;
                 txtMinFee.Enabled = false;
             }
-            else
+            else if (this.chkFire.Checked == true)
             {
                 txtMinFee.Enabled = true;
                 txtRate.Enabled = true;
@@ -112,6 +112,20 @@ namespace Amellar.Modules.Utilities
                 chkQtr.Enabled = true;
                 chkSurch.Enabled = true;
                 chkInt.Enabled = true;
+                chkRate.Checked = false;    //initialize
+                chkQtr.Checked = false;    //initialize
+                chkSurch.Checked = false;    //initialize
+                chkInt.Checked = false;    //initialize
+                btnEdit.Enabled = false;
+            }
+            else if (this.chkCTC.Checked == true)
+            {
+                txtMinFee.Enabled = false;
+                txtRate.Enabled = true;
+                chkRate.Enabled = true;
+                chkQtr.Enabled = true;
+                chkSurch.Enabled = false;
+                chkInt.Enabled = false;
                 chkRate.Checked = false;    //initialize
                 chkQtr.Checked = false;    //initialize
                 chkSurch.Checked = false;    //initialize
@@ -228,7 +242,7 @@ namespace Amellar.Modules.Utilities
                 }
                 result.Close();
             }
-            else
+            else if (this.chkFire.Checked == true)
             {
                 dgvListOthers.Columns.Clear();
                 dgvListOthers.Columns.Add(new DataGridViewCheckBoxColumn());
@@ -271,6 +285,10 @@ namespace Amellar.Modules.Utilities
 
                 this.LoadCheckList();
 
+            }
+            else if (this.chkCTC.Checked == true)
+            {
+                dgvListOthers.Visible = false;
             }
 
         }
@@ -1434,6 +1452,7 @@ namespace Amellar.Modules.Utilities
             if (this.chkAddl.CheckState.ToString() == "Checked")
             {
                 this.chkFire.Checked = false;
+                this.checkBox1.Checked = false;
                 this.EnableControls();
                 this.LoadList();
             }
@@ -1451,6 +1470,7 @@ namespace Amellar.Modules.Utilities
             if (this.chkFire.CheckState.ToString() == "Checked")
             {
                 this.chkAddl.Checked = false;
+                this.checkBox1.Checked = false;
                 this.EnableControls();
                 this.LoadList();
             }
@@ -2129,5 +2149,24 @@ namespace Amellar.Modules.Utilities
         {
 
         }
+
+        private void chkCTC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnClose.Text == "&Cancel")
+            {
+                MessageBox.Show("Finish transaction first", "Other Charges", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.checkBox1.Checked = false;
+                return;
+            }
+
+            if (this.checkBox1.Checked == true)
+            {
+                this.chkFire.Checked = false;
+                this.chkAddl.Checked = false;
+                this.EnableControls();
+                this.LoadList();
+            }
+        }
+        
     }
 }

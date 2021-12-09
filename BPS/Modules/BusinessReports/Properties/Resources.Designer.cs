@@ -94,5 +94,12 @@ namespace Amellar.Modules.BusinessReports.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        internal static System.Drawing.Bitmap zoning_dept_logo {
+            get {
+                object obj = ResourceManager.GetObject("zoning_dept_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

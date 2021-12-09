@@ -32,7 +32,7 @@ namespace Amellar.Modules.EPS
 
         private void frmEPS_Load(object sender, EventArgs e)
         {
-            btnPrintTrail.Visible = false;
+            btnPrintTrail.Visible = false; //AFM temporarily hidden; no rms received yet as of 20211006
             bin1.GetLGUCode = ConfigurationAttributes.LGUCode;
             bin1.GetDistCode = ConfigurationAttributes.DistCode;
             m_strModule = "BILLING";
