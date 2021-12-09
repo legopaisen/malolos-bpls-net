@@ -193,7 +193,7 @@ namespace Amellar.BPLS.Billing
                     String sValue = "";
                     //OracleResultSet pSet = new OracleResultSet();
                     //pSet.Query = "select BO_SEND_APPROVED_NOTIF('" + m_sBin + "','" + Convert.ToDouble(dgvList.CurrentRow.Cells[1].Value.ToString()) + "','" + sApprover + "') from dual";
-                    pSet.Query = "select BO_SEND_APPROVED_NOTIF('" + m_sBin + "','" + Convert.ToDouble(dgvList.CurrentRow.Cells[1].Value.ToString()) + "','" + sApprover + "') from dual";
+                    pSet.Query = "select BO_SEND_APPROVED_NOTIF('" + m_sBin + "','" + sApprover + "') from dual";
                     if (pSet.Execute())
                     {
                         if (pSet.Read())
