@@ -47,6 +47,7 @@ namespace Amellar.BPLS.Billing
     {
         frmSOA fSOA;
         private string m_sBIN;
+        private string m_sCTCCode;
         private bool m_bIsMain = true;
         private bool m_bBillFlag = false;
         private bool m_bIsReturn = false;
@@ -87,6 +88,13 @@ namespace Amellar.BPLS.Billing
             get { return m_sBIN; }
             set { m_sBIN = value; } // RMC 20110414 added set in BIN
         }
+
+        public string CTCFeesCode
+        {
+            get { return m_sCTCCode; }
+            set { m_sCTCCode = value; } // RMC 20110414 added set in BIN
+        }
+
         public string SourceClass
         {
             get { return m_sSource; }
@@ -330,7 +338,29 @@ namespace Amellar.BPLS.Billing
                 MessageBox.Show("Cannot continue! This record is currently on hold in online application., ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             SearchClick();  // RMC 20110414      
-            // transferred all codes to SearchClick()            
+            // transferred all codes to SearchClick()          
+
+            if (AppSettingsManager.GetConfigValue("77") == "Y")
+            {
+                chkCTC.Visible = true;
+                chkCTCCorp.Visible = true;
+
+                if (txtStatus.Text.ToString() == "NEW" || txtStatus.Text.ToString() == "REN") //AFM 20211207 REQUESTED CTC DISPLAY IN SOA
+                {
+                    chkCTC.Enabled = true;
+                    chkCTCCorp.Enabled = true;
+                }
+                else
+                {
+                    chkCTC.Enabled = false;
+                    chkCTCCorp.Enabled = false;
+                }
+            }
+            else
+            {
+                chkCTC.Visible = false;
+                chkCTCCorp.Visible = false;
+            }
         }
 
         private bool CheckforHOLD() //ON WEB MCR 20210707
@@ -770,6 +800,9 @@ namespace Amellar.BPLS.Billing
                     pSet.Close();
                 }
                 //MCR 20210610 (e)
+
+                chkCTC.Enabled = false;
+                chkCTCCorp.Enabled = false;
             }
         }
 
@@ -2017,6 +2050,24 @@ namespace Amellar.BPLS.Billing
             {
                 frmPaymentHistory frmPayHist = new frmPaymentHistory();
                 frmPayHist.ShowDialog();
+            }
+        }
+
+        private void chkCTCCorp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCTCCorp.Checked == true)
+            {
+                chkCTC.Checked = false;
+                m_sCTCCode = "02";
+            }
+        }
+
+        private void chkCTC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCTC.Checked == true)
+            {
+                chkCTCCorp.Checked = false;
+                m_sCTCCode = "01";
             }
         }
 

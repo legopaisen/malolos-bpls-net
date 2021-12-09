@@ -28,8 +28,8 @@ namespace Amellar.BPLS.Billing
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtTaxYear = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,6 +94,7 @@ namespace Amellar.BPLS.Billing
             this.btnPayHist = new System.Windows.Forms.Button();
             this.frameWithShadow7 = new Amellar.Common.SOA.FrameWithShadow();
             this.chkCTC = new System.Windows.Forms.CheckBox();
+            this.chkCTCCorp = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxFees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAddlInfo)).BeginInit();
             this.SuspendLayout();
@@ -222,8 +223,8 @@ namespace Amellar.BPLS.Billing
             // 
             // Amount
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle7;
             this.Amount.HeaderText = "Amount";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
@@ -322,9 +323,9 @@ namespace Amellar.BPLS.Billing
             // 
             // Unit
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.NullValue = null;
-            this.Unit.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.NullValue = null;
+            this.Unit.DefaultCellStyle = dataGridViewCellStyle8;
             this.Unit.HeaderText = "Unit";
             this.Unit.Name = "Unit";
             this.Unit.Width = 40;
@@ -731,11 +732,23 @@ namespace Amellar.BPLS.Billing
             this.chkCTC.Enabled = false;
             this.chkCTC.Location = new System.Drawing.Point(373, 260);
             this.chkCTC.Name = "chkCTC";
-            this.chkCTC.Size = new System.Drawing.Size(71, 17);
+            this.chkCTC.Size = new System.Drawing.Size(95, 17);
             this.chkCTC.TabIndex = 62;
-            this.chkCTC.Text = "CTC Paid";
+            this.chkCTC.Text = "CTC Individual";
             this.chkCTC.UseVisualStyleBackColor = true;
-            this.chkCTC.Visible = false;
+            this.chkCTC.CheckedChanged += new System.EventHandler(this.chkCTC_CheckedChanged);
+            // 
+            // chkCTCCorp
+            // 
+            this.chkCTCCorp.AutoSize = true;
+            this.chkCTCCorp.Enabled = false;
+            this.chkCTCCorp.Location = new System.Drawing.Point(465, 260);
+            this.chkCTCCorp.Name = "chkCTCCorp";
+            this.chkCTCCorp.Size = new System.Drawing.Size(72, 17);
+            this.chkCTCCorp.TabIndex = 63;
+            this.chkCTCCorp.Text = "CTC Corp";
+            this.chkCTCCorp.UseVisualStyleBackColor = true;
+            this.chkCTCCorp.CheckedChanged += new System.EventHandler(this.chkCTCCorp_CheckedChanged);
             // 
             // frmBilling
             // 
@@ -743,6 +756,7 @@ namespace Amellar.BPLS.Billing
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(547, 717);
+            this.Controls.Add(this.chkCTCCorp);
             this.Controls.Add(this.chkCTC);
             this.Controls.Add(this.btnPayHist);
             this.Controls.Add(this.frameWithShadow7);
@@ -880,5 +894,6 @@ namespace Amellar.BPLS.Billing
         private System.Windows.Forms.DataGridViewTextBoxColumn FeesCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn FeesType;
         public System.Windows.Forms.CheckBox chkCTC;
+        public System.Windows.Forms.CheckBox chkCTCCorp;
     }
 }

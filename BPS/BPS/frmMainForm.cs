@@ -60,6 +60,7 @@ using TreasurersModule;
 using InspectionTool;
 using Amellar.Modules.DILGReport;
 using System.Reflection;
+using Amellar.Modules.HealthPermit;
 
 
 
@@ -2498,6 +2499,17 @@ namespace BPLSBilling
         {
             frmSignatories form = new frmSignatories();
             form.ShowDialog();
+        }
+
+        private void btnBrgyClearance_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABBC"))
+            {
+                frmCertificateAndPermit frmCertificateAndPermit = new frmCertificateAndPermit();
+                frmCertificateAndPermit.CertificatePermitType = "Barangay Clearance";
+                frmCertificateAndPermit.ShowDialog();
+
+            }
         }
 
     }

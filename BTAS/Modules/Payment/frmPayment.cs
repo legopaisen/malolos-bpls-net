@@ -8832,6 +8832,14 @@ namespace Amellar.Modules.Payment
                     txtORNo.Text = GetCurrentOR(AppSettingsManager.TellerUser.UserCode);  // RMC 20140909 Migration QA
 
                     GetLastTransaction(txtTeller.Text.Trim());
+
+                    if(m_sStatus = "N") //AFM 20211207 REQUESTED CTC ON SOA - delete after payment
+                    {
+                        pSet.Query = "DELETE FROM CTC_TABLE WHERE BIN = '" + m_sBIN + "'";
+                        if (pSet.ExecuteNonQuery() == 0)
+                        { }
+                    }
+
                     ClearSOA();
                     //ReportClass rClass = new ReportClass();
                     //rClass.OfficialReceipt(txtORNo.Text.Trim(), m_sBIN, m_sPaymentTerm, m_sQtr, txtBnsStat.Text.Trim());

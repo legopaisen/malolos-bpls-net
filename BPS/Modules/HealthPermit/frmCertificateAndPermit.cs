@@ -10,6 +10,7 @@ using Amellar.Common.AppSettings;
 using Amellar.Common.DataConnector;
 using Amellar.Common.SearchBusiness;
 using Amellar.Common.AuditTrail;
+using Amellar.Modules.BusinessReports;
 
 namespace Amellar.Modules.HealthPermit
 {
@@ -33,6 +34,9 @@ namespace Amellar.Modules.HealthPermit
         private string m_sORNO = String.Empty;
         private string m_sFeeAmount = String.Empty;
         private string m_sORDate = String.Empty;
+        private string m_sIssuedon = String.Empty;
+
+        string TimeIN = string.Empty;
 
         private void frmCertificateAndPermit_Load(object sender, EventArgs e)
         {
@@ -46,6 +50,15 @@ namespace Amellar.Modules.HealthPermit
                 this.Text = "Annual Building Inspection Certification";
             else if (m_sCertPermType == "Sanitary")
                 this.Text = "Sanitary Permit";
+            //AFM 20211207 REQUESTED - source from LUBAO//JHB 20191217 add Barangay Clearance (s)
+            else if (m_sCertPermType == "Barangay Clearance")
+            {
+                this.Text = "Barangay Clearance";
+                // rdoRenewal.Text = "NEW/REN";
+                // rdoNew.Text = "TEMP.BIN";
+                btnPrint2.Visible = false;
+            }
+            //JHB 20191217 add Barangay Clearance (e)
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -66,15 +79,18 @@ namespace Amellar.Modules.HealthPermit
                 {
                     if (m_sCertPermType == "Sanitary")
                         m_sPermitNumber = AppSettingsManager.GetConfigValue("12") + "-" + result.GetInt(0).ToString("0000");
-                    else if (m_sCertPermType == "Annual Inspection")
+                    if (m_sCertPermType == "Annual Inspection")
+                        m_sPermitNumber = result.GetInt(0).ToString("0000");
+                    if (m_sCertPermType == "Barangay Clearance")
                         m_sPermitNumber = result.GetInt(0).ToString("0000");
                 }
             }
             result.Close();
             #endregion
-
+            bool Hasrecord = false;
             #region CheckExist
-            result.Query = "select * from permit_type where bin = '" + m_sBIN + "' and current_year = '" + AppSettingsManager.GetConfigValue("12") + "' and perm_type = 'Sanitary'";
+            //result.Query = "select * from permit_type where bin = '" + m_sBIN + "' and current_year = '" + AppSettingsManager.GetConfigValue("12") + "' and perm_type = 'Sanitary'";
+            result.Query = "select * from permit_type where bin = '" + m_sBIN + "' and current_year = '" + AppSettingsManager.GetConfigValue("12") + "' and perm_type = '" + m_sCertPermType + "'"; //AFM 20211207 REQUESTED - source from LUBAO//JHB 20191217 add Barangay Clearance (s)
             if (result.Execute())
             {
                 if (result.Read())
@@ -83,15 +99,24 @@ namespace Amellar.Modules.HealthPermit
                     m_sIssuedDate = result.GetString(3);
                 }
             }
+            int intCount = 0;
+            int.TryParse(result.ExecuteScalar(), out intCount);
+            if (intCount == 0)
+                Hasrecord = false;
+            else
+                Hasrecord = true;
+
             result.Close();
             #endregion
             #region Saving 
 
-            if (m_sIssuedDate == "")
+
+            if (Hasrecord == false) //AFM 20211207 REQUESTED - source from LUBAO//JHB 20191217 add Barangay Clearance (s)
             {
                 string sCurrentYear = AppSettingsManager.GetConfigValue("12");
                 string sPermType = m_sCertPermType;
-                string sPermitNumber = m_sPermitNumber.Substring(5);
+                // string sPermitNumber = m_sPermitNumber.Substring(5);
+                string sPermitNumber = m_sPermitNumber;
                 string sIssuedDate = AppSettingsManager.GetSystemDate().ToString("MM/dd/yyyy");
                 string sUserCode = AppSettingsManager.SystemUser.UserCode;
                 string s_mBin = m_sBIN;
@@ -99,6 +124,19 @@ namespace Amellar.Modules.HealthPermit
                 result.Query = "insert into permit_type (current_year,perm_type,permit_number,issued_date,user_code,bin) values('" + sCurrentYear + "', '" + sPermType + "', '" + sPermitNumber + "', '" + sIssuedDate + "', '" + sUserCode + "', '" + s_mBin + "')";
                 result.ExecuteNonQuery();
             }
+
+            //if (m_sIssuedDate == "")
+            //{
+            //    string sCurrentYear = AppSettingsManager.GetConfigValue("12");
+            //    string sPermType = m_sCertPermType;
+            //    string sPermitNumber = m_sPermitNumber.Substring(5);
+            //    string sIssuedDate = AppSettingsManager.GetSystemDate().ToString("MM/dd/yyyy");
+            //    string sUserCode = AppSettingsManager.SystemUser.UserCode;
+            //    string s_mBin = m_sBIN;
+
+            //    result.Query = "insert into permit_type (current_year,perm_type,permit_number,issued_date,user_code,bin) values('" + sCurrentYear + "', '" + sPermType + "', '" + sPermitNumber + "', '" + sIssuedDate + "', '" + sUserCode + "', '" + s_mBin + "')";
+            //    result.ExecuteNonQuery();
+            //}
             #endregion
         }
 
@@ -177,6 +215,9 @@ where fees_desc like '%ZONING%' and P.bin = '" + m_sBIN + "' and P.data_mode <> 
             AuditTrail.InsertTrail("PERMIT", "permit_type", "PRINT " + m_sCertPermType + " PERMIT");*/
             // RMC 20141222 modified permit printing, put rem
 
+            AuditTrail.InsertTrail("ABBC", Text, "PRINT " + m_sCertPermType + " bin: " + m_sBIN + " "); //AFM 20211207 REQUESTED - source from LUBAO//JHB 20191217 add Barangay Clearance
+            TimeIN = AppSettingsManager.GetSystemDate().ToString();
+
             // RMC 20141222 modified permit printing (s)
             if (txtBNSName.Text.Trim() == "")
             {
@@ -207,21 +248,104 @@ where fees_desc like '%ZONING%' and P.bin = '" + m_sBIN + "' and P.data_mode <> 
 
             CheckofPermitRecord();
 
-            frmPrinting frmPrinting = new frmPrinting();
-            if (m_sIssuedDate == "")
-                m_sIssuedDate = AppSettingsManager.GetSystemDate().ToString("MM/dd/yyy");
-            //frmPrinting.IssuedDate = m_sIssuedDate;   // RMC 20141222 modified permit printing
-            frmPrinting.PermitNo = m_sPermitNumber;   
-            frmPrinting.BIN = m_sBIN;
-            frmPrinting.TaxYear = AppSettingsManager.GetConfigValue("12");  // RMC 20141222 modified permit printing
-            frmPrinting.ReportType = m_sCertPermType;
-            frmPrinting.BnsName = txtBNSName.Text;  // RMC 20141222 modified permit printing
-            frmPrinting.BnsAdd = txtBNSAdd.Text;    // RMC 20141222 modified permit printing
-            frmPrinting.BnsOwn = txtBNSOwner.Text;  // RMC 20141222 modified permit printing
-            //frmPrinting.ORDate = m_sORDate;   // RMC 20141222 modified permit printing
-            //frmPrinting.ORNo = m_sORNO;   // RMC 20141222 modified permit printing
-            //frmPrinting.FeeAmount = m_sFeeAmount; // RMC 20141222 modified permit printing
-            frmPrinting.ShowDialog();
+            //AFM 20211207 REQUESTED - source from LUBAO//JHB 20191217 add Barangay Clearance
+            string sBnsStat = "";
+            OracleResultSet pSet = new OracleResultSet(); //JARS 20170120 TO CHECK IF RETIRED
+            pSet.Query = "select bns_stat from businesses where bin = '" + m_sBIN + "'";
+            if (pSet.Execute())
+                if (pSet.Read())
+                    sBnsStat = pSet.GetString(0);
+            pSet.Close();
+            if (sBnsStat == "RET")
+            {
+                if (MessageBox.Show(m_sBIN + " is RETIRED, Continue?", "Business Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    btnSearch.Text = "Search";  // RMC 20150105 mods in permit printing
+                    ClearControls();
+                    return;
+                }
+
+            }
+
+            //AFM 20211207 REQUESTED - source from LUBAO //JHB 20191217 bgy clearance (s)
+            if (this.Text == "Barangay Clearance")
+            {
+
+                frmCertPayment formP = new frmCertPayment();
+                formP.ReportSwitch = m_sCertPermType;
+
+
+                //JHB 20200108 has record (s)
+
+                OracleResultSet pSet1 = new OracleResultSet();
+                pSet1.Query = "select * from brgy_clearance where bin = '" + m_sBIN + "' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "'";
+                if (pSet1.Execute())
+                {
+                    if (pSet1.Read())
+                    {
+                        string cert = pSet1.GetDateTime("CTC_ISSUED_ON").ToShortDateString();
+                        formP.dtpDate.Text = pSet1.GetDateTime("CTC_ISSUED_AT").ToShortDateString();
+                        formP.txtOrNo.Text = pSet1.GetString("CTC_NO");
+                        formP.txtAmount.Text = pSet1.GetDouble("CTC_AMT").ToString();
+                        formP.txtIssuedON.Text = pSet1.GetString("CTC_ISSUED_ON");
+                    }
+
+                    else
+                    {
+                        if (MessageBox.Show("Add new Record for Barangay Clearance for Business Permit?", "Barangay Clearance for Business Permit Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        {
+                            return;
+                        }
+                    }
+                }
+
+
+
+                //JHB 20200108 has record (e)
+                formP.ShowDialog();
+
+                m_sORDate = string.Format("{0:MM/dd/yyyy}", formP.dtpDate.Value);
+                m_sORNO = formP.txtOrNo.Text.Trim();
+                m_sFeeAmount = formP.txtAmount.Text.Trim();
+                m_sIssuedon = formP.txtIssuedON.Text.Trim();
+
+                if (formP.Closed)
+                {
+                    MessageBox.Show("Transaction cancelled", "Certification", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return;
+                }
+
+                frmPrinting frmPrinting = new frmPrinting();
+                if (m_sIssuedDate == "")
+                    m_sIssuedDate = AppSettingsManager.GetSystemDate().ToString("MM/dd/yyy");
+                //frmPrinting.IssuedDate = m_sIssuedDate;   // RMC 20141222 modified permit printing
+                frmPrinting.PermitNo = m_sPermitNumber;
+                frmPrinting.BIN = m_sBIN;
+                frmPrinting.TaxYear = AppSettingsManager.GetConfigValue("12");  // RMC 20141222 modified permit printing
+                frmPrinting.ReportType = m_sCertPermType;
+                frmPrinting.BnsName = txtBNSName.Text;  // RMC 20141222 modified permit printing
+                frmPrinting.BnsAdd = txtBNSAdd.Text;    // RMC 20141222 modified permit printing
+                frmPrinting.BnsOwn = txtBNSOwner.Text;  // RMC 20141222 modified permit printing
+                frmPrinting.BnsCode = txtBNSOwner.Text;  
+                //frmPrinting.ORDate = m_sORDate;   // RMC 20141222 modified permit printing
+                //frmPrinting.ORNo = m_sORNO;   // RMC 20141222 modified permit printing
+                //frmPrinting.FeeAmount = m_sFeeAmount; // RMC 20141222 modified permit printing
+
+                //JHB 20191217 bgy clearance (s)
+                if (this.Text == "Barangay Clearance")
+                {
+                    frmPrinting.ORDate = m_sORDate;
+                    frmPrinting.ORNo = m_sORNO;
+                    frmPrinting.FeeAmount = m_sFeeAmount;
+                    frmPrinting.IssuedOn = m_sIssuedon;
+                    frmPrinting.TempBIN = txtTmpBin.Text.Trim();
+                }
+                //JHB 20191217 bgy clearance (e)
+
+                frmPrinting.m_timeIN = TimeIN;
+
+                frmPrinting.ShowDialog();
+            }
         }
 
         private void LoadInfo(string sBin)

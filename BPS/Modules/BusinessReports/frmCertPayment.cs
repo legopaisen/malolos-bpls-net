@@ -55,8 +55,16 @@ namespace Amellar.Modules.BusinessReports
                 return;
             }
 
+            if (m_sReportSwitch == "Barangay Clearance" && txtIssuedON.Text.Trim() == "")
+            {
+                MessageBox.Show("Issued on is required", "Certification", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
             double dAmount = 0;
             double.TryParse(txtAmount.Text, out dAmount);
+            if (m_sReportSwitch == "Barangay Clearance")
+            { }
 
             if (dAmount <= 0 )
             {
@@ -98,6 +106,21 @@ namespace Amellar.Modules.BusinessReports
             }
             else
                 m_bCancel = false;
+        }
+
+        private void frmCertPayment_Load(object sender, EventArgs e)
+        {
+            if (m_sReportSwitch == "Barangay Clearance")
+            {
+                lblAcctName.Text = "CTC No.: ";
+                label1.Text = "Issued On : ";
+                // txtAmount.Text = "0.00";
+            }
+            else
+            {
+                lblissuedOn.Visible = false;
+                txtIssuedON.Visible = false;
+            }
         }
     }
 }

@@ -48,6 +48,23 @@ namespace Amellar.Modules.HealthPermit
         private string m_sORNo = String.Empty;
         private string m_sORDate = String.Empty;
         private string m_sFeeAmount = String.Empty;
+
+        //JHB 20190926 for Brgy Clearance (s)
+        private string m_sIssuedOn = String.Empty;
+        public string IssuedOn
+        {
+            set { m_sIssuedOn = value; }
+        }
+
+        private string m_sTempBIN = string.Empty;
+        public string TempBIN
+        {
+            get { return m_sTempBIN; }
+            set { m_sTempBIN = value; }
+        }
+        //JHB 20190926 for Brgy Clearance (e)
+        private bool brgy_reprint = false; //jhb 20200108
+
         public string ORNo
         {
             set { m_sORNo = value; }
@@ -65,6 +82,12 @@ namespace Amellar.Modules.HealthPermit
         public string BnsName
         {
             set { m_sBnsName = value; }
+        }
+
+        private string m_sBnsCode = string.Empty;
+        public string BnsCode
+        {
+            set { m_sBnsCode = value; }
         }
 
         private string m_sBnsAdd = string.Empty;
@@ -87,6 +110,12 @@ namespace Amellar.Modules.HealthPermit
         }
 
         //MCR 20150113 (e) Working Permit
+
+        public string m_timeIN = string.Empty;
+        public string timeIN
+        {
+            set { m_timeIN = value; }
+        }
 
         private void frmPrinting_Load(object sender, EventArgs e)
         {
@@ -133,8 +162,709 @@ namespace Amellar.Modules.HealthPermit
                 axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
                 AnnualInspection();
             }
+            else if (m_sReportType == "Barangay Clearance")
+            {
+                axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paStartDoc;
+                axVSPrinter1.FontName = "Times New Roman";
+                axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+
+                Barangay_Certificate_new();
+            }
 
             axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paEndDoc;
+        }
+
+        private void Barangay_Certificate_new() //AFM 20211207 barangay clearance
+        {
+            this.axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLetter;
+            this.axVSPrinter1.DrawPicture(Properties.Resources.blue_line, "0.01", "2.1in", "80%", "90%", 10, false);
+            this.axVSPrinter1.DrawPicture(Properties.Resources.blue_line___vertical, "2.5in", "1.65in", "92%", "100%", 10, false); 
+
+
+            OracleResultSet result = new OracleResultSet();
+            OracleResultSet result2 = new OracleResultSet();
+            string sDay = string.Empty;
+            string sMonth = string.Empty;
+            string sYear = string.Empty;
+            string sYear2 = string.Empty;
+            string sBrgy = string.Empty;
+            string sDate = string.Empty;
+            string sStat = AppSettingsManager.GetBnsStat(m_sBin);
+            string sTempBin = m_sTempBIN;
+            string sOwnCode = AppSettingsManager.GetOwnCode(m_sBin);
+            string sUserNm = AppSettingsManager.GetUserName(AppSettingsManager.SystemUser.UserCode);
+            DateTime sDateSave = AppSettingsManager.GetSystemDate();
+
+            //Baranagy Officials
+            string m_strBrgyCode = string.Empty;
+            string m_strCapt = string.Empty;
+            string m_strTreas = string.Empty;
+            string m_strSec = string.Empty;
+            string m_strKwd1 = string.Empty;
+            string m_strKwd2 = string.Empty;
+            string m_strKwd3 = string.Empty;
+            string m_strKwd4 = string.Empty;
+            string m_strKwd5 = string.Empty;
+            string m_strKwd6 = string.Empty;
+            string m_strKwd7 = string.Empty;
+            string m_strSk = string.Empty;
+            //Baranagy Officials
+
+            string DATE_CREATED = string.Format("{0:dd-MMM-yyyy}", sDateSave);
+            string strProvinceName = string.Empty;
+
+            sYear = string.Format("{0:yy}", AppSettingsManager.GetCurrentDate());
+            sYear2 = string.Format("{0:yyyy}", AppSettingsManager.GetCurrentDate());
+            sMonth = string.Format("{0:MMMM}", AppSettingsManager.GetCurrentDate());
+            sDay = string.Format("{0:dd}", AppSettingsManager.GetCurrentDate());
+
+            sBrgy = AppSettingsManager.GetBnsBrgy(m_sBin);
+            sDate = sMonth + " " + sDay + ", " + sYear2;
+
+            //header
+            //  long yGrid = Convert.ToInt64(axVSPrinter1.CurrentY);
+            this.axVSPrinter1.CurrentY = 900;
+            this.axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+            // this.axVSPrinter1.FontName = "Arial Narrow";
+            this.axVSPrinter1.FontName = "Segoe UI";
+            this.axVSPrinter1.TextAlign = VSPrinter7Lib.TextAlignSettings.taCenterMiddle;
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.FontSize = (float)12.0;
+            this.axVSPrinter1.Table = "^16000;REPUBLIC OF THE PHILIPPINES";
+            this.axVSPrinter1.FontBold = false;
+
+            strProvinceName = AppSettingsManager.GetConfigValue("08");
+            if (strProvinceName != string.Empty)
+                this.axVSPrinter1.Table = string.Format("^16000;{0}", AppSettingsManager.GetConfigValueRemarks("08") + " " + strProvinceName);
+            this.axVSPrinter1.Table = string.Format("^16000;{0}", AppSettingsManager.GetConfigValue("09"));
+            
+            //Barangay
+            this.axVSPrinter1.CurrentY = 1800;
+            this.axVSPrinter1.FontSize = (float)13.0;
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.Table = string.Format("^16000;BARANGAY {0}", sBrgy);
+
+            this.axVSPrinter1.Paragraph = "";
+            this.axVSPrinter1.FontSize = (float)13.5;
+            this.axVSPrinter1.Table = string.Format("^16000;OFFICE OF THE PUNONG BARANGAY");
+
+            //BARANGAY HEADER
+            this.axVSPrinter1.MarginLeft = 3000;
+            this.axVSPrinter1.CurrentY = 3500;
+            this.axVSPrinter1.SpaceBefore = 750;
+            this.axVSPrinter1.FontSize = 10;
+            this.axVSPrinter1.Table = "<10|^5000;|BARANGAY BUSINESS CLEARANCE";
+            this.axVSPrinter1.FontBold = false;
+
+
+            
+            axVSPrinter1.MarginLeft = 4200;
+            this.axVSPrinter1.CurrentY = 2900;
+            axVSPrinter1.SpaceBefore = 750;
+            axVSPrinter1.FontBold = true;
+            axVSPrinter1.FontSize = 12;
+            
+
+
+            //BARANGAY OFFICIAL (s)
+            result2.Query = "Select * from brgy where brgy_nm = '" + sBrgy + "' ";
+            if (result2.Execute())
+            {
+                while (result2.Read())
+                {
+                    m_strBrgyCode = result2.GetString("BRGY_CODE");
+                    m_strCapt = result2.GetString("BRGY_CAPT");
+                    m_strTreas = result2.GetString("BRGY_TREAS");
+                    m_strSec = result2.GetString("BRGY_SEC");
+                    m_strKwd1 = result2.GetString("BRGY_KAGAWAD1");
+                    m_strKwd2 = result2.GetString("BRGY_KAGAWAD2");
+                    m_strKwd3 = result2.GetString("BRGY_KAGAWAD3");
+                    m_strKwd4 = result2.GetString("BRGY_KAGAWAD4");
+                    m_strKwd5 = result2.GetString("BRGY_KAGAWAD5");
+                    m_strKwd6 = result2.GetString("BRGY_KAGAWAD6");
+                    m_strKwd7 = result2.GetString("BRGY_KAGAWAD7");
+                    m_strSk = result2.GetString("SK_CHAIR");
+                }
+            }
+            result2.Close();
+            //BARANGAY OFFICIAL (e)
+
+            //001	ANILAO
+            if (m_strBrgyCode == "001")
+            {
+
+            }
+            //002	ATLAG
+            if (m_strBrgyCode == "002")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_atlag, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_atlag_signatory, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //003	BABATNIN
+            if (m_strBrgyCode == "003")
+            {
+
+            }
+            //004	BAGNA
+            if (m_strBrgyCode == "004")
+            {
+
+            }
+            //005	BAGONG BAYAN
+            if (m_strBrgyCode == "005")
+            {
+
+            }
+            //006	BALAYONG
+            if (m_strBrgyCode == "006")
+            {
+
+            }
+            //007	BALITE
+            if (m_strBrgyCode == "007")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_balite, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_balite_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //008	BANGKAL
+            if (m_strBrgyCode == "008")
+            {
+
+            }
+            //009	BARIHAN
+            if (m_strBrgyCode == "009")
+            {
+            }
+            //010	BULIHAN
+            if (m_strBrgyCode == "010")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_bulihan, "1.5in", "0.55in", "90%", "90%", 10, false);
+
+            }
+            //011	BUNGAHAN
+            if (m_strBrgyCode == "011")
+            {
+            }
+            //012	CAINGIN
+            if (m_strBrgyCode == "012")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_caingin, "1.5in", "0.55in", "90%", "90%", 10, false);
+            }
+            //013	CALERO
+            if (m_strBrgyCode == "013")
+            {
+                
+            }
+            //014	CANALATE
+            if (m_strBrgyCode == "014")
+            {
+
+            }
+            //015	CANIOGAN
+            if (m_strBrgyCode == "015")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_caniogan, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_caniogan_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //016	CATMON
+            if (m_strBrgyCode == "016")
+            {
+
+            }
+            //017	COFRADIA
+            if (m_strBrgyCode == "017")
+            {
+                
+            }
+            //018	DAKILA
+            if (m_strBrgyCode == "018")
+            {
+                
+            }
+            //019	GUINHAWA
+            if (m_strBrgyCode == "019")
+            {
+                
+            }
+            //020	KALILIGAWAN
+            if (m_strBrgyCode == "020")
+            {
+                
+            }
+            //021	LIANG
+            if (m_strBrgyCode == "021")
+            {
+
+            }
+            //022	LIGAS
+            if (m_strBrgyCode == "022")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_ligas, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_ligas_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //023	LONGOS
+            if (m_strBrgyCode == "023")
+            {
+
+            }
+            //024	LOOK 1ST
+            if (m_strBrgyCode == "024")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_look1st, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_look1st_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //025	LOOK 2ND
+            if (m_strBrgyCode == "025")
+            {
+
+            }
+            //026	LUGAM
+            if (m_strBrgyCode == "026")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_lugam, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_lugam_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //027	MABOLO
+            if (m_strBrgyCode == "027")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_mabolo, "1.5in", "0.55in", "90%", "90%", 10, false);
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_mabolo_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //028	MAMBOG
+            if (m_strBrgyCode == "028")
+            {
+
+            }
+            //029	MASILE
+            if (m_strBrgyCode == "029")
+            {
+
+            }
+            //030	MATIMBO
+            if (m_strBrgyCode == "030")
+            {
+
+            }
+            //031	MOJON
+            if (m_strBrgyCode == "031")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_mojon, "1.5in", "0.55in", "90%", "90%", 10, false);
+            }
+            //032	NAMAYAN
+            if (m_strBrgyCode == "032")
+            {
+            }
+            //033	NIUGAN
+            if (m_strBrgyCode == "033")
+            {
+            }
+            //034	PAMARAWAN
+            if (m_strBrgyCode == "034")
+            {
+            }
+            //035	PANASAHAN
+            if (m_strBrgyCode == "035")
+            {
+            }
+            //036	PINAGBAKAHAN
+            if (m_strBrgyCode == "036")
+            {
+            }
+            //037	SAN AGUSTIN
+            if (m_strBrgyCode == "037")
+            {
+            }
+            //038	SAN GABRIEL
+            if (m_strBrgyCode == "038")
+            {
+            }
+            //039	SAN JUAN
+            if (m_strBrgyCode == "039")
+            {
+            }
+            //040	SAN PABLO
+            if (m_strBrgyCode == "040")
+            {
+            }
+            //041	SANTIAGO
+            if (m_strBrgyCode == "041")
+            {
+            }
+            //042	SANTISMA TRINIDAD
+            if (m_strBrgyCode == "042")
+            {
+            }
+            //043	STO. CRISTO
+            if (m_strBrgyCode == "043")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_stocristo, "1.5in", "0.55in", "90%", "90%", 10, false);
+            }
+            //044	STO NINO
+            if (m_strBrgyCode == "044")
+            {
+            }
+            //045	SANTOR
+            if (m_strBrgyCode == "045")
+            {
+            }
+            //046	STO ROSARIO
+            if (m_strBrgyCode == "046")
+            {
+            }
+            //047	SAN VICENTE
+            if (m_strBrgyCode == "047")
+            {
+            }
+            //048	SUMAPANG BATA
+            if (m_strBrgyCode == "048")
+            {
+                this.axVSPrinter1.DrawPicture(Properties.Resources.brgy_sumapangbata_sig, "5.9in", "8.55in", "100%", "100%", 10, false);
+            }
+            //049	SUMAPANG MATANDA
+            if (m_strBrgyCode == "049")
+            {
+            }
+            //050	TAAL
+            if (m_strBrgyCode == "050")
+            {
+            }
+            //051	TIKAY
+            if (m_strBrgyCode == "051")
+            {
+            }
+
+
+            //BARANGAY OFFICIAL HEADER(s)
+            string sTitle = string.Empty;
+            this.axVSPrinter1.MarginRight = 12900;
+            this.axVSPrinter1.FontItalic = true;
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.FontSize = 9;
+            this.axVSPrinter1.CurrentY = 3300;
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strCapt;
+            this.axVSPrinter1.CurrentY = 3500;
+            this.axVSPrinter1.FontBold = false;
+            sTitle = "Punong Barangay";
+            this.axVSPrinter1.Table = "<500|<2000;|" + sTitle;
+
+            this.axVSPrinter1.Table = "<500|<3000;|Barangay Kagawad:";
+
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.CurrentY = 5500; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd1;
+
+            this.axVSPrinter1.CurrentY = 6000;
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd2;
+
+            this.axVSPrinter1.CurrentY = 6500; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd3;
+
+            this.axVSPrinter1.CurrentY = 7000; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd4;
+
+            this.axVSPrinter1.CurrentY = 7500; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd5;
+
+            this.axVSPrinter1.CurrentY = 8000; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd6;
+
+            this.axVSPrinter1.CurrentY = 8500; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strKwd7;
+
+            this.axVSPrinter1.CurrentY = 10400; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strSk;
+            this.axVSPrinter1.CurrentY = 10600;
+            this.axVSPrinter1.FontBold = false;
+            sTitle = "SK Chairman";
+            this.axVSPrinter1.Table = "<500|<2000;|" + sTitle;
+
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.CurrentY = 11450; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strTreas;
+            this.axVSPrinter1.CurrentY = 11650;
+            this.axVSPrinter1.FontBold = false;
+            sTitle = "Treasurer";
+            this.axVSPrinter1.Table = "<500|<2000;|" + sTitle;
+
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.CurrentY = 12500; 
+            this.axVSPrinter1.Table = "<500|<3000;|" + m_strSec;
+            this.axVSPrinter1.CurrentY = 12700;
+            this.axVSPrinter1.FontBold = false;
+            sTitle = "Secretary";
+            this.axVSPrinter1.Table = "<500|<2000;|" + sTitle;
+
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.FontItalic = false;
+
+            this.axVSPrinter1.TextColor = Color.Black;
+            //BARANGAY OFFICIAL HEADER(e)
+
+            this.axVSPrinter1.MarginRight = 0;
+
+
+            //BUSINESS NAME  (S)
+            string sBnsName = m_sBnsName.Trim();
+            // string  sBnsName = StringUtilities.HandleApostrophe(m_sBnsName).Trim();
+            // string sBnsName = StringUtilities.RemoveApostrophe(m_sBnsName).Trim(); 
+            this.axVSPrinter1.CurrentY = 6800;
+            this.axVSPrinter1.MarginLeft = 500;//3800
+            if (sBnsName.Length > 100)
+            {
+                axVSPrinter1.FontSize = 7;
+            }
+            else if (sBnsName.Length > 35)
+            {
+                axVSPrinter1.FontSize = 8;
+            }
+            else
+            {
+                axVSPrinter1.FontSize = 10;
+            }
+
+            this.axVSPrinter1.FontBold = false;
+            //BUSINESS NAME (E)
+
+
+            OracleResultSet res = new OracleResultSet();
+            string sBnsCode = string.Empty;
+            res.Query = "select bns_code from businesses where bin = '" + m_sBin + "'";
+            if (res.Execute())
+                if (res.Read())
+                    sBnsCode = res.GetString(0);
+            string sBnsKind = AppSettingsManager.GetBnsDesc(sBnsCode);
+
+            //PARAGRAPH (s)
+
+
+            this.axVSPrinter1.FontSize = 10;
+            this.axVSPrinter1.MarginLeft = 1000;
+            this.axVSPrinter1.CurrentY = 4500;
+            this.axVSPrinter1.Table = "<10|<2800;|This is to certify that ";
+
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.MarginLeft = 4000;
+            this.axVSPrinter1.CurrentY = 5500;
+            this.axVSPrinter1.Table = ">2500|<8000;|Business Name: " + m_sBnsName;
+
+            this.axVSPrinter1.MarginLeft = 4000;
+            this.axVSPrinter1.CurrentY = 6100;
+            this.axVSPrinter1.Table = ">2500|<8000;|Taxpayer's Name: " + m_sBnsOwn;
+
+            this.axVSPrinter1.MarginLeft = 4000;
+            this.axVSPrinter1.CurrentY = 6600;
+            this.axVSPrinter1.Table = ">2500|<8000;|Line of Business: " + sBnsKind;
+
+            this.axVSPrinter1.MarginLeft = 4000;
+            this.axVSPrinter1.CurrentY = 7100;
+            this.axVSPrinter1.Table = ">1000|<6500;|Business Address: " + m_sBnsAdd;
+
+
+            this.axVSPrinter1.FontBold = false;
+            this.axVSPrinter1.MarginLeft = 2000;
+            this.axVSPrinter1.CurrentY = 9000;
+            this.axVSPrinter1.Table = "<5300|<9000;|is doing business in Barangay " + sBrgy + ", City of Malolos, Bulacan.";
+
+            this.axVSPrinter1.MarginLeft = 2000;
+            this.axVSPrinter1.CurrentY = 10000;
+            this.axVSPrinter1.Table = "<2300|<6000;|This Certification is issued under the Local Government Code Republic Act No. 7160, Article IV, Section 152, Paragraph C, for the purpose of securing business permit from the City Government of Malolos for the year 2022";
+
+
+            this.axVSPrinter1.FontItalic = true;
+            this.axVSPrinter1.FontBold = true;
+            this.axVSPrinter1.MarginLeft = 2000;
+            this.axVSPrinter1.CurrentY = 12000;
+            this.axVSPrinter1.Table = "<4000|^6000;|" + m_strCapt;
+            this.axVSPrinter1.CurrentY = 12200;
+            this.axVSPrinter1.FontBold = false;
+            sTitle = "Punong Barangay";
+            this.axVSPrinter1.Table = "<4000|^4000;|" + sTitle;
+
+
+            this.axVSPrinter1.FontItalic = false;
+            this.axVSPrinter1.FontBold = false;
+            this.axVSPrinter1.MarginLeft = 3500;
+            this.axVSPrinter1.CurrentY = 12700;
+            this.axVSPrinter1.Table = "<10|<8000;|Amount Paid: " + m_sFeeAmount;
+
+            this.axVSPrinter1.MarginLeft = 3500;
+            this.axVSPrinter1.CurrentY = 13000;
+            this.axVSPrinter1.Table = "<10|<8000;|OR No: " + m_sORNo;
+
+            this.axVSPrinter1.MarginLeft = 3500;
+            this.axVSPrinter1.CurrentY = 13300;
+            this.axVSPrinter1.Table = "<10|<8000;|Date: " + m_sORDate;
+            //PARAGRAPH (e)
+
+
+            CheckifBrgyCleanExist(m_sBin);
+
+
+            if (brgy_reprint == false)
+            {
+
+                result.Query = "Insert into BRGY_CLEARANCE(BIN, TAX_YEAR, TEMP_BIN, BNS_NM, BNS_STAT, OWN_CODE, OWN_NM, MARITAL_STAT, ";
+                result.Query += "BNS_BRGY, CTC_NO, CTC_ISSUED_ON, CTC_ISSUED_AT, CTC_AMT, DATE_CREATED, BNS_USER) ";
+                result.Query += "values('" + m_sBin + "', '" + sYear2 + "', '" + sTempBin + "', '" + StringUtilities.HandleApostrophe(sBnsName) + "', '" + sStat + "', '" + sOwnCode + "', '" + StringUtilities.HandleApostrophe(m_sBnsOwn) + "', '', ";
+                result.Query += "'" + sBrgy + "', '" + m_sORNo + "', '" + m_sIssuedOn + "', '" + m_sORDate + "', " + m_sFeeAmount + ", '" + DATE_CREATED + "', '" + sUserNm + "')";
+            }
+            else
+            {
+                result.Query = "UPDATE BRGY_CLEARANCE SET CTC_NO = '" + m_sORNo + "',CTC_ISSUED_ON = '" + m_sIssuedOn + "', BNS_BRGY = '" + sBrgy + "',OWN_CODE = '" + sOwnCode + "',BNS_STAT= '" + sStat + "', ";
+                result.Query += "CTC_ISSUED_AT = '" + m_sORNo + "', CTC_AMT = " + m_sFeeAmount + " WHERE BIN = '" + m_sBin + "' and tax_year = '" + sYear2 + "' ";
+
+            }
+
+            result.ExecuteNonQuery();
+            if (!result.Commit())
+            {
+                result.Rollback();
+            }
+            result.Close();
+
+            
+            // RMC 20170822 added transaction log feature for tracking of transactions per bin (s)
+            if (AuditTrail.InsertTrail("ABBC", "Barangay Clearance", "Print Barangay Clearance BIN: " + m_sBin + " for tax year " + m_sTaxYear) == 0)
+            {
+                MessageBox.Show(result.ErrorDescription, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // RMC 20170822 added transaction log feature for tracking of transactions per bin (e)
+
+        } //JHB 20191012 add for brgy clearance (e)
+
+        private void Barangay_Certificate() //JHB 20191012 add for brgy clearance  clearance old(s)(s)
+        {
+            //   this.axVSPrinter1.DrawPicture(Properties.Resources.Untitled_1," 0.10in", "-2.5in", "33.0%", "46.8%", 10, false);
+            OracleResultSet result = new OracleResultSet();
+            string sDay = string.Empty;
+            string sMonth = string.Empty;
+            string sYear = string.Empty;
+            string sYear2 = string.Empty;
+            string sBrgy = string.Empty;
+            string sDate = string.Empty;
+            string sStat = AppSettingsManager.GetBnsStat(m_sBin);
+            //string sMaritalStat = AppSettingsManager.GetMaritalStat(m_sBin);
+            string sMaritalStat = "";
+            string sTempBin = m_sTempBIN;
+            string sOwnCode = AppSettingsManager.GetOwnCode(m_sBin);
+            string sUserNm = AppSettingsManager.GetUserName(AppSettingsManager.SystemUser.UserCode);
+            DateTime sDateSave = AppSettingsManager.GetSystemDate();
+            string DATE_CREATED = string.Format("{0:MM/dd/yyyy}", sDateSave);
+
+
+            sYear = string.Format("{0:yy}", AppSettingsManager.GetCurrentDate());
+            sYear2 = string.Format("{0:yyyy}", AppSettingsManager.GetCurrentDate());
+            sMonth = string.Format("{0:MMMM}", AppSettingsManager.GetCurrentDate());
+            sDay = string.Format("{0:dd}", AppSettingsManager.GetCurrentDate());
+
+            sBrgy = AppSettingsManager.GetBnsBrgy(m_sBin);
+
+
+            sDate = sMonth + " " + sDay + ", " + sYear2;
+            long yGrid = Convert.ToInt64(axVSPrinter1.CurrentY);
+
+
+            //DATE
+            axVSPrinter1.MarginLeft = 3800;
+            this.axVSPrinter1.CurrentY = 3000;
+            axVSPrinter1.SpaceBefore = 750;
+            axVSPrinter1.FontBold = true;
+            axVSPrinter1.FontSize = 12;
+            axVSPrinter1.Table = "<10|>7500;|" + sDate;
+
+
+
+            //OWNER'S ADDRESS  (S)
+            this.axVSPrinter1.CurrentY = 6300;
+            axVSPrinter1.MarginLeft = 3800;
+
+            if (m_sBnsAdd.Length > 100)
+            {
+                axVSPrinter1.FontSize = 7;
+            }
+            else if (m_sBnsAdd.Length > 35)
+            {
+                axVSPrinter1.FontSize = 9;
+            }
+            else
+            {
+                axVSPrinter1.FontSize = 12;
+            }
+            axVSPrinter1.Table = "<10|<5000;|" + m_sBnsAdd;
+            //OWNER'S ADDRESS (E)
+
+            //BUSINESS NAME  (S)
+            string sBnsName = m_sBnsName;
+            //   string sBnsName = StringUtilities.HandleApostrophe(m_sBnsName).Trim();
+            this.axVSPrinter1.CurrentY = 7000;
+            axVSPrinter1.MarginLeft = 3800;
+            if (sBnsName.Length > 100)
+            {
+                axVSPrinter1.FontSize = 7;
+            }
+            else if (sBnsName.Length > 35)
+            {
+                axVSPrinter1.FontSize = 8;
+            }
+            else
+            {
+                axVSPrinter1.FontSize = 10;
+            }
+
+            axVSPrinter1.FontBold = true;
+            axVSPrinter1.Table = "<10|<5000;|" + sBnsName;
+            //BUSINESS NAME (E)
+
+
+            //OR DETAILS (S)
+
+            axVSPrinter1.FontSize = 12;
+            axVSPrinter1.CurrentY = 11800; //12000;//11700
+            axVSPrinter1.MarginLeft = 6300;
+            axVSPrinter1.Table = "<10|<5000;| " + m_sORNo;
+            axVSPrinter1.CurrentY = 12280; //12400;//12200
+            axVSPrinter1.MarginLeft = 5200;
+            axVSPrinter1.Table = "<10|<5000;|" + m_sORDate;
+            axVSPrinter1.CurrentY = 12680; //12900;//12700
+            axVSPrinter1.MarginLeft = 5200;
+            axVSPrinter1.Table = "<10|<5000;|" + m_sIssuedOn;
+            //axVSPrinter1.CurrentY = 12900;
+            //axVSPrinter1.MarginLeft = 5200;
+            //axVSPrinter1.Table = "<10|<5000;|O.R. Date: " + m_sFeeAmount;
+            CheckifBrgyCleanExist(m_sBin);
+
+            if (brgy_reprint == false)
+            {
+
+                result.Query = "Insert into BRGY_CLEARANCE(BIN, TAX_YEAR, TEMP_BIN, BNS_NM, BNS_STAT, OWN_CODE, OWN_NM, MARITAL_STAT, ";
+                result.Query += "BNS_BRGY, CTC_NO, CTC_ISSUED_ON, CTC_ISSUED_AT, CTC_AMT, DATE_CREATED, BNS_USER) ";
+                result.Query += "values('" + m_sBin + "', '" + sYear2 + "', '" + sTempBin + "', '" + StringUtilities.HandleApostrophe(sBnsName).Trim() + "', '" + sStat + "', '" + sOwnCode + "', '" + StringUtilities.HandleApostrophe(m_sBnsOwn).Trim() + "', '" + sMaritalStat + "', ";
+                result.Query += "'" + sBrgy + "', '" + m_sORNo + "', '" + m_sIssuedOn + "', '" + m_sORDate + "', '" + m_sFeeAmount + "', '" + DATE_CREATED + "', '" + sUserNm + "')";
+            }
+            else
+            {
+                result.Query = "UPDATE BRGY_CLEARANCE SET CTC_NO = '" + m_sORNo + "',CTC_ISSUED_ON = '" + m_sIssuedOn + "', MARITAL_STAT = '" + sMaritalStat + "',BNS_BRGY = '" + sBrgy + "',OWN_CODE = '" + sOwnCode + "',BNS_STAT= '" + sStat + "', ";
+                result.Query += "CTC_ISSUED_AT = '" + m_sORDate + "', CTC_AMT = '" + m_sFeeAmount + "' WHERE BIN = '" + m_sBin + "' and tax_year = '" + sYear2 + "' ";
+
+            }
+
+            result.ExecuteNonQuery();
+            if (!result.Commit())
+            {
+                result.Rollback();
+            }
+            result.Close();
+
+
+            //axVSPrinter1.Table = "<10|<2000|<2000|O.R. No.: " + m_sORNo;
+            //axVSPrinter1.Table = "<10|<2000|<2000|O.R. Date: " + m_sORDate;
+            //axVSPrinter1.Table = "<10|<2000|<2000|O.R. Amount: " + m_sFeeAmount;
+            //axVSPrinter1.SpaceBefore = 0;
+            //axVSPrinter1.Table = "<10|<2800|^4000|^3000;|O.R. Date ________| OIC- SANITATION| Municipal Health Officer";
+            ////axVSPrinter1.Table = "<10|<2800|^4000|^3000;|O.R. Date. _________|" + AppSettingsManager.GetConfigRemarksValue("58") + "|" + AppSettingsManager.GetConfigObject("59");
+            //axVSPrinter1.Table = "<10|<2800;|Fee Paid Php______";
+
         }
 
         private void Zoning()
@@ -983,6 +1713,26 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
             return sExt;
         }
 
+        private bool CheckifBrgyCleanExist(string sBin) //JHB 20191012 add for brgy clearance
+        {
+            OracleResultSet pSet = new OracleResultSet();
+
+
+            pSet.Query = "select * from brgy_clearance where bin = '" + m_sBin + "' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+
+                    brgy_reprint = true;
+                }
+            }
+
+            pSet.Close();
+            return true;
+        }
+
         
     }
+
 }

@@ -29,6 +29,8 @@ namespace Amellar.Modules.BusinessReports
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblissuedOn = new System.Windows.Forms.Label();
+            this.txtIssuedON = new System.Windows.Forms.TextBox();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,6 +44,8 @@ namespace Amellar.Modules.BusinessReports
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblissuedOn);
+            this.groupBox1.Controls.Add(this.txtIssuedON);
             this.groupBox1.Controls.Add(this.dtpDate);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
@@ -50,9 +54,27 @@ namespace Amellar.Modules.BusinessReports
             this.groupBox1.Controls.Add(this.txtOrNo);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(210, 113);
+            this.groupBox1.Size = new System.Drawing.Size(210, 131);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
+            // 
+            // lblissuedOn
+            // 
+            this.lblissuedOn.AutoSize = true;
+            this.lblissuedOn.Location = new System.Drawing.Point(17, 102);
+            this.lblissuedOn.Name = "lblissuedOn";
+            this.lblissuedOn.Size = new System.Drawing.Size(51, 13);
+            this.lblissuedOn.TabIndex = 5;
+            this.lblissuedOn.Text = "Issued At";
+            // 
+            // txtIssuedON
+            // 
+            this.txtIssuedON.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIssuedON.Location = new System.Drawing.Point(87, 99);
+            this.txtIssuedON.Multiline = true;
+            this.txtIssuedON.Name = "txtIssuedON";
+            this.txtIssuedON.Size = new System.Drawing.Size(102, 20);
+            this.txtIssuedON.TabIndex = 4;
             // 
             // dtpDate
             // 
@@ -109,7 +131,7 @@ namespace Amellar.Modules.BusinessReports
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(68, 144);
+            this.btnOk.Location = new System.Drawing.Point(68, 172);
             this.btnOk.Name = "btnOk";
             this.btnOk.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btnOk.Size = new System.Drawing.Size(74, 24);
@@ -125,7 +147,7 @@ namespace Amellar.Modules.BusinessReports
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(148, 144);
+            this.btnCancel.Location = new System.Drawing.Point(148, 172);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btnCancel.Size = new System.Drawing.Size(74, 24);
@@ -143,7 +165,7 @@ namespace Amellar.Modules.BusinessReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 180);
+            this.ClientSize = new System.Drawing.Size(234, 208);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.groupBox1);
@@ -153,6 +175,7 @@ namespace Amellar.Modules.BusinessReports
             this.Name = "frmCertPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Certification Payment Details";
+            this.Load += new System.EventHandler(this.frmCertPayment_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCertPayment_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -163,7 +186,7 @@ namespace Amellar.Modules.BusinessReports
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dtpDate;
+        public System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.Label label1;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnOk;
         private System.Windows.Forms.Label label2;
@@ -171,6 +194,8 @@ namespace Amellar.Modules.BusinessReports
         public System.Windows.Forms.TextBox txtAmount;
         public System.Windows.Forms.TextBox txtOrNo;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
+        private System.Windows.Forms.Label lblissuedOn;
+        public System.Windows.Forms.TextBox txtIssuedON;
 
     }
 }

@@ -1028,6 +1028,9 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
 
                 axVSPrinter1.Table = "<3000;" + AdditionalFee(); // RMC 20181121 Customized Fire Tax Fee computation
 
+                if (AppSettingsManager.GetConfigValue("77") == "Y" && (sList.BPLSAppSettings[i].sBnsStat == "REN" || sList.BPLSAppSettings[i].sBnsStat == "NEW")) //AFM 20211207 requested display of CTC in SOA
+                    axVSPrinter1.Table = "<3000;" + GetCTC(); 
+
                 this.axVSPrinter1.MarginLeft = 500;
                 axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
                 //AFM 20191209 MAO-19-11500 applied based on binan (e)
@@ -1290,6 +1293,21 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
                 //axVSPrinter1.Table = "<1500|<2500|<1500|<2500;Received TOP:||BY:|";  // RMC 20161208 modified SOA for Binan
                 #endregion
             }
+        }
+
+        private string GetCTC() //AFM 20211207 requested display of CTC in SOA
+        {
+            OracleResultSet res = new OracleResultSet();
+            string sCTC = string.Empty;
+            res.Query = "select * from ctc_table where bin = '" + sBin + "'";
+            if(res.Execute())
+                if(res.Read())
+                {
+                    double dAmt = 0;
+                    double.TryParse(res.GetDouble("amount").ToString(), out dAmt);
+                    sCTC = "CTC FEE: " + dAmt.ToString("#,##0.00");
+                }
+            return sCTC;
         }
 
         private string AdditionalFee() //AFM 20191209 MAO-19-11500 applied based on binan 

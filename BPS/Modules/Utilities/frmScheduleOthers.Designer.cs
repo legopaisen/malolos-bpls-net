@@ -29,9 +29,9 @@ namespace Amellar.Modules.Utilities
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnEdit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.dgvListOthers = new System.Windows.Forms.DataGridView();
@@ -54,13 +54,14 @@ namespace Amellar.Modules.Utilities
             this.containerWithShadow1 = new Amellar.Common.ContainerWithShadow.ContainerWithShadow();
             this.lblHeader = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkCTCCorp = new System.Windows.Forms.CheckBox();
+            this.chkCTC = new System.Windows.Forms.CheckBox();
             this.brgycode = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMinFee = new System.Windows.Forms.TextBox();
             this.cmbBrgy = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btned = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.chkCTC = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListOthers)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,7 +69,7 @@ namespace Amellar.Modules.Utilities
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(593, 378);
+            this.btnClose.Location = new System.Drawing.Point(593, 376);
             this.btnClose.Name = "btnClose";
             this.btnClose.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btnClose.Size = new System.Drawing.Size(88, 25);
@@ -84,7 +85,7 @@ namespace Amellar.Modules.Utilities
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(499, 378);
+            this.btnEdit.Location = new System.Drawing.Point(499, 376);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btnEdit.Size = new System.Drawing.Size(88, 25);
@@ -102,33 +103,33 @@ namespace Amellar.Modules.Utilities
             // 
             this.dgvListOthers.AllowUserToAddRows = false;
             this.dgvListOthers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListOthers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListOthers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvListOthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListOthers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListOthers.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvListOthers.Location = new System.Drawing.Point(198, 19);
             this.dgvListOthers.Name = "dgvListOthers";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListOthers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListOthers.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvListOthers.Size = new System.Drawing.Size(483, 288);
             this.dgvListOthers.TabIndex = 28;
             this.dgvListOthers.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvListOthers_MouseDown);
@@ -155,7 +156,7 @@ namespace Amellar.Modules.Utilities
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 122);
+            this.label1.Location = new System.Drawing.Point(56, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 29;
@@ -171,11 +172,12 @@ namespace Amellar.Modules.Utilities
             this.chkFire.Text = "Fire Safety Inspection Fee";
             this.chkFire.UseVisualStyleBackColor = true;
             this.chkFire.CheckStateChanged += new System.EventHandler(this.chkFire_CheckStateChanged);
+            this.chkFire.CheckedChanged += new System.EventHandler(this.chkFire_CheckedChanged);
             // 
             // chkInt
             // 
             this.chkInt.AutoSize = true;
-            this.chkInt.Location = new System.Drawing.Point(29, 232);
+            this.chkInt.Location = new System.Drawing.Point(29, 247);
             this.chkInt.Name = "chkInt";
             this.chkInt.Size = new System.Drawing.Size(83, 17);
             this.chkInt.TabIndex = 5;
@@ -195,7 +197,7 @@ namespace Amellar.Modules.Utilities
             // chkSurch
             // 
             this.chkSurch.AutoSize = true;
-            this.chkSurch.Location = new System.Drawing.Point(29, 209);
+            this.chkSurch.Location = new System.Drawing.Point(29, 224);
             this.chkSurch.Name = "chkSurch";
             this.chkSurch.Size = new System.Drawing.Size(97, 17);
             this.chkSurch.TabIndex = 5;
@@ -215,7 +217,7 @@ namespace Amellar.Modules.Utilities
             // chkQtr
             // 
             this.chkQtr.AutoSize = true;
-            this.chkQtr.Location = new System.Drawing.Point(29, 186);
+            this.chkQtr.Location = new System.Drawing.Point(29, 201);
             this.chkQtr.Name = "chkQtr";
             this.chkQtr.Size = new System.Drawing.Size(68, 17);
             this.chkQtr.TabIndex = 5;
@@ -246,7 +248,7 @@ namespace Amellar.Modules.Utilities
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 151);
+            this.label2.Location = new System.Drawing.Point(93, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(15, 13);
             this.label2.TabIndex = 29;
@@ -265,14 +267,14 @@ namespace Amellar.Modules.Utilities
             // 
             // txtRate
             // 
-            this.txtRate.Location = new System.Drawing.Point(50, 147);
+            this.txtRate.Location = new System.Drawing.Point(50, 162);
             this.txtRate.Name = "txtRate";
             this.txtRate.Size = new System.Drawing.Size(39, 20);
             this.txtRate.TabIndex = 30;
             // 
             // containerWithShadow3
             // 
-            this.containerWithShadow3.Location = new System.Drawing.Point(9, 116);
+            this.containerWithShadow3.Location = new System.Drawing.Point(9, 131);
             this.containerWithShadow3.Name = "containerWithShadow3";
             this.containerWithShadow3.Size = new System.Drawing.Size(172, 252);
             this.containerWithShadow3.TabIndex = 2;
@@ -280,7 +282,7 @@ namespace Amellar.Modules.Utilities
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 170);
+            this.label3.Location = new System.Drawing.Point(42, 185);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 31;
@@ -290,7 +292,7 @@ namespace Amellar.Modules.Utilities
             // 
             this.containerWithShadow1.Location = new System.Drawing.Point(9, 8);
             this.containerWithShadow1.Name = "containerWithShadow1";
-            this.containerWithShadow1.Size = new System.Drawing.Size(172, 102);
+            this.containerWithShadow1.Size = new System.Drawing.Size(172, 117);
             this.containerWithShadow1.TabIndex = 2;
             // 
             // lblHeader
@@ -306,6 +308,7 @@ namespace Amellar.Modules.Utilities
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkCTCCorp);
             this.panel1.Controls.Add(this.chkCTC);
             this.panel1.Controls.Add(this.brgycode);
             this.panel1.Controls.Add(this.label4);
@@ -326,9 +329,31 @@ namespace Amellar.Modules.Utilities
             this.panel1.Controls.Add(this.containerWithShadow1);
             this.panel1.Location = new System.Drawing.Point(-5, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(197, 399);
+            this.panel1.Size = new System.Drawing.Size(197, 397);
             this.panel1.TabIndex = 32;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // chkCTCCorp
+            // 
+            this.chkCTCCorp.AutoSize = true;
+            this.chkCTCCorp.Location = new System.Drawing.Point(20, 94);
+            this.chkCTCCorp.Name = "chkCTCCorp";
+            this.chkCTCCorp.Size = new System.Drawing.Size(104, 17);
+            this.chkCTCCorp.TabIndex = 38;
+            this.chkCTCCorp.Text = "CTC Corporation";
+            this.chkCTCCorp.UseVisualStyleBackColor = true;
+            this.chkCTCCorp.CheckedChanged += new System.EventHandler(this.chkCTCCorp_CheckedChanged);
+            // 
+            // chkCTC
+            // 
+            this.chkCTC.AutoSize = true;
+            this.chkCTC.Location = new System.Drawing.Point(20, 71);
+            this.chkCTC.Name = "chkCTC";
+            this.chkCTC.Size = new System.Drawing.Size(95, 17);
+            this.chkCTC.TabIndex = 37;
+            this.chkCTC.Text = "CTC Individual";
+            this.chkCTC.UseVisualStyleBackColor = true;
+            this.chkCTC.CheckedChanged += new System.EventHandler(this.chkCTC_CheckedChanged);
             // 
             // brgycode
             // 
@@ -341,7 +366,7 @@ namespace Amellar.Modules.Utilities
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 255);
+            this.label4.Location = new System.Drawing.Point(29, 270);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 35;
@@ -349,7 +374,7 @@ namespace Amellar.Modules.Utilities
             // 
             // txtMinFee
             // 
-            this.txtMinFee.Location = new System.Drawing.Point(104, 252);
+            this.txtMinFee.Location = new System.Drawing.Point(104, 267);
             this.txtMinFee.Name = "txtMinFee";
             this.txtMinFee.Size = new System.Drawing.Size(48, 20);
             this.txtMinFee.TabIndex = 34;
@@ -372,7 +397,7 @@ namespace Amellar.Modules.Utilities
             this.panel2.Controls.Add(this.lbl2);
             this.panel2.Controls.Add(this.lbl1);
             this.panel2.Controls.Add(this.lbl3);
-            this.panel2.Location = new System.Drawing.Point(18, 261);
+            this.panel2.Location = new System.Drawing.Point(18, 276);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(151, 98);
             this.panel2.TabIndex = 33;
@@ -380,7 +405,7 @@ namespace Amellar.Modules.Utilities
             // btned
             // 
             this.btned.Enabled = false;
-            this.btned.Location = new System.Drawing.Point(405, 378);
+            this.btned.Location = new System.Drawing.Point(405, 376);
             this.btned.Name = "btned";
             this.btned.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.btned.Size = new System.Drawing.Size(88, 25);
@@ -394,29 +419,18 @@ namespace Amellar.Modules.Utilities
             this.btned.Values.Text = "&EDIT";
             this.btned.Click += new System.EventHandler(this.btnedclick);
             // 
-            // chkCTC
-            // 
-            this.chkCTC.AutoSize = true;
-            this.chkCTC.Location = new System.Drawing.Point(20, 71);
-            this.chkCTC.Name = "chkCTC";
-            this.chkCTC.Size = new System.Drawing.Size(47, 17);
-            this.chkCTC.TabIndex = 37;
-            this.chkCTC.Text = "CTC";
-            this.chkCTC.UseVisualStyleBackColor = true;
-            this.chkCTC.CheckedChanged += new System.EventHandler(this.chkCTC_CheckedChanged);
-            // 
             // frmScheduleOthers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(214)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(703, 437);
+            this.ClientSize = new System.Drawing.Size(703, 413);
             this.Controls.Add(this.dgvListOthers);
-            this.Controls.Add(this.btned);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.containerWithShadow2);
-            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btned);
+            this.Controls.Add(this.btnEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -466,5 +480,6 @@ namespace Amellar.Modules.Utilities
         private System.Windows.Forms.TextBox txtMinFee;
         private System.Windows.Forms.TextBox brgycode;
         private System.Windows.Forms.CheckBox chkCTC;
+        private System.Windows.Forms.CheckBox chkCTCCorp;
     }
 }

@@ -9,6 +9,7 @@ using Amellar.Common.DataConnector;
 using Amellar.Common.StringUtilities;
 using Amellar.Common.AppSettings;
 using Amellar.Common.AuditTrail;
+using System.Globalization;
 
 namespace Amellar.Modules.Utilities
 {
@@ -101,7 +102,7 @@ namespace Amellar.Modules.Utilities
                 chkQtr.Checked = false;    //initialize
                 chkSurch.Checked = false;    //initialize
                 chkInt.Checked = false;    //initialize
-                btnEdit.Enabled = false;
+                btnEdit.Enabled = true;
                 txtMinFee.Enabled = false;
             }
             else if (this.chkFire.Checked == true)
@@ -118,19 +119,23 @@ namespace Amellar.Modules.Utilities
                 chkInt.Checked = false;    //initialize
                 btnEdit.Enabled = false;
             }
-            else if (this.chkCTC.Checked == true)
+            else if (this.chkCTC.Checked == true || this.chkCTCCorp.Checked == true)
             {
                 txtMinFee.Enabled = false;
-                txtRate.Enabled = true;
-                chkRate.Enabled = true;
-                chkQtr.Enabled = true;
+                txtRate.Enabled = false;
+                chkRate.Enabled = false;
+                chkQtr.Enabled = false;
                 chkSurch.Enabled = false;
                 chkInt.Enabled = false;
                 chkRate.Checked = false;    //initialize
                 chkQtr.Checked = false;    //initialize
                 chkSurch.Checked = false;    //initialize
                 chkInt.Checked = false;    //initialize
-                btnEdit.Enabled = false;
+                btnEdit.Enabled = true;
+                btned.Visible = true;
+                btned.Enabled = true;
+
+
             }
         }
 
@@ -286,9 +291,44 @@ namespace Amellar.Modules.Utilities
                 this.LoadCheckList();
 
             }
-            else if (this.chkCTC.Checked == true)
+            else if (this.chkCTC.Checked == true || this.chkCTCCorp.Checked == true)
             {
-                dgvListOthers.Visible = false;
+                dgvListOthers.Visible = true;
+                dgvListOthers.Columns.Clear();
+                dgvListOthers.Columns.Add("FEESCODE", "FEESCODE");
+                dgvListOthers.Columns[0].Visible = false;
+                dgvListOthers.Columns.Add("RANGE1", "RANGE 1");
+                dgvListOthers.Columns.Add("RANGE2", "RANGE 2");
+                dgvListOthers.Columns.Add("RATE1", "RATE 1");
+                dgvListOthers.Columns.Add("RATE2", "RATE 2");
+                dgvListOthers.Columns.Add("AMOUNT", "AMOUNT");
+
+                if (this.chkCTC.Checked == true)
+                {
+                    result.Query = "select fees_code,range1,range2,rate1,rate2,amount from CTC_SCHED where fees_code = '01' order by RANGE1, RANGE2"; //fees_code fixed to 01
+                    if (result.Execute())
+                    {
+                        while (result.Read())
+                        {
+                            dgvListOthers.Rows.Add(result.GetString("fees_code"), result.GetDouble("range1"), result.GetDouble("range2"), result.GetDouble("rate1"), result.GetDouble("rate2"), result.GetDouble("amount"));
+                        }
+                    }
+                    result.Close();
+                }
+
+                if (this.chkCTCCorp.Checked == true)
+                {
+                    result.Query = "select fees_code,range1,range2,rate1,rate2,amount from CTC_SCHED where fees_code = '02' order by RANGE1, RANGE2"; //fees_code fixed to 02
+                    if (result.Execute())
+                    {
+                        while (result.Read())
+                        {
+                            dgvListOthers.Rows.Add(result.GetString("fees_code"), result.GetDouble("range1"), result.GetDouble("range2"), result.GetDouble("rate1"), result.GetDouble("rate2"), result.GetDouble("amount"));
+                        }
+                    }
+                    result.Close();
+                }
+
             }
 
         }
@@ -600,6 +640,7 @@ namespace Amellar.Modules.Utilities
 
             }
             #endregion //peb 20191210(e)
+            
             else
             {
                 this.btnClose.Text = "&Cancel";
@@ -822,6 +863,13 @@ namespace Amellar.Modules.Utilities
                         this.btnClose.Text = "&Close";
                         this.btnEdit.Enabled = false;
                     }
+                }
+
+                if (this.chkCTC.Checked == true || this.chkCTCCorp.Checked == true)
+                {
+                    if ((dgvListOthers[3, e.RowIndex].Value ?? "").ToString() != "" || (dgvListOthers[4, e.RowIndex].Value ?? "").ToString() != "" || (dgvListOthers[5, e.RowIndex].Value ?? "").ToString() != "")
+                        dgvListOthers.Rows.Add("");
+                    return;
                 }
 
                 string strValue = string.Empty;
@@ -1229,11 +1277,16 @@ namespace Amellar.Modules.Utilities
                     if (MessageBox.Show("Save Schedule for Additional Charges?", "Other Charges", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         this.SaveAddlChrgs();
                 }
-                else
+                else if (chkFire.Checked == true)
                 {
                     if (MessageBox.Show("Save New Schedule for Fire Safety Inspection Fee?", "Other Charges", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         this.SaveCheckList();
 
+                }
+                else if (chkCTC.Checked == true || chkCTCCorp.Checked == true)
+                {
+                    if (MessageBox.Show("Save Schedule for CTC?", "Other Charges", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        this.SaveCTC();
                 }
                 
             }
@@ -1242,6 +1295,63 @@ namespace Amellar.Modules.Utilities
             btnEdit.Enabled = false;
           
             
+        }
+
+        private void SaveCTC() //AFM 20211206 requested other charges - CTC
+        {
+            OracleResultSet res = new OracleResultSet();
+            try
+            {
+                string sFeesCode = dgvListOthers[0, 0].Value.ToString();
+                double dRange1 = 0;
+                double dRange2 = 0;
+                double dRate1 = 0;
+                double dRate2 = 0;
+                double dAmt = 0;
+
+                if (string.IsNullOrEmpty(sFeesCode))
+                {
+                    if (chkCTC.Checked == true)
+                        sFeesCode = "01";
+                    else if (chkCTCCorp.Checked == true)
+                        sFeesCode = "02";
+                     
+                }
+                res.Query = "DELETE FROM CTC_SCHED WHERE FEES_CODE = '" + sFeesCode + "'";
+                if (res.ExecuteNonQuery() == 0)
+                { }
+
+                foreach (DataGridViewRow row in dgvListOthers.Rows)
+                {
+                    double.TryParse((row.Cells[1].Value ?? "").ToString(), out dRange1);
+                    double.TryParse((row.Cells[2].Value ?? "").ToString(), out dRange2);
+                    double.TryParse((row.Cells[3].Value ?? "").ToString(), out dRate1);
+                    double.TryParse((row.Cells[4].Value ?? "").ToString(), out dRate2);
+                    double.TryParse((row.Cells[5].Value ?? "").ToString(), out dAmt);
+
+                    if (dRange1 == 0 && dRange2 == 0 && dRate1 == 0 && dRate2 == 0 && dAmt == 0)
+                        break;
+                    res.Query = "INSERT INTO CTC_SCHED VALUES('" + sFeesCode + "', " + dRange1 + ", " + dRange2 + ", " + dRate1 + ", " + dRate2 + ", " + dAmt + ")";
+                    if (res.ExecuteNonQuery() == 0)
+                    { }
+                }
+
+                string strObj = dgvListOthers[0, 0].Value.ToString().Trim();
+
+                if (AuditTrail.InsertTrail("AUTCTC", "CTC/tax_and_fees_table", StringUtilities.HandleApostrophe(strObj)) == 0)
+                {
+                    res.Rollback();
+                    res.Close();
+                    MessageBox.Show(res.ErrorDescription, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+            }
+            catch 
+            {
+                MessageBox.Show("Incomplete data.", "Other Charges", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
         }
 
         private void SaveAddlChrgs()
@@ -1452,7 +1562,8 @@ namespace Amellar.Modules.Utilities
             if (this.chkAddl.CheckState.ToString() == "Checked")
             {
                 this.chkFire.Checked = false;
-                this.checkBox1.Checked = false;
+                this.chkCTCCorp.Checked = false;
+                this.chkCTC.Checked = false;
                 this.EnableControls();
                 this.LoadList();
             }
@@ -1470,7 +1581,8 @@ namespace Amellar.Modules.Utilities
             if (this.chkFire.CheckState.ToString() == "Checked")
             {
                 this.chkAddl.Checked = false;
-                this.checkBox1.Checked = false;
+                this.chkCTCCorp.Checked = false;
+                this.chkCTC.Checked = false;
                 this.EnableControls();
                 this.LoadList();
             }
@@ -2136,7 +2248,13 @@ namespace Amellar.Modules.Utilities
               // dgvListOthers.Enabled = true;
                btnEdit.Enabled =true;
                dgvListOthers.ReadOnly = false;
-                return;
+               if (this.chkCTC.Checked == true || this.chkCTCCorp.Checked == true)
+               {
+                   dgvListOthers.Rows.Add("");
+                   btned.Enabled = false;
+                   btnEdit.Enabled = true;
+               }
+               return;
             
         }
         private void txtMinFee_Enter(object sender, EventArgs e)
@@ -2155,17 +2273,42 @@ namespace Amellar.Modules.Utilities
             if (btnClose.Text == "&Cancel")
             {
                 MessageBox.Show("Finish transaction first", "Other Charges", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                this.checkBox1.Checked = false;
+                this.chkCTCCorp.Checked = false;
                 return;
             }
 
-            if (this.checkBox1.Checked == true)
+            if (this.chkCTC.Checked == true)
             {
                 this.chkFire.Checked = false;
+                this.chkCTCCorp.Checked = false;
                 this.chkAddl.Checked = false;
                 this.EnableControls();
                 this.LoadList();
             }
+        }
+
+        private void chkCTCCorp_CheckedChanged(object sender, EventArgs e)
+        {
+            if (btnClose.Text == "&Cancel")
+            {
+                MessageBox.Show("Finish transaction first", "Other Charges", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                this.chkCTCCorp.Checked = false;
+                return;
+            }
+
+            if (this.chkCTCCorp.Checked == true)
+            {
+                this.chkFire.Checked = false;
+                this.chkAddl.Checked = false;
+                this.chkCTC.Checked = false;
+                this.EnableControls();
+                this.LoadList();
+            }
+        }
+
+        private void chkFire_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
         
     }

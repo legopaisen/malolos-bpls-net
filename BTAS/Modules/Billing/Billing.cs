@@ -2916,6 +2916,64 @@ namespace Amellar.BPLS.Billing
             //MCR 20210708 (e)
             pCmd.Close();
             pSet.Close();
+
+            if (AppSettingsManager.GetConfigValue("77") == "Y") //AFM 20211207 configurable- display CTC in SOA
+            {
+                double dAmt = 0;
+                double dCapital = 0;
+                double dTotal = 0;
+                double dBnsGross = 0;
+
+                pSet.Query = "select * from ctc_sched where fees_code = '" + BillingForm.CTCFeesCode + "'";
+                if(pSet.Execute())
+                    while(pSet.Read())
+                    {
+                        double dGross1 = pSet.GetDouble("range1");
+                        double dGross2 = pSet.GetDouble("range2");
+                        double dRate1 = pSet.GetDouble("rate1");
+                        double dRate2 = pSet.GetDouble("rate2");
+                        dAmt = pSet.GetDouble("amount");
+
+                        if(BillingForm.Status == "NEW")
+                        {
+                            double.TryParse(BillingForm.Capital, out dCapital);
+                            if (dCapital >= dGross1 && dCapital <= dGross2)
+                            {
+                                if (dAmt == 0)
+                                    dTotal = dCapital * dRate1;
+                                else
+                                    dTotal = dAmt;
+                                break;
+                            }
+                            else
+                                continue;
+                        }
+                        if (BillingForm.Status == "REN")
+                        {
+                            double.TryParse(BillingForm.Gross, out dBnsGross);
+                            if (dBnsGross >= dGross1 && dCapital <= dGross2)
+                            {
+                                if (dAmt == 0)
+                                    dTotal = dCapital * dRate1;
+                                else
+                                    dTotal = dAmt;
+                                break;
+                            }
+                            else
+                                continue;
+                        }
+                    }
+                pSet.Close();
+
+                pSet.Query = "DELETE FROM CTC_TABLE WHERE BIN = '"+ BillingForm.BIN +"'";
+                if (pSet.ExecuteNonQuery() == 0)
+                { }
+
+                pSet.Query = "INSERT INTO CTC_TABLE VALUES('" + BillingForm.BIN + "','" + BillingForm.CTCFeesCode + "', " + dTotal + ")";
+                if (pSet.ExecuteNonQuery() == 0)
+                { }
+
+            }
         }
 
         private string GetSOARefNo(string sBin)

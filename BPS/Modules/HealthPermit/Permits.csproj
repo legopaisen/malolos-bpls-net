@@ -219,6 +219,10 @@
       <Project>{24B1B877-DAC2-44F1-9FFF-9D6FC6862DBB}</Project>
       <Name>AdditionalBusiness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusinessReports\BusinessReports.csproj">
+      <Project>{14990D2B-28AD-4859-B5D3-76DF11717908}</Project>
+      <Name>BusinessReports</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="AxVSPrinter7Lib">
@@ -245,6 +249,72 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-sumapangbata-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-stocristo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-mojon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-mabolo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-lugam-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-lugam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-look1st-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-look1st.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-ligas-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-ligas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-caniogan-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-caniogan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-caingin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-bulihan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-balite-sig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-balite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-atlag-signatory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-atlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-white.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blue-line - vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brgy-mabolo-sig.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

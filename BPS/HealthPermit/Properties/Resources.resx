@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Annual_Inspection_letter_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Annual Inspection-letter-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Annual_Inspection_letter_v2_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Annual Inspection-letter-v2-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BALANTACAN_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BALANTACAN_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BANGCAL_PUGAD_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BANGCAL_PUGAD_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BANGCAL_SINUBLI_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BANGCAL_SINUBLI_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blue.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CALANGAIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CALANGAIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CONCEPCION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CONCEPCION.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DEL_CARMEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DEL_CARMEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DELA_PAZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DELA_PAZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DON_IGNACIO_DIMSON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DON_IGNACIO_DIMSON.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eBALANTACAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eBALANTACAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eBANCAL_PUGAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eBANCAL_PUGAD.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eBANCAL_SINUBALI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eBANCAL_SINUBALI.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eCALANGAIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eCALANGAIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eCONCEPCION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eCONCEPCION.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eDEL_CARMEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eDEL_CARMEN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eDELA_PAZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eDELA_PAZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eDON_IGNACIO_DIMSON_DAU_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eDON_IGNACIO_DIMSON_DAU_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eLOURDES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eLOURDES.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ePRADO_SIONGCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ePRADO_SIONGCO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eREMEDIOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eREMEDIOS.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_AGUSTIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_AGUSTIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_ANTONIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_ANTONIO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_FRANCISCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_FRANCISCO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_JOSE_APUNAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_JOSE_APUNAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_JOSE_GUMI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_JOSE_GUMI.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_JUAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_JUAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_MATIAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_MATIAS.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_MIGUEL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_MIGUEL.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_NICOLAS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_NICOLAS1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_NICOLAS2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_NICOLAS2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_PABLO1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_PABLO1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_PABLO2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_PABLO2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_PEDRO_SAUG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_PEDRO_SAUG.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_PERDO_PALCARANGAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_PERDO_PALCARANGAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_RAFAEL_BARUYA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_RAFAEL_BARUYA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_ROQUE_ARBOL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_ROQUE_ARBOL.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_ROQUE_DAU" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_ROQUE_DAU.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_SAN_ISIDRO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_SAN ISIDRO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSAN_VICENTE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSAN_VICENTE.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSANTIAGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSANTIAGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_BARBARA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_BARBARA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_CATALINA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_CATALINA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_CRUZ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_CRUZ.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_LUCIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_LUCIA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_MARIA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_MARIA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_MONICA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_MONICA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_RITA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_RITA.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_TERESA_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_TERESA_01.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTA_TERESA_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTA_TERESA_02.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTO_CRISTO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTO_CRISTO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTO_DOMINGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTO_DOMINGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTO_NINO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTO_NINO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eSTO_TOMAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eSTO_TOMAS.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lineBOTTOM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lineBOTTOM.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lineDIAGONAL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lineDIAGONAL1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lineTOP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lineTOP.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOURDES" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOURDES.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lubaologo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lubaologo.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PRADO_SIONGCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PRADO_SIONGCO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="REMEDIOS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\REMEDIOS.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_AGUSTIN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_AGUSTIN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_ANTONIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_ANTONIO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="san_francisco_new_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\san francisco new logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_ISIDRO_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_ISIDRO_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_JOSE_APUNAN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_JOSE_APUNAN.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="san_jose_gumi_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\san_jose_gumi_logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_JUAN_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_JUAN_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="san_matias_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\san_matias_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_MIGUEL_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_MIGUEL_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_NICOLAS1_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_NICOLAS1_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_NICOLAS2_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_NICOLAS2_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_PABLO_1_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_PABLO_1_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_PABLO_2_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_PABLO_2_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_PEDRO_PALCARANGAN_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_PEDRO_PALCARANGAN_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_PEDRO_SAUG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_PEDRO_SAUG.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_RAFAEL_BARUYA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_RAFAEL_BARUYA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_ROQUE_ARBOL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_ROQUE_ARBOL.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_ROQUE_DAU_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_ROQUE_DAU_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SAN_VICENTE_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_VICENTE_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SANITARY_PERMIT_letter_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SANITARY PERMIT-letter-01.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SANITARY_PERMIT_letter_v3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SANITARY PERMIT-letter-v3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SANTIAGO_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SANTIAGO_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_BARBARA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_BARBARA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_CATALINA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_CATALINA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_CRUZ_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_CRUZ_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_LUCIA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_LUCIA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_MARIA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_MARIA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_MONICA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_MONICA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_RITA_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_RITA_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_TERESA_1ST_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA TERESA 1ST_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STA_TEREZA_2_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STA_TEREZA_2_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STO_CRISTO_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SAN_CRISTO_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STO_DOMINGO_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STO_DOMINGO_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STO_NINO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STO_NINO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="STO_TOMAS_LOGO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\STO_TOMAS_LOGO.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Untitled_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Untitled-1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
