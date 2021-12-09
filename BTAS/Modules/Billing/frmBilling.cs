@@ -781,7 +781,7 @@ namespace Amellar.BPLS.Billing
                     dtQtrValid = DateTime.Parse(sQtrValid);
 
                     OracleResultSet pSet = new OracleResultSet();
-                    pSet.Query = "select BO_SEND_BILLED_NOTIF('" + bin.GetBin() + "'," + dTotal + ",to_date('" + dtQtrValid.ToString("MM/dd/yyyy") + "','MM/dd/yyyy')) from dual";
+                    pSet.Query = "select BO_SEND_BILLED_NOTIF('" + bin.GetBin() + "',to_date('" + dtQtrValid.ToString("MM/dd/yyyy") + "','MM/dd/yyyy')) from dual"; //," + dTotal + "
                     if (pSet.Execute())
                     {
                         if (pSet.Read())

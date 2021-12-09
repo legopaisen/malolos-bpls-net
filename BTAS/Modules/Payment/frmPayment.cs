@@ -7436,14 +7436,14 @@ namespace Amellar.Modules.Payment
                                 pSet1.Query = string.Format("delete from tax_and_fees where bin = '{0}' and bns_code_main = '{1}'", m_sBIN, sBussCode);
                                 pSet1.ExecuteNonQuery();
 
-                                pSet1.Query = string.Format("update businesses set bns_code = '{0}' where bin ='{1}'", sBussCode, m_sBIN);  // RMC 20160119 changed pSet to pSet1
-                                pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
-                                pSet1.Query = string.Format("insert into addl_bns_hist (bin,bns_code_main,capital,gross,tax_year,bns_stat,qtr,prev_gross) select * from addl_bns where bin = '{0}' and tax_year = '{1}' and bns_code_main = '{2}'", m_sBIN, sAddlTY, sBussCode);    // RMC 20160119 changed pSet to pSet1
-                                pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
-                                pSet1.Query = string.Format("delete from addl_bns where bin = '{0}' and tax_year = '{1}' and bns_code_main = '{2}'", m_sBIN, sAddlTY, sBussCode);   // RMC 20160119 changed pSet to pSet1
-                                pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
-                                pSet1.Query = string.Format("delete from tax_and_fees where bin = '{0}' and bns_code_main = '{1}'", m_sBIN, sBussCode); // RMC 20160119 changed pSet to pSet1
-                                pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
+                                //pSet1.Query = string.Format("update businesses set bns_code = '{0}' where bin ='{1}'", sBussCode, m_sBIN);  // RMC 20160119 changed pSet to pSet1
+                                //pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
+                                //pSet1.Query = string.Format("insert into addl_bns_hist (bin,bns_code_main,capital,gross,tax_year,bns_stat,qtr,prev_gross) select * from addl_bns where bin = '{0}' and tax_year = '{1}' and bns_code_main = '{2}'", m_sBIN, sAddlTY, sBussCode);    // RMC 20160119 changed pSet to pSet1
+                                //pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
+                                //pSet1.Query = string.Format("delete from addl_bns where bin = '{0}' and tax_year = '{1}' and bns_code_main = '{2}'", m_sBIN, sAddlTY, sBussCode);   // RMC 20160119 changed pSet to pSet1
+                                //pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
+                                //pSet1.Query = string.Format("delete from tax_and_fees where bin = '{0}' and bns_code_main = '{1}'", m_sBIN, sBussCode); // RMC 20160119 changed pSet to pSet1
+                                //pSet1.ExecuteNonQuery();    // RMC 20160119 changed pSet to pSet1
 
                             }
                     }

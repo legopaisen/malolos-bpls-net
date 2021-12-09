@@ -60,10 +60,6 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AxInterop.VSPrinter7Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\dll\AxInterop.VSPrinter7Lib.dll</HintPath>
-    </Reference>
     <Reference Include="ComponentFactory.Krypton.Navigator, Version=2.8.5.0, Culture=neutral, PublicKeyToken=09b1fd14b47a78e6, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\dll\ComponentFactory.Krypton.Navigator.dll</HintPath>
