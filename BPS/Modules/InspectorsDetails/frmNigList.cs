@@ -32,8 +32,9 @@ namespace Amellar.Modules.InspectorsDetails
         private string m_sBinDivCollection = string.Empty; //AFM 20200114
         private string m_BinDivision = string.Empty;
         private string m_sDateInsp = string.Empty;
-        private string m_sSelectedDiv = string.Empty; //AFM 20200115
+        public string m_sSelectedDiv = string.Empty; //AFM 20200115
         BPLSAppSettingList sList = new BPLSAppSettingList();
+        public string m_sBin = string.Empty;
 
         private void frmNigList_Load(object sender, EventArgs e)
         {

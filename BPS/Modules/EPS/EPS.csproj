@@ -192,6 +192,10 @@
       <Project>{3510C616-DCE8-42F0-94E3-E457909D5381}</Project>
       <Name>ImageViewer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Common\LogIn\LogIn.csproj">
+      <Project>{1228A386-001F-4C3B-8A67-D473414930DE}</Project>
+      <Name>LogIn</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Common\Reports\Reports.csproj">
       <Project>{2EBDE3CD-F448-4758-A3A2-1436BB218FAE}</Project>
       <Name>Reports</Name>

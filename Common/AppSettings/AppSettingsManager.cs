@@ -87,6 +87,36 @@ namespace Amellar.Common.AppSettings
             return false;
         }
 
+        public static void InsertApplication(string sBIN, string sTaxYear)
+        {
+            OracleResultSet pSet = new OracleResultSet();
+            int iAppNo = 0;
+            int iRecCnt = 0;
+
+            pSet.Query = "select count(*) from app_permit_tmp where bin = '" + sBIN + "' and tax_year = '" + sTaxYear + "'";
+            int.TryParse(pSet.ExecuteScalar(), out iRecCnt);
+
+            if (iRecCnt == 0)
+            {
+                pSet.Query = "select app_permit_tmp_NO_SEQ.nextval as app_no from dual";
+                if (pSet.Execute())
+                {
+                    if (pSet.Read())
+                    {
+                        iAppNo = pSet.GetInt("app_no");
+                    }
+                }
+                pSet.Close();
+
+                pSet.Query = "insert into app_permit_tmp values (";
+                pSet.Query += " " + iAppNo + ", ";
+                pSet.Query += "'" + sBIN + "', ";
+                pSet.Query += "'" + sTaxYear + "')";
+                pSet.ExecuteNonQuery();
+            }
+
+        }
+
         // MCR20140721 (s)
         public static bool OnCheckIfDiscounted(String p_sCurrentDate)
         {
@@ -133,6 +163,57 @@ namespace Amellar.Common.AppSettings
                     return false;
             }
         }
+
+        public static string GetViolation(string sDivision, string sCode)
+        {
+            OracleResultSet pSet = new OracleResultSet();
+            string sViolation = string.Empty;
+
+            pSet.Query = "select * from nigvio_tbl where division_code = '" + sDivision + "' and violation_code = '" + sCode + "'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sViolation = pSet.GetString("violation_desc");
+                }
+            }
+            pSet.Close();
+
+            return sViolation;
+        }
+
+        public static string GetViolation(string sDivision, string sBIN, string sNull)
+        {
+            OracleResultSet pSet = new OracleResultSet();
+            string sViolation = string.Empty;
+            string sViolationCode = string.Empty;
+
+            pSet.Query = "select * from nigvio_list where bin = '" + sBIN + "' and division_code = '" + sDivision + "' order by violation_code";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sViolationCode = pSet.GetString("violation_code");
+                }
+            }
+            pSet.Close();
+
+            if (!string.IsNullOrEmpty(sViolationCode))
+            {
+                pSet.Query = "select * from nigvio_tbl where division_code = '" + sDivision + "' and violation_code = '" + sViolationCode + "'";
+                if (pSet.Execute())
+                {
+                    if (pSet.Read())
+                    {
+                        sViolation = pSet.GetString("violation_desc");
+                    }
+                }
+                pSet.Close();
+            }
+
+            return sViolation;
+        }
+
 
         public static bool IsUnderTreasModule(String p_sBin)
         {
@@ -785,6 +866,20 @@ namespace Amellar.Common.AppSettings
                 result.Query = string.Format("update config set object = '{0}' where code = '12'", sTmpSysYear);
                 if (result.ExecuteNonQuery() == 0)
                 { }
+
+                result.Query = "drop sequence APP_PERMIT_TMP_NO_SEQ";
+                if (result.ExecuteNonQuery() == 0)
+                { }
+
+                result.Query = @"create sequence APP_PERMIT_TMP_NO_SEQ
+                                minvalue 0
+                                maxvalue 999999999999999999999999999
+                                start with 1
+                                increment by 1
+                                nocache";
+                if (result.ExecuteNonQuery() == 0)
+                { }
+
             }
             // RMC 20110725 Added initialization of serials on change of system Year (e)
 

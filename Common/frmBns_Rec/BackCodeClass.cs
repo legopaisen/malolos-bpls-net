@@ -1881,6 +1881,11 @@ namespace Amellar.Common.frmBns_Rec
                 //}
                 //MCR 20150114 (e)
 
+                if (pageCheck.m_sFormStatus == "SPL-APP") // special permit will not go to other offices approval
+                { }
+                else
+                    AppSettingsManager.InsertApplication(m_sBin, AppSettingsManager.GetSystemDate().Year.ToString()); 
+
                 UpdateOtherInfoBin(m_sBin, pageCheck.m_strTempBIN); // RMC 20150117
                 SaveUpdateBns(m_sBin, pageCheck.m_sFormStatus);
                 //UpdateOtherInfoBin(m_sBin, pageCheck.m_strTempBIN);   // RMC 20150117
@@ -1969,6 +1974,8 @@ namespace Amellar.Common.frmBns_Rec
                 pSet1.ExecuteNonQuery();
                 //}
                 //MCR 20150114 (e)
+
+                AppSettingsManager.InsertApplication(sBin, AppSettingsManager.GetSystemDate().Year.ToString()); //OTHER OFFICES
 
                 SaveUpdateBns(sBin, pageCheck.m_sFormStatus);
                 UpdateBusinessMapping(sBin);
@@ -2903,6 +2910,18 @@ namespace Amellar.Common.frmBns_Rec
                 pSet.Close();
 
             }
+
+            // ADD VALIDATION IN OTHER OFFICE APPROVAL
+            pSet.Query = string.Format("select * from trans_approve where bin = '{0}' and tax_year = '{1}'", strBin, strYear);
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    if (MessageBox.Show("This business record is already been approved in other offices.\nContinue cancellation?", "Business Records", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                        return;
+                }
+            }
+            pSet.Close();
 
             pSet.Query = string.Format("delete from business_que where bin = '{0}' and tax_year = '{1}'", strBin, strYear);
             if (pSet.ExecuteNonQuery() == 0)

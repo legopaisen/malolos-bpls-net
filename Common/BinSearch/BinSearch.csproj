@@ -89,6 +89,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BPS\Modules\HealthPermit\Permits.csproj">
+      <Project>{19778AF7-8E5C-4249-80BD-B2A28CA9D8C6}</Project>
+      <Name>Permits</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AppSettings\AppSettings.csproj">
       <Project>{889D88F6-1668-418F-969A-6466670138B6}</Project>
       <Name>AppSettings</Name>

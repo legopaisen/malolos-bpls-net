@@ -3343,6 +3343,25 @@ namespace Amellar.BPLS.Billing
                     return false;
                 }
 
+                //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (S)
+                OracleResultSet pSet = new OracleResultSet();
+
+                pSet.Query = "delete from trans_approve where bin = '" + BillingForm.BIN + "'";
+                pSet.Query += " and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                pSet.Query += " and office_nm = 'BPLO'";
+                if (pSet.ExecuteNonQuery() == 0)
+                { }
+
+                pSet.Query = "insert into trans_approve values (";
+                pSet.Query += "'" + BillingForm.BIN + "', ";
+                pSet.Query += "'" + ConfigurationAttributes.CurrentYear + "',";
+                pSet.Query += "'BPLO', ";
+                pSet.Query += "'" + AppSettingsManager.SystemUser.UserCode + "', ";
+                pSet.Query += "to_date('" + AppSettingsManager.GetCurrentDate().ToShortDateString() + "','MM/dd/yyyy'))";
+                if (pSet.ExecuteNonQuery() == 0)
+                { }
+                //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (E)
+
                 // (e) ALJ 20111227 save to for SOA Printing
 
                 /* // ALJ 20111227 save to for SOA Printing -- Put remarks, created function in appsetting

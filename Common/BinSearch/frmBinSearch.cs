@@ -22,6 +22,7 @@ using Amellar.Common.ImageViewer;
 using Amellar.Common.frmBns_Rec;
 using Amellar.Common.AuditTrail;
 using Amellar.Common.DataConnector;
+using Amellar.Modules.HealthPermit;
 
 namespace Amellar.Common.BinSearch
 {
@@ -64,6 +65,12 @@ namespace Amellar.Common.BinSearch
             {
                 kryptonHeader1.Text = "Application Form";
                 btnBnsInfo.Text = "Print form";
+            }
+            else if (m_strModule == "APP-TRAIL")
+            {
+                btnBnsInfo.Text = "Approval Trail";
+                btn_viewPermit.Enabled = false;
+                btnViewDocu.Enabled = false;
             }
             else
             {
@@ -190,6 +197,16 @@ namespace Amellar.Common.BinSearch
                 PrintAppForm.ShowDialog();
             }
             //JARS 20170320
+            else if (m_strModule == "APP-TRAIL")
+            {
+                frmPrinting listform = new frmPrinting();
+                listform.ReportType = "ApprovalTrail";
+                listform.BIN = bin1.GetBin();
+                listform.TaxYear = ConfigurationAttributes.CurrentYear;
+                listform.BnsName = AppSettingsManager.GetBnsName(bin1.GetBin());
+                listform.BnsAdd = AppSettingsManager.GetBnsAddress(bin1.GetBin());
+                listform.ShowDialog();
+            }
             else
             {
                 ReportClass rClass = new ReportClass();
@@ -651,6 +668,5 @@ namespace Amellar.Common.BinSearch
               
             }
         }
-        
     }
 }

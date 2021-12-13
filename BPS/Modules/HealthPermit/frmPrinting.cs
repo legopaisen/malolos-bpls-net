@@ -19,6 +19,8 @@ namespace Amellar.Modules.HealthPermit
             InitializeComponent();
         }
 
+        public DataTable dt = new DataTable();
+
         private string m_sIssuedDate = String.Empty;
         public string IssuedDate
         {
@@ -117,6 +119,14 @@ namespace Amellar.Modules.HealthPermit
             set { m_timeIN = value; }
         }
 
+        private string m_sOffice = string.Empty;
+        public string Office
+        {
+            set { m_sOffice = value; }
+        }
+
+        private string m_sEngRemarks = string.Empty;
+
         private void frmPrinting_Load(object sender, EventArgs e)
         {
             axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLetter;
@@ -171,7 +181,76 @@ namespace Amellar.Modules.HealthPermit
                 Barangay_Certificate_new();
             }
 
+            else if (m_sReportType == "ApprovalTrail")
+            {
+                axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLetter;
+                axVSPrinter1.Orientation = VSPrinter7Lib.OrientationSettings.orPortrait; 
+                this.Text = "Approval Trail";
+                axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paStartDoc;
+                axVSPrinter1.MarginLeft = 500;
+                axVSPrinter1.FontName = "Arial";
+                axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+                ApprovalTrail();
+            }
+            else if (m_sReportType == "ListApproved")
+            {
+                axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLetter;
+                axVSPrinter1.Orientation = VSPrinter7Lib.OrientationSettings.orPortrait; 
+                this.Text = "List of Approved";
+                axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paStartDoc;
+                axVSPrinter1.MarginLeft = 500;
+                axVSPrinter1.FontName = "Arial";
+                axVSPrinter1.FontSize = 10;
+                axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+                ListApproved();
+            }
+
+            else if (m_sReportType == "PrintList")
+            {
+                axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLegal;
+                axVSPrinter1.Orientation = VSPrinter7Lib.OrientationSettings.orLandscape; 
+                this.Text = "Approval Trail";
+                axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paStartDoc;
+                axVSPrinter1.MarginLeft = 500;
+                axVSPrinter1.FontName = "Arial";
+                axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+                PrintApprovalList();
+            }
+
             axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paEndDoc;
+        }
+
+        private void PrintApprovalList()
+        {
+            string sValue = string.Empty;
+            int iCnt = 0;
+            axVSPrinter1.FontSize = 10;
+
+            axVSPrinter1.Paragraph = "For Approval List";
+            axVSPrinter1.Paragraph = "As of " + AppSettingsManager.GetCurrentDate().ToString("MMMM dd, yyyy");
+            axVSPrinter1.Paragraph = "Office: " + m_sOffice;
+            axVSPrinter1.Paragraph = "";
+
+            sValue = "Seq|Violation|BIN|Business Name|Tax Year|Last Name|First Name|M.I.|Business Address|Bns Stat|Area|Lessor";
+            this.axVSPrinter1.Table = string.Format("^500|^2000|^1500|^2000|^700|^1000|^1000|^1000|^2000|^1000|^700|^1500;{0}", sValue);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                sValue = "";
+                iCnt++;
+                for (int j = 0; j < dt.Columns.Count; j++)
+                {
+                    if (!string.IsNullOrEmpty(sValue))
+                        sValue += "|";
+                    sValue += dt.Rows[i].ItemArray[j].ToString();
+
+                }
+
+                this.axVSPrinter1.Table = string.Format("<500|<2000|<1500|<2000|<700|<1000|<1000|<1000|<2000|<1000|<700|<1500;{0}", sValue);
+            }
+
+            axVSPrinter1.Table = string.Format("<10000; ");
+            axVSPrinter1.Table = string.Format("<10000;Total Records: {0}", iCnt.ToString("#,###"));
         }
 
         private void Barangay_Certificate_new() //AFM 20211207 barangay clearance
@@ -1730,6 +1809,281 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
 
             pSet.Close();
             return true;
+        }
+
+        private void ApprovalTrail()
+        {
+            OracleResultSet pSet = new OracleResultSet();
+            string sAppBy = string.Empty;
+            string sAppDate = string.Empty;
+            string sObject = string.Empty;
+            string sFormat = string.Empty;
+
+            axVSPrinter1.FontSize = 10;
+
+            axVSPrinter1.Paragraph = "Approval Trail";
+            axVSPrinter1.Paragraph = "As of " + AppSettingsManager.GetCurrentDate().ToString("MMMM dd, yyyy");
+            axVSPrinter1.Paragraph = "";
+
+            sFormat = "<2000|<3000|<1500|<2000;";
+            sObject = "BIN:|" + m_sBin + "|Tax Year:|" + m_sTaxYear;
+            axVSPrinter1.Table = sFormat + sObject;
+            sFormat = "<2700|<7000;";
+            sObject = "Business Name:|" + m_sBnsName;
+            axVSPrinter1.Table = sFormat + sObject;
+            sObject = "Business Address:|" + m_sBnsAdd;
+            axVSPrinter1.Table = sFormat + sObject;
+
+            axVSPrinter1.Paragraph = "";
+
+            sFormat = "^2000|^2000|^2000|^2000";
+            sObject = "ENGINEERING|PLANNING|HEALTH|CENRO";
+            if (m_sBnsAdd.Contains("MARKET"))
+            {
+                sFormat += "|^2000;";
+                sObject += "|MARKET";
+            }
+            else
+                sFormat += ";";
+            axVSPrinter1.Table = sFormat + sObject;
+            axVSPrinter1.Paragraph = "";
+
+            sObject = "";
+            pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
+            pSet.Query += " and office_nm = 'ENGINEERING'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sAppBy = AppSettingsManager.GetUserName(pSet.GetString("app_by"));
+                    sAppDate = string.Format("{0:MM/dd/yyyy}", pSet.GetDateTime("app_dt").ToShortDateString());
+                }
+                else
+                {
+                    if (CheckIfDisapproved(m_sBin, "ENGINEERING", m_sTaxYear))
+                    {
+                        sAppBy = "DISAPPROVED";
+                        sAppBy += "\nRemarks: " + m_sEngRemarks;
+                    }
+                }
+            }
+            pSet.Close();
+
+            if (!string.IsNullOrEmpty(sAppBy))
+                sObject = sAppBy + " " + sAppDate;
+
+            sAppBy = ""; sAppDate = "";
+            pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
+            pSet.Query += " and office_nm = 'PLANNING'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sAppBy = AppSettingsManager.GetUserName(pSet.GetString("app_by"));
+                    sAppDate = string.Format("{0:MM/dd/yyyy}", pSet.GetDateTime("app_dt").ToShortDateString());
+                }
+                else
+                {
+                    if (CheckIfDisapproved(m_sBin, "PLANNING", m_sTaxYear))
+                        sAppBy = "DISAPPROVED";
+                }
+            }
+            pSet.Close();
+
+            if (!string.IsNullOrEmpty(sAppBy))
+                sObject += "|" + sAppBy + " " + sAppDate;
+            else
+                sObject += "|";
+
+
+            sAppBy = ""; sAppDate = "";
+            pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
+            pSet.Query += " and office_nm = 'HEALTH'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sAppBy = AppSettingsManager.GetUserName(pSet.GetString("app_by"));
+                    sAppDate = string.Format("{0:MM/dd/yyyy}", pSet.GetDateTime("app_dt").ToShortDateString());
+                }
+                else
+                {
+                    if (CheckIfDisapproved(m_sBin, "HEALTH", m_sTaxYear))
+                        sAppBy = "DISAPPROVED";
+                }
+            }
+            pSet.Close();
+
+            if (!string.IsNullOrEmpty(sAppBy))
+                sObject += "|" + sAppBy + " " + sAppDate;
+            else
+                sObject += "|";
+
+            sAppBy = ""; sAppDate = "";
+            pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
+            pSet.Query += " and office_nm = 'CENRO'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    sAppBy = AppSettingsManager.GetUserName(pSet.GetString("app_by"));
+                    sAppDate = string.Format("{0:MM/dd/yyyy}", pSet.GetDateTime("app_dt").ToShortDateString());
+                }
+                else
+                {
+                    if (CheckIfDisapproved(m_sBin, "CENRO", m_sTaxYear))
+                        sAppBy = "DISAPPROVED";
+                }
+            }
+            pSet.Close();
+
+            if (!string.IsNullOrEmpty(sAppBy))
+                sObject += "|" + sAppBy + " " + sAppDate;
+            else
+                sObject += "|";
+
+            if (m_sBnsAdd.Contains("MARKET"))
+            {
+                sAppBy = ""; sAppDate = "";
+                pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
+                pSet.Query += " and office_nm = 'MARKET'";
+                if (pSet.Execute())
+                {
+                    if (pSet.Read())
+                    {
+                        sAppBy = AppSettingsManager.GetUserName(pSet.GetString("app_by"));
+                        sAppDate = string.Format("{0:MM/dd/yyyy}", pSet.GetDateTime("app_dt").ToShortDateString());
+                    }
+                    else
+                    {
+                        if (CheckIfDisapproved(m_sBin, "MARKET", m_sTaxYear))
+                            sAppBy = "DISAPPROVED";
+                    }
+                }
+                pSet.Close();
+
+                if (!string.IsNullOrEmpty(sAppBy))
+                    sObject += "|" + sAppBy + " " + sAppDate;
+                else
+                    sObject += "|";
+            }
+
+            sFormat = "<2000|<2000|<2000|<2000";
+            if (m_sBnsAdd.Contains("MARKET"))
+            {
+                sFormat += "|<2000;";
+            }
+            else
+                sFormat += ";";
+            axVSPrinter1.Table = sFormat + sObject;
+
+        }
+
+        private void ListApproved()
+        {
+            OracleResultSet pRec = new OracleResultSet();
+            string sObject = string.Empty;
+            string sFormat = string.Empty;
+            string sBIN = string.Empty;
+            string sAppBy = string.Empty;
+            string sAppDt = string.Empty;
+
+            axVSPrinter1.Paragraph = "List of Approved in " + m_sOffice;
+            axVSPrinter1.Paragraph = "As of " + AppSettingsManager.GetCurrentDate().ToString("MMMM dd, yyyy");
+            axVSPrinter1.Paragraph = "";
+
+            if (m_sOffice == "ENGINEERING")
+            {
+                sFormat = "^2000|^3500|^2000|^1500|^1200;";
+                sObject = "BIN|Business Name|Approved By|Approved Date|Assessment";
+
+                axVSPrinter1.Table = sFormat + sObject;
+                axVSPrinter1.Paragraph = "";
+
+                sFormat = "<500|<2000|<3500|<2000|<1500|>1200;";
+            }
+            else
+            {
+                sFormat = "^2000|^4000|^2500|^1500;";
+                sObject = "BIN|Business Name|Approved By|Approved Date";
+
+                axVSPrinter1.Table = sFormat + sObject;
+                axVSPrinter1.Paragraph = "";
+
+                sFormat = "<500|<2000|<4000|<2500|<1500;";
+            }
+            int iCnt = 0;
+            OracleResultSet result = new OracleResultSet();
+
+            pRec.Query = "select * from trans_approve where office_nm = '" + m_sOffice + "' and tax_year = '" + ConfigurationAttributes.CurrentYear + "' order by app_dt, bin";
+            if (pRec.Execute())
+            {
+                while (pRec.Read())
+                {
+                    iCnt++;
+                    sBIN = pRec.GetString("bin");
+                    sAppBy = AppSettingsManager.GetUserName(pRec.GetString("app_by"));
+                    sAppDt = string.Format("{0:MM/dd/yyyy}", pRec.GetDateTime("app_dt").ToShortDateString());
+
+                    if (m_sOffice == "ENGINEERING")
+                    {
+                        double dAssess = 0;
+                        result.Query = "select * from eps_assess_app where bin = '" + sBIN + "' and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                        if (result.Execute())
+                        {
+                            if (result.Read())
+                            {
+                                dAssess = result.GetDouble("annual_fee");
+                            }
+                        }
+                        result.Close();
+
+                        sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + sAppBy + "|" + sAppDt + "|" + dAssess.ToString("#,###.00");
+                    }
+                    else
+                    {
+                        sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + sAppBy + "|" + sAppDt;
+                    }
+                    axVSPrinter1.Table = sFormat + sObject;
+                }
+            }
+            pRec.Close();
+
+        }
+
+
+        private bool CheckIfDisapproved(string sBIN, string sOffice, string sTaxYear)
+        {
+            OracleResultSet pSet = new OracleResultSet();
+            int iCnt = 0;
+            m_sEngRemarks = "";
+
+            if (sOffice == "ENGINEERING")
+            {
+                pSet.Query = "select * from eps_assess_app where bin = '" + sBIN + "' and tax_year = '" + sTaxYear + "' and app_stat = '3'";
+                if (pSet.Execute())
+                {
+                    if (pSet.Read())
+                    {
+                        m_sEngRemarks = pSet.GetString("remarks");
+                        iCnt++;
+                    }
+                }
+                pSet.Close();
+
+
+            }
+            else
+            {
+                pSet.Query = "select count(*) from TRANS_APPROVE_HIST where bin = '" + sBIN + "' and office_nm = '" + sOffice + "' and tax_year = '" + sTaxYear + "' and remarks = 'DISAPPROVED'";
+                int.TryParse(pSet.ExecuteScalar(), out iCnt);
+            }
+
+            if (iCnt > 0)
+                return true;
+            else
+                return false;
+
         }
 
         

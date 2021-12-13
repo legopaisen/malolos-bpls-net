@@ -284,6 +284,26 @@ namespace Amellar.BPLS.Billing
                     // RMC 20120117 delete record in gross_monitoring when billing was cancelled (e)
 
 
+                    //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (S)
+                    pSet.Query = string.Format("insert into TRANS_APPROVE_HIST (select a.*, '{0}' from trans_approve a where bin = '{1}' and tax_year >= '{2}' and office_nm = '{3}')", "CANCEL-BILL", strBin, strYear, "BPLO");
+                    if (pSet.ExecuteNonQuery() == 0)
+                    {
+                    }
+
+                    pSet.Query = "delete from trans_approve where bin = '" + strBin + "' and office_nm = 'BPLO'";
+                    pSet.Query += " and tax_year >= '" + strYear + "'";
+                    if (pSet.ExecuteNonQuery() == 0)
+                    { }
+
+                    pSet.Query = "delete from trans_approve where bin = '" + strBin + "'";
+                    pSet.Query += " and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                    pSet.Query += " and office_nm = 'BPLO'";
+                    if (pSet.ExecuteNonQuery() == 0)
+                    {
+                    }
+                    //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (E)
+
+
                     // RMC 20160517 additional clean-up in cancel billing (s)
                     OracleResultSet pTmp = new OracleResultSet();
                     string sTmpTaxYear = string.Empty;

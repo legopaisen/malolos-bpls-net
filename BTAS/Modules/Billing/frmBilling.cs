@@ -1390,6 +1390,25 @@ namespace Amellar.BPLS.Billing
                         fSOA.m_dTransLogIn = m_dTransLogIn; // RMC 20170822 added transaction log feature for tracking of transactions per bin
                         fSOA.ShowDialog();
 
+                        //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (S)
+                        OracleResultSet pSet = new OracleResultSet();
+
+                        pSet.Query = "delete from trans_approve where bin = '" + bin.GetBin() + "'";
+                        pSet.Query += " and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                        pSet.Query += " and office_nm = 'BPLO'";
+                        if (pSet.ExecuteNonQuery() == 0)
+                        { }
+
+                        pSet.Query = "insert into trans_approve values (";
+                        pSet.Query += "'" + bin.GetBin() + "', ";
+                        pSet.Query += "'" + ConfigurationAttributes.CurrentYear + "',";
+                        pSet.Query += "'BPLO', ";
+                        pSet.Query += "'" + AppSettingsManager.SystemUser.UserCode + "', ";
+                        pSet.Query += "to_date('" + AppSettingsManager.GetCurrentDate().ToShortDateString() + "','MM/dd/yyyy'))";
+                        if (pSet.ExecuteNonQuery() == 0)
+                        { }
+                        //AFM 20211213 MAO-21-16149	MERGED FROM SANTIAGO (E)
+
                         // RMC 20161215 reset billing after printing of SOA (s)
                         ClearControls();    
                         btnSearch.Text = "&Search";
@@ -2069,6 +2088,127 @@ namespace Amellar.BPLS.Billing
                 chkCTCCorp.Checked = false;
                 m_sCTCCode = "01";
             }
+        }
+
+        private bool ValidateApprovalOtherOffices() //AFM 20211213 MAO-21-16149 MERGED FROM SANTIAGO
+        {
+            // RMC 20201208 Added validation in Billing if BIN was approved in other offices
+            OracleResultSet pSet = new OracleResultSet();
+            bool bMarket = false;
+            string sOffice = string.Empty;
+            bool bContinue = true;
+
+            if (AppSettingsManager.GetConfigValue("80") == "N")
+                return true;
+
+            if (this.SourceClass == "CancelBilling")
+                return true;
+
+            if (this.SourceClass == "RevExam")
+                return true;
+
+            if (this.SourceClass == "RetirementBilling")
+                return true;
+
+            bool bSplBns = false;
+            pSet.Query = "select * from spl_business_que where bin = '" + bin.GetBin() + "'";// and tax_year = '" + txtTaxYear.Text + "'";
+            pSet.Query += " union ";
+            pSet.Query += " select * from spl_businesses where bin = '" + bin.GetBin() + "'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                    return true;
+            }
+            pSet.Close();
+
+            pSet.Query = "select * from business_que where bin = '" + bin.GetBin() + "' and tax_year = '" + txtTaxYear.Text + "'";
+            pSet.Query += " and bns_street like '%MARKET%'";
+            if (pSet.Execute())
+            {
+                if (pSet.Read())
+                {
+                    bMarket = true;
+                }
+            }
+            pSet.Close();
+
+            sOffice = "office_nm = 'ENGINEERING' or office_nm = 'HEALTH' or office_nm = 'ZONING' or office_nm = 'CENRO'";
+            if (bMarket)
+                sOffice += " or office_nm = 'MARKET'";
+
+            pSet.Query = "select * from trans_approve where bin = '" + bin.GetBin() + "' and tax_year >= '" + txtTaxYear.Text + "'";
+            pSet.Query += " and office_nm = 'ENGINEERING'";
+            if (pSet.Execute())
+            {
+                if (!pSet.Read())
+                {
+                    MessageBox.Show("Approval in other offices not yet complete.\nBilling not allowed.", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
+            }
+            pSet.Close();
+
+
+            pSet.Query = "select * from trans_approve where bin = '" + bin.GetBin() + "' and tax_year >= '" + txtTaxYear.Text + "'";
+            pSet.Query += " and office_nm = 'HEALTH'";
+            if (pSet.Execute())
+            {
+                if (!pSet.Read())
+                {
+                    if (AppSettingsManager.GetConfigObject("87") == "Y")    // RMC 20210217 added override of CHO approval. Requested by sir Henry due to lockdown in CHO
+                    {
+                    }
+                    else
+                    {
+                        MessageBox.Show("Approval in other offices not yet complete.\nBilling not allowed.", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return false;
+                    }
+                }
+            }
+            pSet.Close();
+
+
+            pSet.Query = "select * from trans_approve where bin = '" + bin.GetBin() + "' and tax_year >= '" + txtTaxYear.Text + "'";
+            pSet.Query += " and office_nm = 'PLANNING'";
+            if (pSet.Execute())
+            {
+                if (!pSet.Read())
+                {
+                    MessageBox.Show("Approval in other offices not yet complete.\nBilling not allowed.", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
+            }
+            pSet.Close();
+
+            pSet.Query = "select * from trans_approve where bin = '" + bin.GetBin() + "' and tax_year >= '" + txtTaxYear.Text + "'";
+            pSet.Query += " and office_nm = 'CENRO'";
+            if (pSet.Execute())
+            {
+                if (!pSet.Read())
+                {
+                    MessageBox.Show("Approval in other offices not yet complete.\nBilling not allowed.", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    return false;
+                }
+            }
+            pSet.Close();
+
+            if (bMarket)
+            {
+                pSet.Query = "select * from trans_approve where bin = '" + bin.GetBin() + "' and tax_year >= '" + txtTaxYear.Text + "'";
+                pSet.Query += " and office_nm = 'MARKET'";
+                if (pSet.Execute())
+                {
+                    if (!pSet.Read())
+                    {
+                        MessageBox.Show("Approval in other offices not yet complete.\nBilling not allowed.", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        return false;
+                    }
+                }
+                pSet.Close();
+            }
+
+
+            return true;
         }
 
     }

@@ -13,6 +13,7 @@ using Amellar.Common.AppSettings;
 using Amellar.Common.AuditTrail;
 using Amellar.Modules.PaymentHistory;
 using Amellar.Modules.BusinessReports;
+using Amellar.Common.LogIn;
 
 namespace Amellar.Modules.EPS
 {
@@ -23,7 +24,21 @@ namespace Amellar.Modules.EPS
         private string m_bnStat = string.Empty;
         private bool m_blnIsPaid = false;
         private string m_sBin = string.Empty;
+        private string m_sOffice = string.Empty;
+        public DateTime m_dTransLogIn = AppSettingsManager.GetSystemDate();
         int iRow = 0;
+
+        public string Office
+        {
+            get { return m_sOffice; }
+            set { m_sOffice = value; }
+        }
+
+        public string BIN
+        {
+            get { return m_sBin; }
+            set { m_sBin = value; }
+        }
 
         public frmEPS()
         {
@@ -32,11 +47,15 @@ namespace Amellar.Modules.EPS
 
         private void frmEPS_Load(object sender, EventArgs e)
         {
-            btnPrintTrail.Visible = false; //AFM temporarily hidden; no rms received yet as of 20211006
             bin1.GetLGUCode = ConfigurationAttributes.LGUCode;
             bin1.GetDistCode = ConfigurationAttributes.DistCode;
+            bin1.GetTaxYear = m_sBin.Substring(7, 4);
+            bin1.GetBINSeries = m_sBin.Substring(12, 7);
             m_strModule = "BILLING";
             DatagridStruct();
+
+            btnSearch_Click(sender, e);
+            btnSearch.Visible = false;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -522,6 +541,42 @@ namespace Amellar.Modules.EPS
 
                     result2.Query = string.Format("insert into eps_assess_app_remarks values('{0}','{1}','{2}')", sBns, dgInspectionFee.Rows[j].Cells[0].Value, sRemarks); //AFM 20200102
                     result2.ExecuteNonQuery();
+                }
+
+                if (rdoApprove.Checked == true || rdoPennding.Checked == true)
+                {
+                    frmLogIn fLog = new frmLogIn();
+                    fLog.sFormState = "LOGIN";
+                    fLog.Text = "Approving Officer";
+                    fLog.m_sUserCode = AppSettingsManager.SystemUser.UserCode;
+                    fLog.ShowDialog();
+
+                    if (fLog.m_objSystemUser.UserCode != string.Empty)
+                    {
+                        result.Query = "delete from trans_approve where bin = '" + BIN + "'";
+                        result.Query += " and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                        result.Query += " and office_nm = '" + m_sOffice + "'";
+                        if (result.ExecuteNonQuery() == 0)
+                        { }
+
+                        if (!string.IsNullOrEmpty(BIN))
+                        {
+                            result.Query = "insert into trans_approve values (";
+                            result.Query += "'" + BIN + "', ";
+                            result.Query += "'" + ConfigurationAttributes.CurrentYear + "',";
+                            result.Query += "'" + m_sOffice + "', ";
+                            result.Query += "'" + AppSettingsManager.SystemUser.UserCode + "', ";
+                            result.Query += "to_date('" + AppSettingsManager.GetCurrentDate().ToShortDateString() + "','MM/dd/yyyy'))";
+                            if (result.ExecuteNonQuery() == 0)
+                            { }
+
+                        }
+                    }
+                    else
+                    {
+                        if (MessageBox.Show("Record not approved in this office.\nContinue?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                            return;
+                    }
                 }
             }
             catch

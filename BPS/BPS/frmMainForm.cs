@@ -344,7 +344,7 @@ namespace BPLSBilling
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (s)
                  if (sUsrDiv == "ENGINEERING" || sUsrDiv == "ZONING" || sUsrDiv == "SANITARY" ||
-                  sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "SANITARY" || sUsrDiv == "MAPUMA")
+                  sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "SANITARY" || sUsrDiv == "MAPUMA" || sUsrDiv == "HEALTH" || sUsrDiv == "MARKET")
                 {
                     tabRecords.Visible = false;
                     tabApplication.Visible = false;
@@ -359,6 +359,9 @@ namespace BPLSBilling
                         tabZoning.Visible = true;
                         tabSanitary.Visible = true; //AFM 20200107
                         tabApplication.Visible = true; //AFM 20200108
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                        tabCenro.Visible = false;
                     }
                     else
                     {
@@ -366,6 +369,33 @@ namespace BPLSBilling
                         tabZoning.Visible = false;
                         tabSanitary.Visible = false; //AFM 20200107
                     }
+
+                    if (sUsrDiv == "CENRO")
+                    {
+                        tabCenro.Visible = true;
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                    }
+                    else if(sUsrDiv == "HEALTH")
+                    {
+                        tabCenro.Visible = false;
+                        tabHealth.Visible = true;
+                        tabMarket.Visible = false;
+                    }
+                    else if (sUsrDiv == "MARKET")
+                    {
+                        tabCenro.Visible = false;
+                        tabMarket.Visible = true;
+                        tabHealth.Visible = false;
+                    }
+                    else
+                    {
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                        tabCenro.Visible = false;
+                    }
+
+
                     tabNegaList.Visible = true;
                 }
                 else
@@ -388,6 +418,9 @@ namespace BPLSBilling
                     tabEPS.Visible = true;
                     tabZoning.Visible = true; //AFM 20191219
                     tabSanitary.Visible = true; //AFM 20200107
+                    tabHealth.Visible = true;
+                    tabMarket.Visible = true;
+                    tabCenro.Visible = true;
                 }
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (e)
@@ -1779,7 +1812,7 @@ namespace BPLSBilling
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (s)
                 if (sUsrDiv == "ENGINEERING" || sUsrDiv == "ZONING" || sUsrDiv == "SANITARY" ||
-                    sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "MAPUMA")
+                    sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "MAPUMA" || sUsrDiv == "HEALTH" || sUsrDiv == "MARKET")
                 {
                     tabRecords.Visible = false;
                     tabApplication.Visible = false;
@@ -1794,6 +1827,9 @@ namespace BPLSBilling
                         tabZoning.Visible = true; //AFM 20191219
                         tabSanitary.Visible = true; //AFM 20200107
                         tabApplication.Visible = true; //AFM 2020010
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                        tabCenro.Visible = false;
                     }
                     else
                     {
@@ -1801,6 +1837,32 @@ namespace BPLSBilling
                         tabZoning.Visible = false; //AFM 20191219
                         tabSanitary.Visible = false; //AFM 20200107
                     }
+
+                    if (sUsrDiv == "CENRO")
+                    {
+                        tabCenro.Visible = true;
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                    }
+                    else if (sUsrDiv == "HEALTH")
+                    {
+                        tabCenro.Visible = false;
+                        tabHealth.Visible = true;
+                        tabMarket.Visible = false;
+                    }
+                    else if (sUsrDiv == "MARKET")
+                    {
+                        tabCenro.Visible = false;
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = true;
+                    }
+                    else
+                    {
+                        tabHealth.Visible = false;
+                        tabMarket.Visible = false;
+                        tabCenro.Visible = false;
+                    }
+
                     tabNegaList.Visible = true;
                 }
                 else
@@ -1823,6 +1885,9 @@ namespace BPLSBilling
                     tabEPS.Visible = true;
                     tabZoning.Visible = true; //AFM 20191219
                     tabSanitary.Visible = true; //AFM 20200107
+                    tabMarket.Visible = true;
+                    tabHealth.Visible = true;
+                    tabCenro.Visible = true;
                 }
             }
         }
@@ -1916,12 +1981,30 @@ namespace BPLSBilling
         {   // RMC 20150426 QA corrections
             if (AppSettingsManager.Granted("AIB"))
             {
-                using (frmBilling BillingForm = new frmBilling())
+                string sBIN = string.Empty;
+                if (AppSettingsManager.GetConfigValue("78") == "Y") //AFM 20211213 MAO-21-16149	OTHER OFFICES
                 {
-                    BillingForm.SourceClass = "Billing";
-                    BillingForm.Text = "Billing";
-                    BillingForm.ShowDialog();
-                    BillingForm.Dispose();
+                    using (frmSearchTmp form = new frmSearchTmp())
+                    {
+                        form.Office = "BPLO";
+                        form.ShowDialog();
+                        sBIN = form.BIN;
+
+                        if (string.IsNullOrEmpty(sBIN))
+                            return;
+                    }
+                }
+                else
+                {
+                    using (frmBilling BillingForm = new frmBilling())
+                    {
+                        BillingForm.SourceClass = "Billing";
+                        BillingForm.Text = "Billing";
+                        if (!string.IsNullOrEmpty(sBIN))
+                            BillingForm.BIN = sBIN;
+                        BillingForm.ShowDialog();
+                        BillingForm.Dispose();
+                    }
                 }
             }
         }
@@ -2271,6 +2354,7 @@ namespace BPLSBilling
                 {
                     frmeps.ShowDialog();
                 }
+
             }
         }
 
@@ -2399,9 +2483,15 @@ namespace BPLSBilling
         {
             if (AppSettingsManager.Granted("AUEA"))
             {
-                using (frmEPS frmeps = new frmEPS())
+                /*using (frmEPS frmeps = new frmEPS())
                 {
                     frmeps.ShowDialog();
+                }*/
+
+                using (frmSearchTmp form = new frmSearchTmp())
+                {
+                    form.Office = "ENGINEERING";
+                    form.ShowDialog();
                 }
             }
         }
@@ -2515,6 +2605,159 @@ namespace BPLSBilling
         private void kryptonRibbonGroupButton10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnZoningApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABZC"))
+            {
+                using (frmSearchTmp form = new frmSearchTmp())
+                {
+                    form.Office = "PLANNING";
+                    form.ShowDialog();
+                }
+            }
+        }
+
+        private void btnZoningModify_Click(object sender, EventArgs e)
+        {
+            using (frmSearchTmp form = new frmSearchTmp())
+            {
+                form.Office = "PLANNING";
+                form.Switch = "LISTAPPROVE";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnZoningListApp_Click(object sender, EventArgs e)
+        {
+            frmPrinting listform = new frmPrinting();
+            listform.ReportType = "ListApproved";
+            listform.Office = "PLANNING";
+            listform.ShowDialog();
+        }
+
+        private void btnHealthApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABHC"))
+            {
+                using (frmSearchTmp form = new frmSearchTmp())
+                {
+                    form.Office = "HEALTH";
+                    form.ShowDialog();
+                }
+            }
+        }
+
+        private void btnHealthListApp_Click(object sender, EventArgs e)
+        {
+            frmPrinting listform = new frmPrinting();
+            listform.ReportType = "ListApproved";
+            listform.Office = "HEALTH";
+            listform.ShowDialog();
+        }
+
+        private void btnHealthModify_Click(object sender, EventArgs e)
+        {
+            using (frmSearchTmp form = new frmSearchTmp())
+            {
+                form.Office = "HEALTH";
+                form.Switch = "LISTAPPROVE";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnCenroApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABCENRO"))
+            {
+                using (frmSearchTmp form = new frmSearchTmp())
+                {
+                    form.Office = "CENRO";
+                    form.ShowDialog();
+                }
+            }
+        }
+
+        private void btnCenroListApp_Click(object sender, EventArgs e)
+        {
+            frmPrinting listform = new frmPrinting();
+            listform.ReportType = "ListApproved";
+            listform.Office = "CENRO";
+            listform.ShowDialog();
+        }
+
+        private void btnCenroModify_Click(object sender, EventArgs e)
+        {
+            using (frmSearchTmp form = new frmSearchTmp())
+            {
+                form.Office = "CENRO";
+                form.Switch = "LISTAPPROVE";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnMarketApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABMARKET"))
+            {
+                using (frmSearchTmp form = new frmSearchTmp())
+                {
+                    form.Office = "MARKET";
+                    form.ShowDialog();
+                }
+            }
+        }
+
+        private void btnMarketListApp_Click(object sender, EventArgs e)
+        {
+            frmPrinting listform = new frmPrinting();
+            listform.ReportType = "ListApproved";
+            listform.Office = "MARKET";
+            listform.ShowDialog();
+        }
+
+        private void btnMarketModify_Click(object sender, EventArgs e)
+        {
+            using (frmSearchTmp form = new frmSearchTmp())
+            {
+                form.Office = "MARKET";
+                form.Switch = "LISTAPPROVE";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnEngListApp_Click(object sender, EventArgs e)
+        {
+            frmPrinting listform = new frmPrinting();
+            listform.ReportType = "ListApproved";
+            listform.Office = "ENGINEERING";
+            listform.ShowDialog();
+        }
+
+        private void btnEngModify_Click(object sender, EventArgs e)
+        {
+            using (frmSearchTmp form = new frmSearchTmp())
+            {
+                form.Office = "ENGINEERING";
+                form.Switch = "LISTAPPROVE";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnAppTrail_Click(object sender, EventArgs e)
+        {
+            frmBinSearch form = new frmBinSearch();
+            form.ModuleCode = "APP-TRAIL";
+            form.ShowDialog();
+        }
+
+        private void btnPendingApp_Click(object sender, EventArgs e)
+        {
+            using (frmPendingApproval PendingApproval = new frmPendingApproval())
+            {
+                PendingApproval.ShowDialog();
+            }
         }
 
     }

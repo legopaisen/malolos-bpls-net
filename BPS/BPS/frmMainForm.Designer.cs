@@ -36,37 +36,6 @@ namespace BPLSBilling
             this.lblCode = new System.Windows.Forms.Label();
             this.flmFileMenu = new ComponentFactory.Krypton.Ribbon.KryptonRibbon();
             this.tabRecords = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabApplication = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabBilling = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabInspectorMod = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabBusinessMapping = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabReports = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabTables = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabUtilities = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabNegaList = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabEPS = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabZoning = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.tabSanitary = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.ctmCertifications = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.businessRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.retirementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.workingPermitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmInspector = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctmBINEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctmOwner = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupSeparator5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
-            this.btnAddBnsRecord = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAppNewBns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnAppRenBns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btnLogOut = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kbtnExit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.kpnl = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.kryptonRibbonTab1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.kryptonRibbonTab2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
-            this.kryptonRibbonTab3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple1 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnAdd = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -95,6 +64,7 @@ namespace BPLSBilling
             this.btnReconcile = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupTriple7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnExit = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabApplication = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup33 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple41 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnAddSplPermit = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -139,6 +109,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroupTriple55 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnPermitMonitoring = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroup37 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.tabBilling = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup27 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple33 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnBill = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -153,6 +124,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroup34 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple66 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnSOAMonitoring = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabInspectorMod = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup26 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple27 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnDeficientBuss = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -163,6 +135,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroupTriple59 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnInspectionReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnViolationReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabBusinessMapping = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup15 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple28 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnAccomplishementForm = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -196,6 +169,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroupTriple38 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnGenerate = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroup30 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.tabReports = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple19 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnPayHist = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -231,6 +205,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroupTriple61 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnComparative = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnComparativeListDate = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabTables = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup19 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple22 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnBrgy = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -253,6 +228,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroupSeparator16 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
             this.kryptonRibbonGroupTriple53 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnSplOrd = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabUtilities = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple12 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnUser = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -290,51 +266,86 @@ namespace BPLSBilling
             this.btnReportManager = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnReportFiles = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btn_pfd = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabNegaList = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup36 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple62 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnNigList = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnVioList = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnVioReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabEPS = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup38 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple63 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnEngChecklist = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnEngAssessment = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnEngCertification = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupTriple65 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnEngListApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnEngModify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnEngReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabZoning = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup32 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple56 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnZoningClearance = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnZoningListReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnSeriesConfig = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple73 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnZoningApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnZoningListApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnZoningModify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabHealth = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup40 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple69 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnHealth = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnHealthApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple70 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnHealthListApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnHealthModify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabCenro = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup41 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple71 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnCenroApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnCenroListApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnCenroModify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabMarket = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup42 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple72 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnMarketApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnMarketListApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnMarketModify = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.tabSanitary = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
             this.kryptonRibbonGroup39 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
             this.kryptonRibbonGroupTriple64 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
             this.btnSanitary = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.btnSanitaryReport = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroup40 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple69 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton8 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton9 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupTriple70 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton10 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton11 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroup41 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple71 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton12 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton13 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton14 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroup42 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
-            this.kryptonRibbonGroupTriple72 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
-            this.kryptonRibbonGroupButton15 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton16 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.kryptonRibbonGroupButton17 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
-            this.picMainForm = new System.Windows.Forms.PictureBox();
+            this.tabOtherOffices = new ComponentFactory.Krypton.Ribbon.KryptonRibbonTab();
+            this.kryptonRibbonGroup43 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup();
+            this.kryptonRibbonGroupTriple74 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnAppTrail = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnPendingApp = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.ctmCertifications = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.businessRegistrationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.retirementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.workingPermitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmInspector = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmDefBns = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmUnofBns = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmBINEdit = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmEditBin = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReplaceBin = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmOwner = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmEditOwner = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmReplaceOwner = new System.Windows.Forms.ToolStripMenuItem();
+            this.kryptonRibbonGroupTriple5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.kryptonRibbonGroupSeparator5 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupSeparator();
+            this.btnAddBnsRecord = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnAppNewBns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnAppRenBns = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btnLogOut = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kbtnExit = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.kpnl = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.picMainForm = new System.Windows.Forms.PictureBox();
             this.kryptonRibbonGroupButton3 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton2 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
@@ -422,11 +433,12 @@ namespace BPLSBilling
             this.tabNegaList,
             this.tabEPS,
             this.tabZoning,
+            this.tabHealth,
+            this.tabCenro,
+            this.tabMarket,
             this.tabSanitary,
-            this.kryptonRibbonTab1,
-            this.kryptonRibbonTab2,
-            this.kryptonRibbonTab3});
-            this.flmFileMenu.SelectedTab = this.kryptonRibbonTab3;
+            this.tabOtherOffices});
+            this.flmFileMenu.SelectedTab = this.tabZoning;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;
             this.flmFileMenu.TabIndexChanged += new System.EventHandler(this.flmFileMenu_TabIndexChanged);
@@ -441,301 +453,6 @@ namespace BPLSBilling
             this.tabRecords.KeyTip = "B";
             this.tabRecords.Tag = null;
             this.tabRecords.Text = "Business Records";
-            // 
-            // tabApplication
-            // 
-            this.tabApplication.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup33,
-            this.kryptonRibbonGroup4,
-            this.kryptonRibbonGroup5,
-            this.kryptonRibbonGroup6,
-            this.kryptonRibbonGroup28,
-            this.kryptonRibbonGroup37});
-            this.tabApplication.KeyTip = "A";
-            this.tabApplication.Tag = null;
-            this.tabApplication.Text = "Application";
-            // 
-            // tabBilling
-            // 
-            this.tabBilling.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup27,
-            this.kryptonRibbonGroup34});
-            this.tabBilling.Tag = null;
-            this.tabBilling.Text = "Billing";
-            // 
-            // tabInspectorMod
-            // 
-            this.tabInspectorMod.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup26});
-            this.tabInspectorMod.KeyTip = "I";
-            this.tabInspectorMod.Tag = null;
-            this.tabInspectorMod.Text = "Inspector\'s Module";
-            // 
-            // tabBusinessMapping
-            // 
-            this.tabBusinessMapping.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup15,
-            this.kryptonRibbonGroup10,
-            this.kryptonRibbonGroup16,
-            this.kryptonRibbonGroup25,
-            this.kryptonRibbonGroup29,
-            this.kryptonRibbonGroup31,
-            this.kryptonRibbonGroup30});
-            this.tabBusinessMapping.KeyTip = "M";
-            this.tabBusinessMapping.Tag = null;
-            this.tabBusinessMapping.Text = "Business Mapping";
-            this.tabBusinessMapping.Visible = false;
-            // 
-            // tabReports
-            // 
-            this.tabReports.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup11,
-            this.kryptonRibbonGroup35,
-            this.kryptonRibbonGroup12,
-            this.kryptonRibbonGroup14,
-            this.kryptonRibbonGroup23,
-            this.kryptonRibbonGroup13});
-            this.tabReports.KeyTip = "R";
-            this.tabReports.Tag = null;
-            this.tabReports.Text = "Reports";
-            // 
-            // tabTables
-            // 
-            this.tabTables.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup19,
-            this.kryptonRibbonGroup17});
-            this.tabTables.Tag = null;
-            this.tabTables.Text = "Tables";
-            // 
-            // tabUtilities
-            // 
-            this.tabUtilities.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup7,
-            this.kryptonRibbonGroup8,
-            this.kryptonRibbonGroup21,
-            this.kryptonRibbonGroup22,
-            this.kryptonRibbonGroup20,
-            this.kryptonRibbonGroup9,
-            this.kryptonRibbonGroup24});
-            this.tabUtilities.KeyTip = "U";
-            this.tabUtilities.Tag = null;
-            this.tabUtilities.Text = "Utilities";
-            // 
-            // tabNegaList
-            // 
-            this.tabNegaList.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup36});
-            this.tabNegaList.Tag = null;
-            this.tabNegaList.Text = "Negative Lists";
-            // 
-            // tabEPS
-            // 
-            this.tabEPS.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup38});
-            this.tabEPS.Tag = null;
-            this.tabEPS.Text = "Engineering Tool";
-            // 
-            // tabZoning
-            // 
-            this.tabZoning.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup32});
-            this.tabZoning.Tag = null;
-            this.tabZoning.Text = "Zoning";
-            // 
-            // tabSanitary
-            // 
-            this.tabSanitary.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup39});
-            this.tabSanitary.Tag = null;
-            this.tabSanitary.Text = "Sanitary";
-            // 
-            // ctmCertifications
-            // 
-            this.ctmCertifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.ctmCertifications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.businessRegistrationToolStripMenuItem,
-            this.noRecordToolStripMenuItem,
-            this.retirementToolStripMenuItem,
-            this.paymentToolStripMenuItem,
-            this.workingPermitToolStripMenuItem});
-            this.ctmCertifications.Name = "ctmCertifications";
-            this.ctmCertifications.Size = new System.Drawing.Size(194, 114);
-            // 
-            // businessRegistrationToolStripMenuItem
-            // 
-            this.businessRegistrationToolStripMenuItem.Name = "businessRegistrationToolStripMenuItem";
-            this.businessRegistrationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.businessRegistrationToolStripMenuItem.Text = "Business Registration";
-            // 
-            // noRecordToolStripMenuItem
-            // 
-            this.noRecordToolStripMenuItem.Name = "noRecordToolStripMenuItem";
-            this.noRecordToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.noRecordToolStripMenuItem.Text = "No Record";
-            // 
-            // retirementToolStripMenuItem
-            // 
-            this.retirementToolStripMenuItem.Name = "retirementToolStripMenuItem";
-            this.retirementToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.retirementToolStripMenuItem.Text = "Retirement";
-            // 
-            // paymentToolStripMenuItem
-            // 
-            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
-            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.paymentToolStripMenuItem.Text = "Payment";
-            // 
-            // workingPermitToolStripMenuItem
-            // 
-            this.workingPermitToolStripMenuItem.Name = "workingPermitToolStripMenuItem";
-            this.workingPermitToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.workingPermitToolStripMenuItem.Text = "Working Permit";
-            // 
-            // ctmInspector
-            // 
-            this.ctmInspector.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.ctmInspector.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmDefBns,
-            this.tsmUnofBns});
-            this.ctmInspector.Name = "ctmInspector";
-            this.ctmInspector.Size = new System.Drawing.Size(173, 48);
-            // 
-            // ctmBINEdit
-            // 
-            this.ctmBINEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.ctmBINEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEditBin,
-            this.tsmReplaceBin});
-            this.ctmBINEdit.Name = "ctmBINEdit";
-            this.ctmBINEdit.Size = new System.Drawing.Size(142, 48);
-            // 
-            // ctmOwner
-            // 
-            this.ctmOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.ctmOwner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmEditOwner,
-            this.tsmReplaceOwner});
-            this.ctmOwner.Name = "ctmOwner";
-            this.ctmOwner.Size = new System.Drawing.Size(158, 48);
-            // 
-            // kryptonRibbonGroupTriple5
-            // 
-            this.kryptonRibbonGroupTriple5.Tag = null;
-            // 
-            // kryptonRibbonGroupSeparator5
-            // 
-            this.kryptonRibbonGroupSeparator5.Tag = null;
-            // 
-            // btnAddBnsRecord
-            // 
-            this.btnAddBnsRecord.Location = new System.Drawing.Point(99, 0);
-            this.btnAddBnsRecord.Name = "btnAddBnsRecord";
-            this.btnAddBnsRecord.Size = new System.Drawing.Size(162, 72);
-            this.btnAddBnsRecord.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.btnAddBnsRecord.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddBnsRecord.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.btnAddBnsRecord.TabIndex = 24;
-            this.btnAddBnsRecord.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_addbusrec;
-            this.btnAddBnsRecord.Values.Text = "ADD BUSINESS RECORD";
-            this.btnAddBnsRecord.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBnsRecord_MouseMove);
-            this.btnAddBnsRecord.Click += new System.EventHandler(this.btnAddBnsRecord_Click);
-            // 
-            // btnAppNewBns
-            // 
-            this.btnAppNewBns.Location = new System.Drawing.Point(272, 0);
-            this.btnAppNewBns.Name = "btnAppNewBns";
-            this.btnAppNewBns.Size = new System.Drawing.Size(162, 72);
-            this.btnAppNewBns.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
-            this.btnAppNewBns.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.btnAppNewBns.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAppNewBns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.btnAppNewBns.TabIndex = 24;
-            this.btnAppNewBns.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_applybusiness;
-            this.btnAppNewBns.Values.Text = "APPLY NEW BUSINESS";
-            this.btnAppNewBns.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picNewBns_MouseMove);
-            this.btnAppNewBns.Click += new System.EventHandler(this.btnAppNewBns_Click);
-            // 
-            // btnAppRenBns
-            // 
-            this.btnAppRenBns.Location = new System.Drawing.Point(445, 0);
-            this.btnAppRenBns.Name = "btnAppRenBns";
-            this.btnAppRenBns.Size = new System.Drawing.Size(169, 72);
-            this.btnAppRenBns.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.btnAppRenBns.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAppRenBns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.btnAppRenBns.TabIndex = 24;
-            this.btnAppRenBns.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_renewbusiness;
-            this.btnAppRenBns.Values.Text = "APPLY RENEWAL BUSINESS";
-            this.btnAppRenBns.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picRenBns_MouseMove);
-            this.btnAppRenBns.Click += new System.EventHandler(this.btnAppRenBns_Click);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Location = new System.Drawing.Point(625, 0);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(162, 72);
-            this.btnLogOut.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
-            this.btnLogOut.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.btnLogOut.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.btnLogOut.TabIndex = 24;
-            this.btnLogOut.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_logout;
-            this.btnLogOut.Values.Text = "LOG OUT";
-            this.btnLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picLogOut_MouseMove);
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // kbtnExit
-            // 
-            this.kbtnExit.Location = new System.Drawing.Point(798, 0);
-            this.kbtnExit.Name = "kbtnExit";
-            this.kbtnExit.Size = new System.Drawing.Size(162, 72);
-            this.kbtnExit.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
-            this.kbtnExit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
-            this.kbtnExit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kbtnExit.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
-            this.kbtnExit.TabIndex = 24;
-            this.kbtnExit.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_exit;
-            this.kbtnExit.Values.Text = "EXIT";
-            this.kbtnExit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picExit_MouseMove);
-            this.kbtnExit.Click += new System.EventHandler(this.kbtnExit_Click);
-            // 
-            // kpnl
-            // 
-            this.kpnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.kpnl.Controls.Add(this.btnAddBnsRecord);
-            this.kpnl.Controls.Add(this.btnLogOut);
-            this.kpnl.Controls.Add(this.kbtnExit);
-            this.kpnl.Controls.Add(this.btnAppRenBns);
-            this.kpnl.Controls.Add(this.btnAppNewBns);
-            this.kpnl.Location = new System.Drawing.Point(0, 452);
-            this.kpnl.Name = "kpnl";
-            this.kpnl.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderForm;
-            this.kpnl.Size = new System.Drawing.Size(1016, 73);
-            this.kpnl.TabIndex = 25;
-            // 
-            // kryptonRibbonTab1
-            // 
-            this.kryptonRibbonTab1.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup40});
-            this.kryptonRibbonTab1.Tag = null;
-            this.kryptonRibbonTab1.Text = "Health";
-            this.kryptonRibbonTab1.Visible = false;
-            // 
-            // kryptonRibbonTab2
-            // 
-            this.kryptonRibbonTab2.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup41});
-            this.kryptonRibbonTab2.Tag = null;
-            this.kryptonRibbonTab2.Text = "CENRO";
-            this.kryptonRibbonTab2.Visible = false;
-            // 
-            // kryptonRibbonTab3
-            // 
-            this.kryptonRibbonTab3.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
-            this.kryptonRibbonGroup42});
-            this.kryptonRibbonTab3.Tag = null;
-            this.kryptonRibbonTab3.Text = "Market";
-            this.kryptonRibbonTab3.Visible = false;
             // 
             // kryptonRibbonGroup1
             // 
@@ -963,6 +680,19 @@ namespace BPLSBilling
             this.btnExit.Tag = null;
             this.btnExit.TextLine1 = "Exit";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // tabApplication
+            // 
+            this.tabApplication.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup33,
+            this.kryptonRibbonGroup4,
+            this.kryptonRibbonGroup5,
+            this.kryptonRibbonGroup6,
+            this.kryptonRibbonGroup28,
+            this.kryptonRibbonGroup37});
+            this.tabApplication.KeyTip = "A";
+            this.tabApplication.Tag = null;
+            this.tabApplication.Text = "Application";
             // 
             // kryptonRibbonGroup33
             // 
@@ -1307,6 +1037,14 @@ namespace BPLSBilling
             this.kryptonRibbonGroup37.Tag = null;
             this.kryptonRibbonGroup37.Visible = false;
             // 
+            // tabBilling
+            // 
+            this.tabBilling.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup27,
+            this.kryptonRibbonGroup34});
+            this.tabBilling.Tag = null;
+            this.tabBilling.Text = "Billing";
+            // 
             // kryptonRibbonGroup27
             // 
             this.kryptonRibbonGroup27.AllowCollapsed = false;
@@ -1423,6 +1161,14 @@ namespace BPLSBilling
             this.btnSOAMonitoring.TextLine1 = "SOA Monitoring";
             this.btnSOAMonitoring.Click += new System.EventHandler(this.btnSOAMonitoring_Click);
             // 
+            // tabInspectorMod
+            // 
+            this.tabInspectorMod.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup26});
+            this.tabInspectorMod.KeyTip = "I";
+            this.tabInspectorMod.Tag = null;
+            this.tabInspectorMod.Text = "Inspector\'s Module";
+            // 
             // kryptonRibbonGroup26
             // 
             this.kryptonRibbonGroup26.DialogBoxLauncher = false;
@@ -1500,6 +1246,21 @@ namespace BPLSBilling
             this.btnViolationReport.TextLine1 = "Violation";
             this.btnViolationReport.TextLine2 = "Report";
             this.btnViolationReport.Click += new System.EventHandler(this.btnViolationReport_Click);
+            // 
+            // tabBusinessMapping
+            // 
+            this.tabBusinessMapping.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup15,
+            this.kryptonRibbonGroup10,
+            this.kryptonRibbonGroup16,
+            this.kryptonRibbonGroup25,
+            this.kryptonRibbonGroup29,
+            this.kryptonRibbonGroup31,
+            this.kryptonRibbonGroup30});
+            this.tabBusinessMapping.KeyTip = "M";
+            this.tabBusinessMapping.Tag = null;
+            this.tabBusinessMapping.Text = "Business Mapping";
+            this.tabBusinessMapping.Visible = false;
             // 
             // kryptonRibbonGroup15
             // 
@@ -1758,6 +1519,19 @@ namespace BPLSBilling
             // 
             this.kryptonRibbonGroup30.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup30.Image")));
             this.kryptonRibbonGroup30.Tag = null;
+            // 
+            // tabReports
+            // 
+            this.tabReports.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup11,
+            this.kryptonRibbonGroup35,
+            this.kryptonRibbonGroup12,
+            this.kryptonRibbonGroup14,
+            this.kryptonRibbonGroup23,
+            this.kryptonRibbonGroup13});
+            this.tabReports.KeyTip = "R";
+            this.tabReports.Tag = null;
+            this.tabReports.Text = "Reports";
             // 
             // kryptonRibbonGroup11
             // 
@@ -2044,6 +1818,14 @@ namespace BPLSBilling
             this.btnComparativeListDate.TextLine2 = "Report List by Date";
             this.btnComparativeListDate.Click += new System.EventHandler(this.btnComparativeListDate_Click);
             // 
+            // tabTables
+            // 
+            this.tabTables.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup19,
+            this.kryptonRibbonGroup17});
+            this.tabTables.Tag = null;
+            this.tabTables.Text = "Tables";
+            // 
             // kryptonRibbonGroup19
             // 
             this.kryptonRibbonGroup19.DialogBoxLauncher = false;
@@ -2212,6 +1994,20 @@ namespace BPLSBilling
             this.btnSplOrd.TextLine2 = "Ordinance";
             this.btnSplOrd.Visible = false;
             this.btnSplOrd.Click += new System.EventHandler(this.btnSplOrd_Click);
+            // 
+            // tabUtilities
+            // 
+            this.tabUtilities.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup7,
+            this.kryptonRibbonGroup8,
+            this.kryptonRibbonGroup21,
+            this.kryptonRibbonGroup22,
+            this.kryptonRibbonGroup20,
+            this.kryptonRibbonGroup9,
+            this.kryptonRibbonGroup24});
+            this.tabUtilities.KeyTip = "U";
+            this.tabUtilities.Tag = null;
+            this.tabUtilities.Text = "Utilities";
             // 
             // kryptonRibbonGroup7
             // 
@@ -2516,6 +2312,13 @@ namespace BPLSBilling
             this.btn_pfd.TextLine1 = "Help";
             this.btn_pfd.Click += new System.EventHandler(this.btn_pfd_Click);
             // 
+            // tabNegaList
+            // 
+            this.tabNegaList.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup36});
+            this.tabNegaList.Tag = null;
+            this.tabNegaList.Text = "Negative Lists";
+            // 
             // kryptonRibbonGroup36
             // 
             this.kryptonRibbonGroup36.AllowCollapsed = false;
@@ -2553,6 +2356,13 @@ namespace BPLSBilling
             this.btnVioReport.Tag = null;
             this.btnVioReport.TextLine1 = "Reports";
             this.btnVioReport.Click += new System.EventHandler(this.btnVioReport_Click);
+            // 
+            // tabEPS
+            // 
+            this.tabEPS.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup38});
+            this.tabEPS.Tag = null;
+            this.tabEPS.Text = "Engineering Tool";
             // 
             // kryptonRibbonGroup38
             // 
@@ -2598,8 +2408,26 @@ namespace BPLSBilling
             // kryptonRibbonGroupTriple65
             // 
             this.kryptonRibbonGroupTriple65.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnEngListApp,
+            this.btnEngModify,
             this.btnEngReport});
             this.kryptonRibbonGroupTriple65.Tag = null;
+            // 
+            // btnEngListApp
+            // 
+            this.btnEngListApp.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnEngListApp.ImageLarge")));
+            this.btnEngListApp.Tag = null;
+            this.btnEngListApp.TextLine1 = "List";
+            this.btnEngListApp.TextLine2 = "Approved";
+            this.btnEngListApp.Click += new System.EventHandler(this.btnEngListApp_Click);
+            // 
+            // btnEngModify
+            // 
+            this.btnEngModify.ImageLarge = global::BPLSBilling.Properties.Resources.modify_approve;
+            this.btnEngModify.Tag = null;
+            this.btnEngModify.TextLine1 = "Modify";
+            this.btnEngModify.TextLine2 = "Approval";
+            this.btnEngModify.Click += new System.EventHandler(this.btnEngModify_Click);
             // 
             // btnEngReport
             // 
@@ -2609,10 +2437,18 @@ namespace BPLSBilling
             this.btnEngReport.TextLine1 = "Reports";
             this.btnEngReport.Click += new System.EventHandler(this.btnEngReport_Click);
             // 
+            // tabZoning
+            // 
+            this.tabZoning.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup32});
+            this.tabZoning.Tag = null;
+            this.tabZoning.Text = "Zoning";
+            // 
             // kryptonRibbonGroup32
             // 
             this.kryptonRibbonGroup32.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple56});
+            this.kryptonRibbonGroupTriple56,
+            this.kryptonRibbonGroupTriple73});
             this.kryptonRibbonGroup32.Tag = null;
             this.kryptonRibbonGroup32.TextLine1 = "Zoning";
             // 
@@ -2647,6 +2483,193 @@ namespace BPLSBilling
             this.btnSeriesConfig.TextLine2 = "Config";
             this.btnSeriesConfig.Click += new System.EventHandler(this.btnSeriesConfig_Click);
             // 
+            // kryptonRibbonGroupTriple73
+            // 
+            this.kryptonRibbonGroupTriple73.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnZoningApproval,
+            this.btnZoningListApp,
+            this.btnZoningModify});
+            this.kryptonRibbonGroupTriple73.Tag = null;
+            // 
+            // btnZoningApproval
+            // 
+            this.btnZoningApproval.ImageLarge = global::BPLSBilling.Properties.Resources.approval;
+            this.btnZoningApproval.Tag = null;
+            this.btnZoningApproval.TextLine1 = "Approval";
+            this.btnZoningApproval.Click += new System.EventHandler(this.btnZoningApproval_Click);
+            // 
+            // btnZoningListApp
+            // 
+            this.btnZoningListApp.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnZoningListApp.ImageLarge")));
+            this.btnZoningListApp.Tag = null;
+            this.btnZoningListApp.TextLine1 = "List Approved";
+            this.btnZoningListApp.Click += new System.EventHandler(this.btnZoningListApp_Click);
+            // 
+            // btnZoningModify
+            // 
+            this.btnZoningModify.ImageLarge = global::BPLSBilling.Properties.Resources.modify_approve;
+            this.btnZoningModify.Tag = null;
+            this.btnZoningModify.TextLine1 = "Modify";
+            this.btnZoningModify.TextLine2 = "Approval";
+            this.btnZoningModify.Click += new System.EventHandler(this.btnZoningModify_Click);
+            // 
+            // tabHealth
+            // 
+            this.tabHealth.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup40});
+            this.tabHealth.Tag = null;
+            this.tabHealth.Text = "Health";
+            // 
+            // kryptonRibbonGroup40
+            // 
+            this.kryptonRibbonGroup40.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple69,
+            this.kryptonRibbonGroupTriple70});
+            this.kryptonRibbonGroup40.Tag = null;
+            this.kryptonRibbonGroup40.TextLine1 = "Health";
+            // 
+            // kryptonRibbonGroupTriple69
+            // 
+            this.kryptonRibbonGroupTriple69.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnHealth,
+            this.btnHealthApproval});
+            this.kryptonRibbonGroupTriple69.Tag = null;
+            // 
+            // btnHealth
+            // 
+            this.btnHealth.ImageLarge = global::BPLSBilling.Properties.Resources.health;
+            this.btnHealth.Tag = null;
+            this.btnHealth.TextLine1 = "Health/";
+            this.btnHealth.TextLine2 = "Employees";
+            this.btnHealth.Visible = false;
+            // 
+            // btnHealthApproval
+            // 
+            this.btnHealthApproval.ImageLarge = global::BPLSBilling.Properties.Resources.approval;
+            this.btnHealthApproval.Tag = null;
+            this.btnHealthApproval.TextLine1 = "Approval";
+            this.btnHealthApproval.Click += new System.EventHandler(this.btnHealthApproval_Click);
+            // 
+            // kryptonRibbonGroupTriple70
+            // 
+            this.kryptonRibbonGroupTriple70.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnHealthListApp,
+            this.btnHealthModify});
+            this.kryptonRibbonGroupTriple70.Tag = null;
+            // 
+            // btnHealthListApp
+            // 
+            this.btnHealthListApp.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnHealthListApp.ImageLarge")));
+            this.btnHealthListApp.Tag = null;
+            this.btnHealthListApp.TextLine1 = "List";
+            this.btnHealthListApp.TextLine2 = "Approved";
+            this.btnHealthListApp.Click += new System.EventHandler(this.btnHealthListApp_Click);
+            // 
+            // btnHealthModify
+            // 
+            this.btnHealthModify.ImageLarge = global::BPLSBilling.Properties.Resources.modify_approve;
+            this.btnHealthModify.Tag = null;
+            this.btnHealthModify.TextLine1 = "Modify";
+            this.btnHealthModify.TextLine2 = "Approval";
+            this.btnHealthModify.Click += new System.EventHandler(this.btnHealthModify_Click);
+            // 
+            // tabCenro
+            // 
+            this.tabCenro.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup41});
+            this.tabCenro.Tag = null;
+            this.tabCenro.Text = "CENRO";
+            // 
+            // kryptonRibbonGroup41
+            // 
+            this.kryptonRibbonGroup41.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple71});
+            this.kryptonRibbonGroup41.Tag = null;
+            this.kryptonRibbonGroup41.TextLine1 = "CENRO";
+            // 
+            // kryptonRibbonGroupTriple71
+            // 
+            this.kryptonRibbonGroupTriple71.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnCenroApproval,
+            this.btnCenroListApp,
+            this.btnCenroModify});
+            this.kryptonRibbonGroupTriple71.Tag = null;
+            // 
+            // btnCenroApproval
+            // 
+            this.btnCenroApproval.ImageLarge = global::BPLSBilling.Properties.Resources.approval;
+            this.btnCenroApproval.Tag = null;
+            this.btnCenroApproval.TextLine1 = "Approval";
+            this.btnCenroApproval.Click += new System.EventHandler(this.btnCenroApproval_Click);
+            // 
+            // btnCenroListApp
+            // 
+            this.btnCenroListApp.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnCenroListApp.ImageLarge")));
+            this.btnCenroListApp.Tag = null;
+            this.btnCenroListApp.TextLine1 = "List";
+            this.btnCenroListApp.TextLine2 = "Approved";
+            this.btnCenroListApp.Click += new System.EventHandler(this.btnCenroListApp_Click);
+            // 
+            // btnCenroModify
+            // 
+            this.btnCenroModify.ImageLarge = global::BPLSBilling.Properties.Resources.modify_approve;
+            this.btnCenroModify.Tag = null;
+            this.btnCenroModify.TextLine1 = "Modify";
+            this.btnCenroModify.TextLine2 = "Approval";
+            this.btnCenroModify.Click += new System.EventHandler(this.btnCenroModify_Click);
+            // 
+            // tabMarket
+            // 
+            this.tabMarket.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup42});
+            this.tabMarket.Tag = null;
+            this.tabMarket.Text = "Market";
+            // 
+            // kryptonRibbonGroup42
+            // 
+            this.kryptonRibbonGroup42.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple72});
+            this.kryptonRibbonGroup42.Tag = null;
+            this.kryptonRibbonGroup42.TextLine1 = "Market";
+            // 
+            // kryptonRibbonGroupTriple72
+            // 
+            this.kryptonRibbonGroupTriple72.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnMarketApproval,
+            this.btnMarketListApp,
+            this.btnMarketModify});
+            this.kryptonRibbonGroupTriple72.Tag = null;
+            // 
+            // btnMarketApproval
+            // 
+            this.btnMarketApproval.ImageLarge = global::BPLSBilling.Properties.Resources.approval;
+            this.btnMarketApproval.Tag = null;
+            this.btnMarketApproval.TextLine1 = "Approval";
+            this.btnMarketApproval.Click += new System.EventHandler(this.btnMarketApproval_Click);
+            // 
+            // btnMarketListApp
+            // 
+            this.btnMarketListApp.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnMarketListApp.ImageLarge")));
+            this.btnMarketListApp.Tag = null;
+            this.btnMarketListApp.TextLine1 = "List";
+            this.btnMarketListApp.TextLine2 = "Approved";
+            this.btnMarketListApp.Click += new System.EventHandler(this.btnMarketListApp_Click);
+            // 
+            // btnMarketModify
+            // 
+            this.btnMarketModify.ImageLarge = global::BPLSBilling.Properties.Resources.modify_approve;
+            this.btnMarketModify.Tag = null;
+            this.btnMarketModify.TextLine1 = "Modify";
+            this.btnMarketModify.TextLine2 = "Approval";
+            this.btnMarketModify.Click += new System.EventHandler(this.btnMarketModify_Click);
+            // 
+            // tabSanitary
+            // 
+            this.tabSanitary.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup39});
+            this.tabSanitary.Tag = null;
+            this.tabSanitary.Text = "Sanitary";
+            // 
             // kryptonRibbonGroup39
             // 
             this.kryptonRibbonGroup39.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
@@ -2676,130 +2699,93 @@ namespace BPLSBilling
             this.btnSanitaryReport.TextLine1 = "Reports";
             this.btnSanitaryReport.Click += new System.EventHandler(this.btnSanitaryReport_Click);
             // 
-            // kryptonRibbonGroup40
+            // tabOtherOffices
             // 
-            this.kryptonRibbonGroup40.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple69,
-            this.kryptonRibbonGroupTriple70});
-            this.kryptonRibbonGroup40.Tag = null;
-            this.kryptonRibbonGroup40.TextLine1 = "Health";
+            this.tabOtherOffices.Groups.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup[] {
+            this.kryptonRibbonGroup43});
+            this.tabOtherOffices.Tag = null;
+            this.tabOtherOffices.Text = "Other Offices";
             // 
-            // kryptonRibbonGroupTriple69
+            // kryptonRibbonGroup43
             // 
-            this.kryptonRibbonGroupTriple69.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton8,
-            this.kryptonRibbonGroupButton9});
-            this.kryptonRibbonGroupTriple69.Tag = null;
+            this.kryptonRibbonGroup43.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple74});
+            this.kryptonRibbonGroup43.Tag = null;
+            this.kryptonRibbonGroup43.TextLine1 = "Other Offices";
             // 
-            // kryptonRibbonGroupButton8
+            // kryptonRibbonGroupTriple74
             // 
-            this.kryptonRibbonGroupButton8.Tag = null;
-            this.kryptonRibbonGroupButton8.TextLine1 = "Health/";
-            this.kryptonRibbonGroupButton8.TextLine2 = "Employees";
+            this.kryptonRibbonGroupTriple74.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnAppTrail,
+            this.btnPendingApp});
+            this.kryptonRibbonGroupTriple74.Tag = null;
             // 
-            // kryptonRibbonGroupButton9
+            // btnAppTrail
             // 
-            this.kryptonRibbonGroupButton9.Tag = null;
-            this.kryptonRibbonGroupButton9.TextLine1 = "Approval";
+            this.btnAppTrail.ImageLarge = ((System.Drawing.Image)(resources.GetObject("btnAppTrail.ImageLarge")));
+            this.btnAppTrail.Tag = null;
+            this.btnAppTrail.TextLine1 = "Approval";
+            this.btnAppTrail.TextLine2 = "Trail";
+            this.btnAppTrail.Click += new System.EventHandler(this.btnAppTrail_Click);
             // 
-            // kryptonRibbonGroupTriple70
+            // btnPendingApp
             // 
-            this.kryptonRibbonGroupTriple70.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton10,
-            this.kryptonRibbonGroupButton11});
-            this.kryptonRibbonGroupTriple70.Tag = null;
+            this.btnPendingApp.ImageLarge = global::BPLSBilling.Properties.Resources.pending_approval;
+            this.btnPendingApp.Tag = null;
+            this.btnPendingApp.TextLine1 = "Pending";
+            this.btnPendingApp.TextLine2 = "Approval";
+            this.btnPendingApp.Click += new System.EventHandler(this.btnPendingApp_Click);
             // 
-            // kryptonRibbonGroupButton10
+            // ctmCertifications
             // 
-            this.kryptonRibbonGroupButton10.Tag = null;
-            this.kryptonRibbonGroupButton10.TextLine1 = "List";
-            this.kryptonRibbonGroupButton10.TextLine2 = "Approved";
+            this.ctmCertifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.ctmCertifications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.businessRegistrationToolStripMenuItem,
+            this.noRecordToolStripMenuItem,
+            this.retirementToolStripMenuItem,
+            this.paymentToolStripMenuItem,
+            this.workingPermitToolStripMenuItem});
+            this.ctmCertifications.Name = "ctmCertifications";
+            this.ctmCertifications.Size = new System.Drawing.Size(194, 114);
             // 
-            // kryptonRibbonGroupButton11
+            // businessRegistrationToolStripMenuItem
             // 
-            this.kryptonRibbonGroupButton11.Tag = null;
-            this.kryptonRibbonGroupButton11.TextLine1 = "Modify";
-            this.kryptonRibbonGroupButton11.TextLine2 = "Approval";
+            this.businessRegistrationToolStripMenuItem.Name = "businessRegistrationToolStripMenuItem";
+            this.businessRegistrationToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.businessRegistrationToolStripMenuItem.Text = "Business Registration";
             // 
-            // kryptonRibbonGroup41
+            // noRecordToolStripMenuItem
             // 
-            this.kryptonRibbonGroup41.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple71});
-            this.kryptonRibbonGroup41.Tag = null;
-            this.kryptonRibbonGroup41.TextLine1 = "CENRO";
+            this.noRecordToolStripMenuItem.Name = "noRecordToolStripMenuItem";
+            this.noRecordToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.noRecordToolStripMenuItem.Text = "No Record";
             // 
-            // kryptonRibbonGroupTriple71
+            // retirementToolStripMenuItem
             // 
-            this.kryptonRibbonGroupTriple71.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton12,
-            this.kryptonRibbonGroupButton13,
-            this.kryptonRibbonGroupButton14});
-            this.kryptonRibbonGroupTriple71.Tag = null;
+            this.retirementToolStripMenuItem.Name = "retirementToolStripMenuItem";
+            this.retirementToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.retirementToolStripMenuItem.Text = "Retirement";
             // 
-            // kryptonRibbonGroupButton12
+            // paymentToolStripMenuItem
             // 
-            this.kryptonRibbonGroupButton12.Tag = null;
-            this.kryptonRibbonGroupButton12.TextLine1 = "Approval";
+            this.paymentToolStripMenuItem.Name = "paymentToolStripMenuItem";
+            this.paymentToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.paymentToolStripMenuItem.Text = "Payment";
             // 
-            // kryptonRibbonGroupButton13
+            // workingPermitToolStripMenuItem
             // 
-            this.kryptonRibbonGroupButton13.Tag = null;
-            this.kryptonRibbonGroupButton13.TextLine1 = "List";
-            this.kryptonRibbonGroupButton13.TextLine2 = "Approved";
+            this.workingPermitToolStripMenuItem.Name = "workingPermitToolStripMenuItem";
+            this.workingPermitToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.workingPermitToolStripMenuItem.Text = "Working Permit";
             // 
-            // kryptonRibbonGroupButton14
+            // ctmInspector
             // 
-            this.kryptonRibbonGroupButton14.Tag = null;
-            this.kryptonRibbonGroupButton14.TextLine1 = "Modify";
-            this.kryptonRibbonGroupButton14.TextLine2 = "Approval";
-            // 
-            // kryptonRibbonGroup42
-            // 
-            this.kryptonRibbonGroup42.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
-            this.kryptonRibbonGroupTriple72});
-            this.kryptonRibbonGroup42.Tag = null;
-            this.kryptonRibbonGroup42.TextLine1 = "Market";
-            // 
-            // kryptonRibbonGroupTriple72
-            // 
-            this.kryptonRibbonGroupTriple72.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.kryptonRibbonGroupButton15,
-            this.kryptonRibbonGroupButton16,
-            this.kryptonRibbonGroupButton17});
-            this.kryptonRibbonGroupTriple72.Tag = null;
-            // 
-            // kryptonRibbonGroupButton15
-            // 
-            this.kryptonRibbonGroupButton15.Tag = null;
-            this.kryptonRibbonGroupButton15.TextLine1 = "Approval";
-            // 
-            // kryptonRibbonGroupButton16
-            // 
-            this.kryptonRibbonGroupButton16.Tag = null;
-            this.kryptonRibbonGroupButton16.TextLine1 = "List";
-            this.kryptonRibbonGroupButton16.TextLine2 = "Approved";
-            // 
-            // kryptonRibbonGroupButton17
-            // 
-            this.kryptonRibbonGroupButton17.Tag = null;
-            this.kryptonRibbonGroupButton17.TextLine1 = "Modify";
-            this.kryptonRibbonGroupButton17.TextLine2 = "Approval";
-            // 
-            // picMainForm
-            // 
-            this.picMainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.picMainForm.Image = global::BPLSBilling.Properties.Resources.Background_bps;
-            this.picMainForm.InitialImage = ((System.Drawing.Image)(resources.GetObject("picMainForm.InitialImage")));
-            this.picMainForm.Location = new System.Drawing.Point(1, 143);
-            this.picMainForm.Name = "picMainForm";
-            this.picMainForm.Size = new System.Drawing.Size(1016, 436);
-            this.picMainForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picMainForm.TabIndex = 23;
-            this.picMainForm.TabStop = false;
-            this.picMainForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picMainForm_MouseMove);
-            this.picMainForm.Click += new System.EventHandler(this.picMainForm_Click);
+            this.ctmInspector.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.ctmInspector.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmDefBns,
+            this.tsmUnofBns});
+            this.ctmInspector.Name = "ctmInspector";
+            this.ctmInspector.Size = new System.Drawing.Size(173, 48);
             // 
             // tsmDefBns
             // 
@@ -2817,6 +2803,15 @@ namespace BPLSBilling
             this.tsmUnofBns.Text = "Unofficial Business";
             this.tsmUnofBns.Click += new System.EventHandler(this.tsmUnofBns_Click);
             // 
+            // ctmBINEdit
+            // 
+            this.ctmBINEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ctmBINEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEditBin,
+            this.tsmReplaceBin});
+            this.ctmBINEdit.Name = "ctmBINEdit";
+            this.ctmBINEdit.Size = new System.Drawing.Size(142, 48);
+            // 
             // tsmEditBin
             // 
             this.tsmEditBin.Image = global::BPLSBilling.Properties.Resources.bns_rec;
@@ -2831,6 +2826,15 @@ namespace BPLSBilling
             this.tsmReplaceBin.Size = new System.Drawing.Size(141, 22);
             this.tsmReplaceBin.Text = "Replace Bin...";
             // 
+            // ctmOwner
+            // 
+            this.ctmOwner.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.ctmOwner.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmEditOwner,
+            this.tsmReplaceOwner});
+            this.ctmOwner.Name = "ctmOwner";
+            this.ctmOwner.Size = new System.Drawing.Size(158, 48);
+            // 
             // tsmEditOwner
             // 
             this.tsmEditOwner.Image = ((System.Drawing.Image)(resources.GetObject("tsmEditOwner.Image")));
@@ -2844,6 +2848,117 @@ namespace BPLSBilling
             this.tsmReplaceOwner.Name = "tsmReplaceOwner";
             this.tsmReplaceOwner.Size = new System.Drawing.Size(157, 22);
             this.tsmReplaceOwner.Text = "Replace Owner...";
+            // 
+            // kryptonRibbonGroupTriple5
+            // 
+            this.kryptonRibbonGroupTriple5.Tag = null;
+            // 
+            // kryptonRibbonGroupSeparator5
+            // 
+            this.kryptonRibbonGroupSeparator5.Tag = null;
+            // 
+            // btnAddBnsRecord
+            // 
+            this.btnAddBnsRecord.Location = new System.Drawing.Point(99, 0);
+            this.btnAddBnsRecord.Name = "btnAddBnsRecord";
+            this.btnAddBnsRecord.Size = new System.Drawing.Size(162, 72);
+            this.btnAddBnsRecord.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnAddBnsRecord.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddBnsRecord.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.btnAddBnsRecord.TabIndex = 24;
+            this.btnAddBnsRecord.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_addbusrec;
+            this.btnAddBnsRecord.Values.Text = "ADD BUSINESS RECORD";
+            this.btnAddBnsRecord.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picBnsRecord_MouseMove);
+            this.btnAddBnsRecord.Click += new System.EventHandler(this.btnAddBnsRecord_Click);
+            // 
+            // btnAppNewBns
+            // 
+            this.btnAppNewBns.Location = new System.Drawing.Point(272, 0);
+            this.btnAppNewBns.Name = "btnAppNewBns";
+            this.btnAppNewBns.Size = new System.Drawing.Size(162, 72);
+            this.btnAppNewBns.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
+            this.btnAppNewBns.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnAppNewBns.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppNewBns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.btnAppNewBns.TabIndex = 24;
+            this.btnAppNewBns.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_applybusiness;
+            this.btnAppNewBns.Values.Text = "APPLY NEW BUSINESS";
+            this.btnAppNewBns.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picNewBns_MouseMove);
+            this.btnAppNewBns.Click += new System.EventHandler(this.btnAppNewBns_Click);
+            // 
+            // btnAppRenBns
+            // 
+            this.btnAppRenBns.Location = new System.Drawing.Point(445, 0);
+            this.btnAppRenBns.Name = "btnAppRenBns";
+            this.btnAppRenBns.Size = new System.Drawing.Size(169, 72);
+            this.btnAppRenBns.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnAppRenBns.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAppRenBns.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.btnAppRenBns.TabIndex = 24;
+            this.btnAppRenBns.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_renewbusiness;
+            this.btnAppRenBns.Values.Text = "APPLY RENEWAL BUSINESS";
+            this.btnAppRenBns.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picRenBns_MouseMove);
+            this.btnAppRenBns.Click += new System.EventHandler(this.btnAppRenBns_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(625, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(162, 72);
+            this.btnLogOut.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
+            this.btnLogOut.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.btnLogOut.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.btnLogOut.TabIndex = 24;
+            this.btnLogOut.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_logout;
+            this.btnLogOut.Values.Text = "LOG OUT";
+            this.btnLogOut.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picLogOut_MouseMove);
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // kbtnExit
+            // 
+            this.kbtnExit.Location = new System.Drawing.Point(798, 0);
+            this.kbtnExit.Name = "kbtnExit";
+            this.kbtnExit.Size = new System.Drawing.Size(162, 72);
+            this.kbtnExit.StateCommon.Back.ImageStyle = ComponentFactory.Krypton.Toolkit.PaletteImageStyle.TopMiddle;
+            this.kbtnExit.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.Black;
+            this.kbtnExit.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kbtnExit.StateCommon.Content.ShortText.TextV = ComponentFactory.Krypton.Toolkit.PaletteRelativeAlign.Far;
+            this.kbtnExit.TabIndex = 24;
+            this.kbtnExit.Values.Image = global::BPLSBilling.Properties.Resources.bps_nav_exit;
+            this.kbtnExit.Values.Text = "EXIT";
+            this.kbtnExit.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picExit_MouseMove);
+            this.kbtnExit.Click += new System.EventHandler(this.kbtnExit_Click);
+            // 
+            // kpnl
+            // 
+            this.kpnl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.kpnl.Controls.Add(this.btnAddBnsRecord);
+            this.kpnl.Controls.Add(this.btnLogOut);
+            this.kpnl.Controls.Add(this.kbtnExit);
+            this.kpnl.Controls.Add(this.btnAppRenBns);
+            this.kpnl.Controls.Add(this.btnAppNewBns);
+            this.kpnl.Location = new System.Drawing.Point(0, 452);
+            this.kpnl.Name = "kpnl";
+            this.kpnl.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderForm;
+            this.kpnl.Size = new System.Drawing.Size(1016, 73);
+            this.kpnl.TabIndex = 25;
+            // 
+            // picMainForm
+            // 
+            this.picMainForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.picMainForm.Image = global::BPLSBilling.Properties.Resources.Background_bps;
+            this.picMainForm.InitialImage = ((System.Drawing.Image)(resources.GetObject("picMainForm.InitialImage")));
+            this.picMainForm.Location = new System.Drawing.Point(1, 143);
+            this.picMainForm.Name = "picMainForm";
+            this.picMainForm.Size = new System.Drawing.Size(1016, 436);
+            this.picMainForm.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picMainForm.TabIndex = 23;
+            this.picMainForm.TabStop = false;
+            this.picMainForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picMainForm_MouseMove);
+            this.picMainForm.Click += new System.EventHandler(this.picMainForm_Click);
             // 
             // kryptonRibbonGroupButton3
             // 
@@ -3208,26 +3323,37 @@ namespace BPLSBilling
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnEsignature;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple68;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnBrgyClearance;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab kryptonRibbonTab1;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabHealth;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup40;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple69;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton8;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton9;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnHealth;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnHealthApproval;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple70;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton10;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton11;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab kryptonRibbonTab2;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnHealthListApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnHealthModify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabCenro;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup41;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple71;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton12;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton13;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton14;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab kryptonRibbonTab3;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCenroApproval;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCenroListApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnCenroModify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabMarket;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup42;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple72;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton15;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton16;
-        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton kryptonRibbonGroupButton17;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnMarketApproval;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnMarketListApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnMarketModify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnEngModify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnEngListApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple73;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnZoningListApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnZoningModify;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnZoningApproval;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonTab tabOtherOffices;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroup kryptonRibbonGroup43;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple74;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnAppTrail;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnPendingApp;
         //private Amellar.Common.ContainerWithShadow containerWithShadow1;
     }
 }

@@ -147,7 +147,8 @@ namespace Amellar.Common.User
                 m_sQuery = "select right_desc \"Module Permissions\" from sys_module where rtrim(usr_rights) like 'AB%%'";
                 // RMC 20150807 hide all modules not applicable to enterprise edition of BPLS in Users module (s)
                 if (AppSettings.AppSettingsManager.GetConfigValue("66") == "ENTERPRISE")
-                    m_sQuery += " and (usr_rights <> 'ABAIP' and usr_rights <> 'ABHC' and usr_rights <> 'ABM' and usr_rights <> 'ABM-U-ND' and usr_rights <> 'ABSP' and usr_rights <> 'ABZC')";
+                    //m_sQuery += " and (usr_rights <> 'ABAIP' and usr_rights <> 'ABHC' and usr_rights <> 'ABM' and usr_rights <> 'ABM-U-ND' and usr_rights <> 'ABSP' and usr_rights <> 'ABZC')";
+                    m_sQuery += " and (usr_rights <> 'ABAIP' and usr_rights <> 'ABM' and usr_rights <> 'ABM-U-ND' and usr_rights <> 'ABSP')"; //AFM 20211213 shown modules for Other Offices
                 // RMC 20150807 hide all modules not applicable to enterprise edition of BPLS in Users module (e)
                 this.LoadPermissionList(m_sQuery, dgvListBussRec);
 
@@ -386,6 +387,8 @@ namespace Amellar.Common.User
             cmbDivision.Items.Add("CHO"); // MCR 20191126
             cmbDivision.Items.Add("PESO"); // AFM 20191212 MAO-19-11583
             cmbDivision.Items.Add("MAPUMA"); // AFM 20191212 MAO-19-11716
+            cmbDivision.Items.Add("HEALTH");
+            cmbDivision.Items.Add("MARKET");
            
             cmbDivision.SelectedIndex = -1;
         }
