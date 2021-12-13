@@ -556,4 +556,16 @@
   <data name="business_permit_signatory" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\business_permit_signatory.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="approval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\approval.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="health" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\health.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="modify_approve" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\modify-approve.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pending_approval" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pending-approval.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

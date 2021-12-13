@@ -2512,5 +2512,10 @@ namespace BPLSBilling
             }
         }
 
+        private void kryptonRibbonGroupButton10_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

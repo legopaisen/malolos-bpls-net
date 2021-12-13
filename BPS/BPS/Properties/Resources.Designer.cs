@@ -214,6 +214,13 @@ namespace BPLSBilling.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap approval {
+            get {
+                object obj = ResourceManager.GetObject("approval", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Arnew {
             get {
                 object obj = ResourceManager.GetObject("Arnew", resourceCulture);
@@ -599,6 +606,13 @@ namespace BPLSBilling.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap health {
+            get {
+                object obj = ResourceManager.GetObject("health", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap health_certificate {
             get {
                 object obj = ResourceManager.GetObject("health-certificate", resourceCulture);
@@ -697,6 +711,13 @@ namespace BPLSBilling.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap modify_approve {
+            get {
+                object obj = ResourceManager.GetObject("modify_approve", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap module_rights {
             get {
                 object obj = ResourceManager.GetObject("module_rights", resourceCulture);
@@ -749,6 +770,13 @@ namespace BPLSBilling.Properties {
         internal static System.Drawing.Bitmap PaperTrail {
             get {
                 object obj = ResourceManager.GetObject("PaperTrail", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap pending_approval {
+            get {
+                object obj = ResourceManager.GetObject("pending_approval", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -566,6 +566,10 @@
   <ItemGroup>
     <Content Include="bpls-BPS.ico" />
     <Content Include="BPLS_ICON.ico" />
+    <None Include="Resources\modify-approve.png" />
+    <None Include="Resources\health.png" />
+    <None Include="Resources\approval.png" />
+    <None Include="Resources\pending-approval.png" />
     <None Include="Resources\business_permit_signatory.png" />
     <None Include="Resources\Print.png" />
     <None Include="Resources\report-files1.png" />
