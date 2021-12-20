@@ -387,7 +387,34 @@ namespace Amellar.Modules.Payment
                         return;
                     }
                     else
+                    {
+
+                        //AFM 20211220 remove mayor's approval (s)
+                        OracleResultSet res2 = new OracleResultSet();
+                        string sBin = string.Empty;
+                        string sTaxYear = string.Empty;
+                        string sQtr = string.Empty;
+                        result.Query = "select * from pay_hist where or_no = '" + txtORNo.Text + "'";
+                        if (result.Execute())
+                            if (result.Read())
+                            {
+                                sBin = result.GetString("bin");
+                                sQtr = result.GetString("qtr_paid");
+                                sTaxYear = result.GetString("tax_year");
+                            }
+                        result.Close();
+
+                        if (sQtr == "1")
+                        {
+                            result.Query = "DELETE FROM BUSINESS_APPROVAL WHERE BIN = '" + sBin + "' AND TAX_YEAR = '" + sTaxYear + "'";
+                            if (result.ExecuteNonQuery() != 0)
+                            { }
+                            result.Close();
+                        }
+                        //AFM 20211220 remove mayor's approval (e)
+
                         CancelBusRecPayment();
+                    }
                 }
                 result.Close();
 
@@ -408,6 +435,8 @@ namespace Amellar.Modules.Payment
                 {}
                 result.Close();
                 // RMC 20151229 merged multiple OR use from Mati (e)
+
+                
 
                 //pApp->AuditTrail("CTCP", "multiple tables", mv_sORNo);
                 MessageBox.Show("Payments Cancelled.");

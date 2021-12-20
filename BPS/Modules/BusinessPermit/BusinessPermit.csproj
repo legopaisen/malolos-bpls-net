@@ -72,6 +72,12 @@
     <Compile Include="frmArcsSplPermit.Designer.cs">
       <DependentUpon>frmArcsSplPermit.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBusinessApproval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusinessApproval.Designer.cs">
+      <DependentUpon>frmBusinessApproval.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBusinessPermit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,10 @@
     <EmbeddedResource Include="frmArcsSplPermit.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmArcsSplPermit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusinessApproval.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmBusinessApproval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBusinessPermit.resx">
       <SubType>Designer</SubType>

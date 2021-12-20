@@ -351,6 +351,9 @@ namespace BPLSBilling
             this.kryptonRibbonGroupButton4 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton6 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             this.kryptonRibbonGroupButton7 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.kryptonRibbonGroupTriple75 = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple();
+            this.btnPaidBnsApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
+            this.btnMayorApproval = new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton();
             ((System.ComponentModel.ISupportInitialize)(this.flmFileMenu)).BeginInit();
             this.ctmCertifications.SuspendLayout();
             this.ctmInspector.SuspendLayout();
@@ -438,7 +441,8 @@ namespace BPLSBilling
             this.tabMarket,
             this.tabSanitary,
             this.tabOtherOffices});
-            this.flmFileMenu.SelectedTab = this.tabZoning;
+            this.flmFileMenu.SelectedContext = null;
+            this.flmFileMenu.SelectedTab = this.tabRecords;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;
             this.flmFileMenu.TabIndexChanged += new System.EventHandler(this.flmFileMenu_TabIndexChanged);
@@ -1034,8 +1038,11 @@ namespace BPLSBilling
             // kryptonRibbonGroup37
             // 
             this.kryptonRibbonGroup37.Image = ((System.Drawing.Image)(resources.GetObject("kryptonRibbonGroup37.Image")));
+            this.kryptonRibbonGroup37.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupContainer[] {
+            this.kryptonRibbonGroupTriple75});
             this.kryptonRibbonGroup37.Tag = null;
-            this.kryptonRibbonGroup37.Visible = false;
+            this.kryptonRibbonGroup37.TextLine1 = "Mayor\'s";
+            this.kryptonRibbonGroup37.TextLine2 = "Approval";
             // 
             // tabBilling
             // 
@@ -2998,6 +3005,29 @@ namespace BPLSBilling
             this.kryptonRibbonGroupButton7.TextLine1 = "Special";
             this.kryptonRibbonGroupButton7.TextLine2 = "Permit";
             // 
+            // kryptonRibbonGroupTriple75
+            // 
+            this.kryptonRibbonGroupTriple75.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnPaidBnsApproval,
+            this.btnMayorApproval});
+            this.kryptonRibbonGroupTriple75.Tag = null;
+            // 
+            // btnPaidBnsApproval
+            // 
+            this.btnPaidBnsApproval.ImageLarge = global::BPLSBilling.Properties.Resources.checklist;
+            this.btnPaidBnsApproval.Tag = null;
+            this.btnPaidBnsApproval.TextLine1 = "Business";
+            this.btnPaidBnsApproval.TextLine2 = "Approval";
+            this.btnPaidBnsApproval.Click += new System.EventHandler(this.btnPaidBnsApproval_Click);
+            // 
+            // btnMayorApproval
+            // 
+            this.btnMayorApproval.ImageLarge = global::BPLSBilling.Properties.Resources.checklist;
+            this.btnMayorApproval.Tag = null;
+            this.btnMayorApproval.TextLine1 = "Mayor\'s";
+            this.btnMayorApproval.TextLine2 = "Approval";
+            this.btnMayorApproval.Click += new System.EventHandler(this.btnMayorApproval_Click);
+            // 
             // frmMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3354,6 +3384,9 @@ namespace BPLSBilling
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple74;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnAppTrail;
         private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnPendingApp;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupTriple kryptonRibbonGroupTriple75;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnPaidBnsApproval;
+        private ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupButton btnMayorApproval;
         //private Amellar.Common.ContainerWithShadow containerWithShadow1;
     }
 }

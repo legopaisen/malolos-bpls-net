@@ -2760,5 +2760,25 @@ namespace BPLSBilling
             }
         }
 
+        private void btnPaidBnsApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABBA"))
+            {
+                frmBusinessApproval form = new frmBusinessApproval();
+                form.Module = "BUSINESS APPROVAL";
+                form.ShowDialog();
+            }
+        }
+
+        private void btnMayorApproval_Click(object sender, EventArgs e)
+        {
+            if (AppSettingsManager.Granted("ABMA"))
+            {
+                frmBusinessApproval form = new frmBusinessApproval();
+                form.Module = "MAYOR APPROVAL";
+                form.ShowDialog();
+            }
+        }
+
     }
 }

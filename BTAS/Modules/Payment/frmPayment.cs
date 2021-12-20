@@ -8612,6 +8612,10 @@ namespace Amellar.Modules.Payment
                     m_sOrNo = txtORNo.Text.Trim(); // PASS TO TEMP
                     CheckPaymentType();
 
+                    bool blnForApproval = false;
+                    if (CheckLatestPayment()) // if true, bin is subject to approval
+                        blnForApproval = true;
+
                     string sCashReceive = string.Empty;
                     string sCashChange = string.Empty;
                     string sChange = string.Empty;
@@ -8833,12 +8837,30 @@ namespace Amellar.Modules.Payment
 
                     GetLastTransaction(txtTeller.Text.Trim());
 
-                    if(m_sStatus = "N") //AFM 20211207 REQUESTED CTC ON SOA - delete after payment
+                    if(m_sStatus == "N") //AFM 20211207 REQUESTED CTC ON SOA - delete after payment
                     {
                         pSet.Query = "DELETE FROM CTC_TABLE WHERE BIN = '" + m_sBIN + "'";
                         if (pSet.ExecuteNonQuery() == 0)
                         { }
                     }
+
+                    //AFM 20211217 MAO-21-16197	PAID BUSINESS APPROVAL BEFORE APPROVAL OF MAYOR (s)
+                    if (blnForApproval && txtBnsStat.Text != "RET")
+                    {
+                        pSet.Query = "INSERT INTO BUSINESS_APPROVAL VALUES(";
+                        pSet.Query += "'" + bin.GetBin() + "',";
+                        pSet.Query += "'" + txtTaxYear.Text + "',";
+                        pSet.Query += "'" + AppSettingsManager.GetBnsCodeMain(bin.GetBin()) + "',";
+                        pSet.Query += "'PENDING',";
+                        pSet.Query += "'',";
+                        pSet.Query += "'',";
+                        pSet.Query += "'',";
+                        pSet.Query += "'')";
+                        if (pSet.ExecuteNonQuery() == 0)
+                        { }
+                    }
+                    
+                    //AFM 20211217 MAO-21-16197	PAID BUSINESS APPROVAL BEFORE APPROVAL OF MAYOR (e)
 
                     ClearSOA();
                     //ReportClass rClass = new ReportClass();
@@ -8857,6 +8879,20 @@ namespace Amellar.Modules.Payment
             {
                 MessageBox.Show(ex.Message, "Payment", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool CheckLatestPayment() //AFM 20211220 (in relation to paid business approval) check if already paid at least 1st quarter for current year
+        {
+            int cnt = 0;
+            OracleResultSet res = new OracleResultSet();
+            if (txtTaxYear.Text != AppSettingsManager.GetSystemDate().Year.ToString()) // for discovery; will not save to approval until paid for latest year
+                return false;
+            res.Query = "select count(*) from pay_hist where bin = '" + bin.GetBin() + "' and tax_year = '" + AppSettingsManager.GetSystemDate().Year.ToString() + "' and (qtr_paid = 'F' OR qtr_paid = '1')";
+            int.TryParse(res.ExecuteScalar(), out cnt);
+            if (cnt == 0)
+                return true;
+            else
+                return false;
         }
 
         private string GetSOARefNo(string sBin)

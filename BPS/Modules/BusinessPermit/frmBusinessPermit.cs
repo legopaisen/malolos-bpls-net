@@ -611,6 +611,14 @@ namespace Amellar.Modules.BusinessPermit
             }
             // RMC 20170126 disable printing of permit if business already retired (e)
 
+            //AFM 20211217 MAO-21-16197 paid business approval (s)
+            if (!CheckMayorApproval())
+            {
+                MessageBox.Show("BIN pending for Mayor's Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            //AFM 20211217 MAO-21-16197 paid business approval (s)
+
             bool bPrintTempPermit = false;  // RMC 20171110 added configurable option to print temporary permit - requested by Malolos
 
             //MCR 20111121 (s)
@@ -644,6 +652,7 @@ namespace Amellar.Modules.BusinessPermit
             }
             // RMC 20110905 added validation of requirements in generating permit (e)
 
+            
             // RMC 20171110 added configurable option to print temporary permit - requested by Malolos (s)
             if (bPrintTempPermit)
             {
@@ -719,6 +728,24 @@ namespace Amellar.Modules.BusinessPermit
                     }
                 }
             }
+        }
+
+        private bool CheckMayorApproval()
+        {
+            int cnt = 0;
+            OracleResultSet res = new OracleResultSet();
+            res.Query = "select count(*) from business_approval where bin = " + bin1.GetBin() + ""; // bypass old BINs to only validate transactions after this update
+            int.TryParse(res.ExecuteScalar(), out cnt);
+            if (cnt == 0)
+                return true;
+
+            cnt = 0;
+            res.Query = "select count(*) from business_approval where tax_year = '" + AppSettingsManager.GetSystemDate().Year.ToString() + "' and bin = '" + bin1.GetBin() + "' and mayor_approved = 'YES'";
+            int.TryParse(res.ExecuteScalar(), out cnt);
+            if (cnt > 0)
+                return true;
+            else
+                return false;
         }
 
         private void PrintMP()
