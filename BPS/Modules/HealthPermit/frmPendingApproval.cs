@@ -163,7 +163,7 @@ namespace Amellar.Modules.HealthPermit
                             sAddress = sBnsHouseNo + sBnsStreet + sBnsBrgy + sBnsMun;
 
                             bool bMarket = false;
-                            if (sBnsStreet.Contains("MARKET"))
+                            if (sBnsStreet.Contains("PUBLIC MARKET") || sBnsStreet.Contains("MAPUMA"))
                                 bMarket = true;
 
                             string sAppBy = string.Empty;

@@ -372,6 +372,8 @@
   <ItemGroup>
     <None Include="Resources\CPDO-engr-benjamin-sig.png" />
     <None Include="Resources\grace-cabasal-sig.png" />
+    <None Include="Resources\sanitary_clearance_e_sig.png" />
+    <None Include="Resources\sanitary_rec_approval_e_sig.png" />
     <Content Include="Resources\signature_placeholder.png" />
     <None Include="Resources\zoning-dept-logo.png" />
   </ItemGroup>

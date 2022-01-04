@@ -812,7 +812,7 @@ or dc.default_desc = 'ASSET SIZE')"; //bns_code added MCR 20150127
                     sGrandTotTotal1 = string.Format("{0:#,##0.00}", Convert.ToDouble(sGrandTotTotal1) + dTaxDebit); //dGrandTotTotal //AFM 20200114
                 }
                 else
-                    sGrandTotTotal1 = string.Format("{0:#,##0.00}", sGrandTotTotal + dTaxDebit);
+                    sGrandTotTotal1 = string.Format("{0:#,##0.00}", Convert.ToDouble(sGrandTotTotal) + dTaxDebit); //AFM 20220104 two decimal fix
                 //AFM 20200114 applied condition to display credit correctly (e)
 
 

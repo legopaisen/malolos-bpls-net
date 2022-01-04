@@ -89,7 +89,7 @@ namespace Amellar.Modules.BusinessPermit
             res.Query += " and EXTRACT(YEAR FROM TO_DATE(ph.or_date, 'DD-MON-RR')) like '%" + txtTaxYear.Text + "%' ";
             res.Query += " and ba.status like '" + sStatus + "' ";
             if(m_sModule == "MAYOR APPROVAL")
-                res.Query += " and ba.mayor_approved <> 'YES' ";
+                res.Query += " and ba.mayor_approved IS NULL ";
             res.Query += " and bs.bin like '%" + m_sBin + "%' ";
             if(res.Execute())
                 while (res.Read())

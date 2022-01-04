@@ -158,6 +158,11 @@ namespace Amellar.Modules.HealthPermit
 
                     btnRebill.Visible = true;
                 }
+                if (m_sOffice == "PLANNING") //AFM 20220103 MAO-21-16279
+                {
+                    txtDti.Visible = true;
+                    lblDti.Visible = true;
+                }
 
 
                 UpdateList();
@@ -342,7 +347,7 @@ namespace Amellar.Modules.HealthPermit
                     pSet.Query = "select bin,bns_nm,tax_year, bns_house_no,bns_street,bns_brgy, bns_mun, own_code,bns_stat,flr_area, place_occupancy, busn_own from business_que ";
                     pSet.Query += " where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and bin = '" + sBIN + "'";
                     if (m_sOffice == "MARKET")
-                        pSet.Query += " and bns_street like '%MARKET%' ";
+                        pSet.Query += " and (bns_street like '%MARKET%' OR bns_streeT like '%MAPUMA%') ";
 
                     bool bDisplay = true;
                     if (pSet.Execute())
@@ -388,7 +393,7 @@ namespace Amellar.Modules.HealthPermit
                             sAddress = sBnsHouseNo + sBnsStreet + sBnsBrgy + sBnsMun;
 
                             bool bMarket = false;
-                            if (sBnsStreet.Contains("MARKET"))
+                            if (sBnsStreet.Contains("PUBLIC MARKET") || sBnsStreet.Contains("MAPUMA")) //AFM 20211224 MAO-21-16248
                                 bMarket = true;
 
                             if (AppSettingsManager.IsForSoaPrint(sBIN, ConfigurationAttributes.CurrentYear))    // IF BILLED CANNOT BE DISAPPROVED
@@ -406,6 +411,225 @@ namespace Amellar.Modules.HealthPermit
                 }
             }
             pRec.Close();
+        }
+
+        private bool ValidateBusinessType(string sBin) //AFM 20211227 MAO-21-16250	check record if under certain business types for HEALTH as requested
+        {
+            OracleResultSet res = new OracleResultSet();
+            int cnt = 0;
+            res.Query = "select count(*) from business_que where bin = '" + sBin + "' and BNS_CODE in (select bns_code from bns_table where fees_code = 'B' and ";
+            res.Query += "bns_desc = 'BREWER' ";
+            res.Query += "OR bns_desc = 'DISTILLER' ";
+            res.Query += "OR bns_desc = 'WATER REFILLING STATION' ";
+            res.Query += "OR bns_desc = 'DRUG MANUFACTURER' ";
+            res.Query += "OR bns_desc = 'WHOLESALER FOOD SUPPLEMET' ";
+            res.Query += "OR bns_desc = 'WHOLESALER BOOKSTORE' ";
+            res.Query += "OR bns_desc = 'WHOLESALER COSMETICS' ";
+            res.Query += "OR bns_desc = 'WHOLESALER GROCERIES' ";
+            res.Query += "OR bns_desc = 'WHOLESALER CHEMICAL PRODUCTS' ";
+            res.Query += "OR bns_desc = 'DISTRIBUTOR OF FOOD PACKAGING' ";
+            res.Query += "OR bns_desc = 'DISTRIBUTOR MEDICINE' ";
+            res.Query += "OR bns_desc = 'WHOLESALER LECHE FLAN' ";
+            res.Query += "OR bns_desc = 'WHOLESALER CAN GOODS' ";
+            res.Query += "OR bns_desc = 'WHOLESALER (DEL MONTE PRODUCTS)' ";
+            res.Query += "OR bns_desc = 'WHOLESALER SCHOOL SUPPLIES' ";
+            res.Query += "OR bns_desc = 'WHOLESALER FOOD SUPPLEMENTS' ";
+            res.Query += "OR bns_desc = 'WHOLESALER BEVERAGE' ";
+            res.Query += "OR bns_desc = 'WHOLESALER SCHOOL SUPPLIES (ONLINE)' ";
+            res.Query += "OR bns_desc = 'DISTRIBUTOR MEDICAL SUPPLIES' ";
+            res.Query += "OR bns_desc = 'WHOLESALER OFFICE SUPPLIES' ";
+            res.Query += "OR bns_desc = 'IMPORTER MEDICAL SUPPLY AND EQUIPMENT' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-WHOLESALER MEDICINE' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL WHOLESALER MEDICINE (ONLINE)' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL WHOLESALER FISH' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL WHOLESALER MEAT/CHICKEN' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER RICE/CORN' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER WHEAT/CASSAVA FLOUR' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER SUGAR/SALT' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER SCHOOL SUPPLIES' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER BAKERY/BAKESHOP' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER MEAT/CHICKEN' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER FISH' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER FRUITS/VEGETABLES' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER MEDICINE/HERBAL PRODUCT' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL -RETAILER EGG' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL RETAILER COOKING OIL' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL RETAILER COCONUT' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER HERBAL PRODUCTS' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER MEDICINE' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER FOOD SUPPLEMENT' ";
+            res.Query += "OR bns_desc = 'ESSENTIAL-RETAILER CONDIMENTS' ";
+            res.Query += "OR bns_desc = 'RETAIL COSMETICS' ";
+            res.Query += "OR bns_desc = 'RETAIL GROCERIES' ";
+            res.Query += "OR bns_desc = 'RETAIL ICE CUBES' ";
+            res.Query += "OR bns_desc = 'RETAIL OFFICE SUPPLIES' ";
+            res.Query += "OR bns_desc = 'RETAIL ICE CREAM' ";
+            res.Query += "OR bns_desc = 'RETAILER BOOKSTORE' ";
+            res.Query += "OR bns_desc = 'RETAILER BEVERAGES' ";
+            res.Query += "OR bns_desc = 'RETAILER WINE/LIQUOR' ";
+            res.Query += "OR bns_desc = 'RETAILER NUTS /CHICHARON' ";
+            res.Query += "OR bns_desc = 'RETAILER BAKERY SUPPLIES' ";
+            res.Query += "OR bns_desc = 'RETAILER MEDICAL SUPPLY' ";
+            res.Query += "OR bns_desc = 'RETAILER SKIN CARE' ";
+            res.Query += "OR bns_desc = 'RETAILER- CASSAVA CAKE' ";
+            res.Query += "OR bns_desc = 'RETAILER MEDICAL LABORATORY SUPPLY AND EQUIPMENT' ";
+            res.Query += "OR bns_desc = 'RETAILER MASSAGE EQUIPMENT' ";
+            res.Query += "OR bns_desc = 'ONLINE RETAILER BEAUTY PRODUCTS' ";
+            res.Query += "OR bns_desc = 'RETAILER PERSONAL AND HOME CARE PRODUCT (ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAILER BEAUTY PRODUCTS' ";
+            res.Query += "OR bns_desc = 'RETAILER SOFTDRINKS/BEER' ";
+            res.Query += "OR bns_desc = 'RETAIL SALE OF PERFUMERY, COSMETIC AND TOILET ARTICLES' ";
+            res.Query += "OR bns_desc = 'LAUNDRY SHOP' ";
+            res.Query += "OR bns_desc = 'BARBERSHOP' ";
+            res.Query += "OR bns_desc = 'BEAUTY PARLOR' ";
+            res.Query += "OR bns_desc = 'MASSAGE CLINIC' ";
+            res.Query += "OR bns_desc = 'SKIN CLINIC' ";
+            res.Query += "OR bns_desc = 'SPA CLINIC' ";
+            res.Query += "OR bns_desc = 'FUNERAL PARLOR' ";
+            res.Query += "OR bns_desc = 'HOTEL' ";
+            res.Query += "OR bns_desc = 'MOTEL' ";
+            res.Query += "OR bns_desc = 'LODGING HOUSE' ";
+            res.Query += "OR bns_desc = 'ARRASTRE' ";
+            res.Query += "OR bns_desc = 'STEVEDORING' ";
+            res.Query += "OR bns_desc = 'WAREHOUSING/FORWARDING' ";
+            res.Query += "OR bns_desc = 'GLUTA SPA CLINIC' ";
+            res.Query += "OR bns_desc = 'FREIGHT FORWARDING SERVICES' ";
+            res.Query += "OR bns_desc = 'PHYSICAL THERAPY CLINIC' ";
+            res.Query += "OR bns_desc = 'HAIR SALON' ";
+            res.Query += "OR bns_desc = 'SURFACE MINING' ";
+            res.Query += "OR bns_desc = 'AUTO PAINTING SVCS' ";
+            res.Query += "OR bns_desc = 'NAIL SALON' ";
+            res.Query += "OR bns_desc = 'LOGISTICS AND COURIER SERVICES' ";
+            res.Query += "OR bns_desc = 'BODY SPA' ";
+            res.Query += "OR bns_desc = 'PET GROOMING' ";
+            res.Query += "OR bns_desc = 'FACIAL SERVICES' ";
+            res.Query += "OR bns_desc = 'CONST SVCS (ONLINE)' ";
+            res.Query += "OR bns_desc = 'GEN ENGG CONTRACTOR (ONLINE)' ";
+            res.Query += "OR bns_desc = 'LOGISTICS SERVICES' ";
+            res.Query += "OR bns_desc = 'BILLIARD/POOL HALLS' ";
+            res.Query += "OR bns_desc = 'BOWLING ALLEYS/LANES' ";
+            res.Query += "OR bns_desc = 'BOXING STADIUM' ";
+            res.Query += "OR bns_desc = 'CABARET/DANCE HALLS' ";
+            res.Query += "OR bns_desc = 'CARNIVAL/CIRCUS/FAIRS/FERRIS WHEEL/MERRY-GO-ROUND' ";
+            res.Query += "OR bns_desc = 'AMUSEMENT ON COCKPIT' ";
+            res.Query += "OR bns_desc = 'COCKTAIL LOUNGE/BAR' ";
+            res.Query += "OR bns_desc = 'JUKEBOX MACHINE/SING ALONG JOINTS/VIDEOKE' ";
+            res.Query += "OR bns_desc = 'VIDEO HOUSE OPTR' ";
+            res.Query += "OR bns_desc = 'DAY/NIGHT CLUB' ";
+            res.Query += "OR bns_desc = 'FASHION SHOW' ";
+            res.Query += "OR bns_desc = 'GOLF LINK' ";
+            res.Query += "OR bns_desc = 'RACE TRACK' ";
+            res.Query += "OR bns_desc = 'SKATING RINK' ";
+            res.Query += "OR bns_desc = 'SHOOTING GALLERY/OTHER CONTRIVANCES' ";
+            res.Query += "OR bns_desc = 'VAUDAVILLE SHOW' ";
+            res.Query += "OR bns_desc = 'CINEMA/THEATER(AIRCONDITION)' ";
+            res.Query += "OR bns_desc = 'CINEMA/THEATER(ORDINARY)' ";
+            res.Query += "OR bns_desc = 'TRADITIONAL.BINGO' ";
+            res.Query += "OR bns_desc = 'RESORT' ";
+            res.Query += "OR bns_desc = 'BADMINTON COURT' ";
+            res.Query += "OR bns_desc = 'SLIMMERS/AEROBICS/FITNESS CTR' ";
+            res.Query += "OR bns_desc = 'LOTTO OUTLET' ";
+            res.Query += "OR bns_desc = 'CAFE' ";
+            res.Query += "OR bns_desc = 'CAFETERIAS' ";
+            res.Query += "OR bns_desc = 'CARINDERIAS/EATERIES' ";
+            res.Query += "OR bns_desc = 'FOOD CATERER' ";
+            res.Query += "OR bns_desc = 'REFRESHMENT PARLORS' ";
+            res.Query += "OR bns_desc = 'SNACK BAR/FASTFOOD' ";
+            res.Query += "OR bns_desc = 'SODA FOUNTAIN' ";
+            res.Query += "OR bns_desc = 'RESTAURANT' ";
+            res.Query += "OR bns_desc = 'CANTEEN' ";
+            res.Query += "OR bns_desc = 'FOOD/BURGER STAND' ";
+            res.Query += "OR bns_desc = 'BAR' ";
+            res.Query += "OR bns_desc = 'RESTO BAR' ";
+            res.Query += "OR bns_desc = 'RESTO' ";
+            res.Query += "OR bns_desc = 'FOOD STAND' ";
+            res.Query += "OR bns_desc = 'FOOD CATERER (ONLINE)' ";
+            res.Query += "OR bns_desc = 'BURGER STAND (ONLINE)' ";
+            res.Query += "OR bns_desc = 'FOOD STAND (ONLINE)' ";
+            res.Query += "OR bns_desc = 'PRIVATE CEMETERIES' ";
+            res.Query += "OR bns_desc = 'MEMORIAL PARK' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE LESSOR (RESIDENTIAL)' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE LESSOR (COML/INDL)' ";
+            res.Query += "OR bns_desc = 'DORMITORY/BOARDING HOUSE' ";
+            res.Query += "OR bns_desc = 'EXPORTER' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE LESSOR (INDUSTRIAL)' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE LESSOR (COMMERCIAL)' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE LESSOR (LOT ONLY)' ";
+            res.Query += "OR bns_desc = 'TRAVELLERS INN' ";
+            res.Query += "OR bns_desc = 'SUB LESSOR (COMMERCIAL)' ";
+            res.Query += "OR bns_desc = 'EVENT PLACE' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE SELLER/DEALER/DEVELOPER' ";
+            res.Query += "OR bns_desc = 'HOLDINGS' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE SELLER/DEALER' ";
+            res.Query += "OR bns_desc = 'GASOLINE/OIL/PETROLEUM PRODUCTS' ";
+            res.Query += "OR bns_desc = 'NON-STOCK ' || chr(38) || ' NON-PROFIT HOSPITALS' ";
+            res.Query += "OR bns_desc = 'NON-STOCK ' || chr(38) || ' NON-PROFIT EDUCATIONAL INSTITUTION' ";
+            res.Query += "OR bns_desc = 'MEDICAL CLINIC (ONLINE)' ";
+            res.Query += "OR bns_desc = 'EDUCATIONAL INSTITUTION' ";
+            res.Query += "OR bns_desc = 'DANCE STUDIO' ";
+            res.Query += "OR bns_desc = 'DISPLAY OFFICE' ";
+            res.Query += "OR bns_desc = 'LUMPIA WRAPPER' ";
+            res.Query += "OR bns_desc = 'CLINIC' ";
+            res.Query += "OR bns_desc = 'MEDICAL/LABORATORY CLINIC' ";
+            res.Query += "OR bns_desc = 'DENTAL CLINIC/LAB' ";
+            res.Query += "OR bns_desc = 'OPTICAL CLINIC' ";
+            res.Query += "OR bns_desc = 'DRUG TESTING CLINIC' ";
+            res.Query += "OR bns_desc = 'VETERINARY CLINIC' ";
+            res.Query += "OR bns_desc = 'TELECOMMUNICATION' ";
+            res.Query += "OR bns_desc = 'TELECOMMUNICATION (EXTENSION OFFICE)' ";
+            res.Query += "OR bns_desc = 'ENGG DESIGN/DRAFTING' ";
+            res.Query += "OR bns_desc = 'CABLE SVCS' ";
+            res.Query += "OR bns_desc = 'JUNKSHOP' ";
+            res.Query += "OR bns_desc = 'HOSPITAL' ";
+            res.Query += "OR bns_desc = 'ICE PLANT' ";
+            res.Query += "OR bns_desc = 'COCKPIT' ";
+            res.Query += "OR bns_desc = 'BIRTHING HOME' ";
+            res.Query += "OR bns_desc = 'HEAVY EQUIPMENT RENTALS' ";
+            res.Query += "OR bns_desc = 'TUTORIAL' ";
+            res.Query += "OR bns_desc = 'REAL ESTATE APPRAISER' ";
+            res.Query += "OR bns_desc = 'HAIR SALON' ";
+            res.Query += "OR bns_desc = 'WATER UTILITY' ";
+            res.Query += "OR bns_desc = 'TRAINING/SEMINAR SERVICES' ";
+            res.Query += "OR bns_desc = 'TELECOMUNICATION SERVICES' ";
+            res.Query += "OR bns_desc = 'ENGINEERING SVCS' ";
+            res.Query += "OR bns_desc = 'CREMATORY' ";
+            res.Query += "OR bns_desc = 'ACCUPUNCTURE' ";
+            res.Query += "OR bns_desc = 'BODY MASSAGE' ";
+            res.Query += "OR bns_desc = 'DERMATOLOGY CLINIC' ";
+            res.Query += "OR bns_desc = 'MASSAGE' ";
+            res.Query += "OR bns_desc = 'ANIMAL BITE CLINIC' ";
+            res.Query += "OR bns_desc = 'FUNERAL SERVICES' ";
+            res.Query += "OR bns_desc = 'TATTOO SERVICES' ";
+            res.Query += "OR bns_desc = 'CHICKEN DRESSING SERVICES' ";
+            res.Query += "OR bns_desc = 'PHYSICAL THERAPHY SERVICES' ";
+            res.Query += "OR bns_desc = 'TUTORIAL ONLINE' ";
+            res.Query += "OR bns_desc = 'OTHER PERSONAL SERVICES FOR WELLNESS ACTIVITIES, N.E.C.' ";
+            res.Query += "OR bns_desc = 'RETAILER MEDICAL AND LABORATORY SUPPLY (ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAILER SOFTDRINKS (ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAILER LUMBER/HARDWARE/CONST MATLS(ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAILER BEAUTY PRODUCTS (ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAILER BAKING SUPPLIES (ONLINE)' ";
+            res.Query += "OR bns_desc = 'RETAIL SELLING IN CONVENIENCE STORE' ";
+            res.Query += "OR bns_desc = 'CONTRACTOR (ONLINE)') ";
+            int.TryParse(res.ExecuteScalar(), out cnt);
+            res.Close();
+            if (cnt > 0)
+                return true;
+            else
+                return false;
+        }
+
+        private bool CheckNegativeList(string sBin, string sOffice) //AFM 20211227 MAO-21-16254
+        {
+            OracleResultSet res = new OracleResultSet();
+            int cnt = 0;
+            res.Query = "select count(*) from nigvio_list where bin = '" + sBin + "' and division_code like '%" + sOffice + "%'";
+            int.TryParse(res.ExecuteScalar(), out cnt);
+            if (cnt > 0)
+                return true;
+            else
+                return false;
         }
 
         private void UpdateListForApp()
@@ -452,19 +676,21 @@ namespace Amellar.Modules.HealthPermit
             string sAppID = "";
 
             OracleResultSet pRec = new OracleResultSet();
+            OracleResultSet pRec2 = new OracleResultSet();
 
             pRec.Query = "select bin, app_id from app_permit_tmp ";
             pRec.Query += " where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "'";
             pRec.Query += " and bin not in (select bin from trans_for_approve_tmp where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = '" + m_sOffice + "') ";
             pRec.Query += " and bin not in (select bin from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = '" + m_sOffice + "') ";
             // add hierarchy of approval
-            if (m_sOffice == "HEALTH")
-                pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'PLANNING' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
-            if (m_sOffice == "CENRO")
-            {
-                pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'HEALTH' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
-            }
-            //pRec.Query += " and bin = '175-00-2020-0008966' ";
+            //if (m_sOffice == "HEALTH") //AFM 20211224 removed - moved validation below
+            //{
+            //    pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'PLANNING' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
+            //}
+            //if (m_sOffice == "CENRO") //AFM 20211224 removed - moved validation below
+            //{
+            //    pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'HEALTH' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
+            //}
             pRec.Query += " order by app_id";
             bool bDisplay = true;
             if (pRec.Execute())
@@ -481,7 +707,7 @@ namespace Amellar.Modules.HealthPermit
                     pSet.Query = "select bin,bns_nm,tax_year, bns_house_no,bns_street,bns_brgy, bns_mun, own_code,bns_stat,flr_area, place_occupancy, busn_own from business_que ";
                     pSet.Query += " where tax_year <= '" + AppSettingsManager.GetConfigValue("12") + "' and bin = '" + sBIN + "'";  // to include discovery delinq
                     if (m_sOffice == "MARKET")
-                        pSet.Query += " and bns_street like '%MARKET%' ";
+                        pSet.Query += " and (bns_street like '%MARKET%' OR bns_streeT like '%MAPUMA%') ";
 
                     if (pSet.Execute())
                     {
@@ -526,14 +752,20 @@ namespace Amellar.Modules.HealthPermit
                             sAddress = sBnsHouseNo + sBnsStreet + sBnsBrgy + sBnsMun;
 
                             bool bMarket = false;
-                            if (sBnsStreet.Contains("MARKET"))
+                            if (sBnsStreet.Contains("PUBLIC MARKET") || sBnsStreet.Contains("MAPUMA"))
                                 bMarket = true;
 
                             if (sBnsStat == "NEW")
                             {
                                 if (m_sOffice == "ENGINEERING")
                                 {
-                                    if (!ValidateApproval(sBIN, "PLANNING"))
+                                    //if (!ValidateApproval(sBIN, "PLANNING"))
+                                    //    bDisplay = false;
+                                    bDisplay = true;
+                                }
+                                else if (m_sOffice == "PLANNING")
+                                {
+                                    if (!ValidateApproval(sBIN, "ENGINEERING"))
                                         bDisplay = false;
                                 }
                             }
@@ -541,14 +773,44 @@ namespace Amellar.Modules.HealthPermit
                             {
                                 if (m_sOffice == "PLANNING")
                                 {
-                                    if (!ValidateApproval(sBIN, "ENGINEERING"))
+                                    if (CheckNegativeList(sBIN, "ZONING"))
+                                        bDisplay = true;
+                                    else
                                         bDisplay = false;
                                 }
+                                else if (m_sOffice == "ENGINEERING") // AFM 20220103 MAO-21-16280
+                                    bDisplay = false;
+                            }
+
+                            if (m_sOffice == "HEALTH") // AFM 20211224 MAO-21-16249
+                            {
+                                if (sBnsStat == "NEW")
+                                {
+                                    if (!ValidateApproval(sBIN, "PLANNING") && !ValidateBusinessType(sBIN))
+                                        bDisplay = false;
+                                }
+
+                                if ((!ValidateApproval(sBIN, "PLANNING") && CheckNegativeList(sBIN, "SANITARY")) && ValidateBusinessType(sBIN))
+                                {
+                                    bDisplay = false;
+                                }
+                                else
+                                    bDisplay = true;
+                            }
+
+                            if (m_sOffice == "CENRO")
+                            {
+                                if (CheckNegativeList(sBIN, "SANITARY") && !ValidateApproval(sBIN, "HEALTH"))
+                                    bDisplay = false;
+                                else
+                                    bDisplay = true;
                             }
 
                             if (m_sOffice == "BPLO")
                             {
-                                if (!ValidateRecord(sBIN, bMarket))
+                                if (sBnsStat == "RET")
+                                    bDisplay = true;
+                                else if (!ValidateRecord(sBIN, bMarket, sBnsStat))
                                     bDisplay = false;
                                 else
                                     bDisplay = true;
@@ -559,7 +821,12 @@ namespace Amellar.Modules.HealthPermit
                                 dgvList.Rows.Add(sAppID, AppSettingsManager.GetViolation(m_sOffice, sBIN, ""), sBIN, pSet.GetString(1), pSet.GetString(2),
                                     sLN, sFN, sMI, sAddress, sBnsStat, sArea, sLessor);
 
-
+                                if (m_sOffice == "HEALTH") //to highlight bins tagged iin negative list
+                                {
+                                    int index = dgvList.Rows.Count - 1;
+                                    if (CheckNegativeList(sBIN, "SANITARY"))
+                                        dgvList.Rows[index].DefaultCellStyle.BackColor = Color.Red;
+                                }
                             }
                         }
 
@@ -733,6 +1000,14 @@ namespace Amellar.Modules.HealthPermit
                 }
                 m_bInit = false;
                 // UpdateList(); // temp removed 20210420
+
+                if (m_sOffice == "HEALTH")
+                {
+                    if (CheckNegativeList(m_sBIN, "SANITARY") || txtStatus.Text == "NEW") // AFM 20211224 MAO-21-16254 //AFM 20220104 MAO-21-16282 NEW status health sectors
+                        btnApprove.Enabled = true;
+                    else
+                        btnApprove.Enabled = false;
+                }
             }
             catch
             {
@@ -1101,56 +1376,120 @@ namespace Amellar.Modules.HealthPermit
 
         }
 
-        private bool ValidateRecord(string sBin, bool bMarket)
+        private bool ValidateRecord(string sBin, bool bMarket, string sBnsStat)
         {
             OracleResultSet pSet = new OracleResultSet();
+            OracleResultSet pSet2 = new OracleResultSet();
 
-            pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'ENGINEERING' and bin = '" + sBin + "'";
-            if (pSet.Execute())
+            if (sBnsStat == "NEW") // AFM 20220103 MAO-21-16280
             {
-                if (!pSet.Read())
+                pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'ENGINEERING' and bin = '" + sBin + "'";
+                if (pSet.Execute())
                 {
-                    pSet.Close();
-                    return false;
-                }
-            }
-            pSet.Close();
-
-            pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'PLANNING' and bin = '" + sBin + "'";
-            if (pSet.Execute())
-            {
-                if (!pSet.Read())
-                {
-                    pSet.Close();
-                    return false;
-                }
-            }
-            pSet.Close();
-
-            pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'HEALTH' and bin = '" + sBin + "'";
-            if (pSet.Execute())
-            {
-                if (!pSet.Read())
-                {
-                    pSet.Close();
-                    if (AppSettingsManager.GetConfigObject("87") == "Y")    // RMC 20210217 added override of CHO approval. Requested by sir Henry due to lockdown in CHO
-                    { }
-                    else
+                    if (!pSet.Read())
+                    {
+                        pSet.Close();
                         return false;
+                    }
                 }
+                pSet.Close();
             }
-            pSet.Close();
 
-            pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'CENRO' and bin = '" + sBin + "'";
-            if (pSet.Execute())
+            if (sBnsStat != "REN") //AFM 20211224 MAO-21-16249
             {
-                if (!pSet.Read())
+                pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'PLANNING' and bin = '" + sBin + "'";
+                if (pSet.Execute())
                 {
-                    pSet.Close();
-                    return false;
+                    if (!pSet.Read())
+                    {
+                        pSet.Close();
+                        return false;
+                    }
                 }
+                pSet.Close();
             }
-            pSet.Close();
+
+            if (ValidateBusinessType(sBin) && CheckNegativeList(sBin, "SANITARY") && sBnsStat == "NEW") // only lists of business types are validated for HEALTH //AFM 20220104 MAO-21-16282 added NEW status
+            {
+                pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'HEALTH' and bin = '" + sBin + "'";
+                if (pSet.Execute())
+                {
+                    if (!pSet.Read())
+                    {
+                        pSet.Close();
+                        return false;
+                    }
+                }
+                pSet.Close();
+            }
+
+            if(m_sOffice == "BPLO" && CheckNegativeList(sBin, "")) //check for approval tagged under negative list
+            {
+                string sOffice = string.Empty;
+                pSet.Query = "select division_code from nigvio_list where bin = '" + sBin + "'";
+                if(pSet.Execute())
+                    while (pSet.Read())
+                    {
+                        sOffice = pSet.GetString("division_code");
+
+                        if (sOffice == "HEALTH")
+                        {
+                            pSet2.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'HEALTH' and bin = '" + sBin + "'";
+                            if (pSet.Execute())
+                            {
+                                if (!pSet2.Read())
+                                {
+                                    pSet2.Close();
+                                    return false;
+                                }
+                            }
+                            pSet2.Close();
+                        }
+
+                        else if (sOffice == "ENGINEERING")
+                        {
+                            pSet2.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'ENGINEERING' and bin = '" + sBin + "'";
+                            if (pSet2.Execute())
+                            {
+                                if (!pSet2.Read())
+                                {
+                                    pSet2.Close();
+                                    return false;
+                                }
+                            }
+                            pSet2.Close();
+                        }
+
+                        else if (sOffice == "ZONING")
+                        {
+                            pSet2.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'PLANNING' and bin = '" + sBin + "'";
+                            if (pSet2.Execute())
+                            {
+                                if (!pSet2.Read())
+                                {
+                                    pSet2.Close();
+                                    return false;
+                                }
+                            }
+                            pSet2.Close();
+                        }
+                    }
+                pSet.Close();
+            }
+
+            //if (ValidateBusinessType(sBin)) // CENRO currently under HEALTH hierarchy as per SANTIAGO version. Pending for Malolos future adjustment if there is any.
+            //{
+            //    pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'CENRO' and bin = '" + sBin + "'";
+            //    if (pSet.Execute())
+            //    {
+            //        if (!pSet.Read())
+            //        {
+            //            pSet.Close();
+            //            return false;
+            //        }
+            //    }
+            //    pSet.Close();
+            //}
 
             if (bMarket)
             {
@@ -1253,6 +1592,13 @@ namespace Amellar.Modules.HealthPermit
                 }
                 pSet.Close();
             }
+
+            pSet.Query = "select dti_reg_no from business_que where bin = '" + txtBIN.Text + "'"; //AFM 20220103 MAO-21-16279
+            if(pSet.Execute())
+                if (pSet.Read())
+                {
+                    txtDti.Text = pSet.GetString(0);
+                }
 
             LoadLineOfBusiness();
         }

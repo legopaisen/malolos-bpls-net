@@ -5843,78 +5843,87 @@ namespace Amellar.Modules.BusinessPermit
             //this.axVSPrinter1.Paragraph = "";
             //this.axVSPrinter1.Paragraph = "";
             //this.axVSPrinter1.Paragraph = "";
-            strData = "SUBMITTED REQUIREMENTS:";
-            this.axVSPrinter1.Table = string.Format("<7000;{0}", strData);
-            this.axVSPrinter1.FontBold = false;
-            string sReq = "";
-            int iCount = 0;
 
-            ArrayList arrWag = new ArrayList();
-            arrWag.Add("024"); //SSS CERTIFICATE
-            arrWag.Add("025"); //PHILHEALTH CERTIFICATE
-            arrWag.Add("026"); //PAGIBIG CERTIFICATE
-            arrWag.Add("045"); //SECRETARY'S CERTIFICATE AUTHORIZING THE REPRESENTATIVE TO TRANSACT
-            
-            //MCR 20190724 MAO-19-10438 (s)
-            if (m_sBnsStat != "NEW") 
-                arrWag.Add("038"); //SIGNAGE
-            if (!sBnsAddress.Contains("SUBD"))
-                arrWag.Add("030"); //HOME OWNERS CERTIFICATE
-            //MCR 20190724 MAO-19-10438 (e)
-            //AFM 20190823 MAO-19-10705 (s)
-            if (m_sBnsOccupancy != "RENTED")
-                arrWag.Add("040"); //
-            //AFM 20190823 MAO-19-10705 (e)
-
-            pSet.Query = "select distinct a.req_code, req_desc from requirements_chklist a, requirements_tbl b ";
-            pSet.Query += "where bin = '"+m_sBIN+"' and tax_year = '"+m_sTaxYear+"' and a.req_code = b.req_code";
-            if (pSet.Execute())
+            if (AppSettingsManager.GetConfigValue("79") == "N") //AFM 20220103 requested to hide submitted requirements
             {
-                while (pSet.Read())
+                strData = "SUBMITTED REQUIREMENTS:";
+                this.axVSPrinter1.Table = string.Format("<7000;{0}", strData);
+                this.axVSPrinter1.FontBold = false;
+                string sReq = "";
+                int iCount = 0;
+
+                ArrayList arrWag = new ArrayList();
+                arrWag.Add("024"); //SSS CERTIFICATE
+                arrWag.Add("025"); //PHILHEALTH CERTIFICATE
+                arrWag.Add("026"); //PAGIBIG CERTIFICATE
+                arrWag.Add("045"); //SECRETARY'S CERTIFICATE AUTHORIZING THE REPRESENTATIVE TO TRANSACT
+
+
+
+                //MCR 20190724 MAO-19-10438 (s)
+                if (m_sBnsStat != "NEW")
+                    arrWag.Add("038"); //SIGNAGE
+                if (!sBnsAddress.Contains("SUBD"))
+                    arrWag.Add("030"); //HOME OWNERS CERTIFICATE
+                //MCR 20190724 MAO-19-10438 (e)
+                //AFM 20190823 MAO-19-10705 (s)
+                if (m_sBnsOccupancy != "RENTED")
+                    arrWag.Add("040"); //
+                //AFM 20190823 MAO-19-10705 (e)
+
+                pSet.Query = "select distinct a.req_code, req_desc from requirements_chklist a, requirements_tbl b ";
+                pSet.Query += "where bin = '" + m_sBIN + "' and tax_year = '" + m_sTaxYear + "' and a.req_code = b.req_code";
+                if (pSet.Execute())
                 {
-                    if (!arrWag.Contains(pSet.GetString(0)))
+                    while (pSet.Read())
                     {
-                        iCount++;
-                        if (sReq != "")
-                            sReq += "\n";
-                        sReq += pSet.GetString(1);
+                        if (!arrWag.Contains(pSet.GetString(0)))
+                        {
+                            iCount++;
+                            if (sReq != "")
+                                sReq += "\n";
+                            sReq += pSet.GetString(1);
+                        }
                     }
                 }
+                pSet.Close();
+
+
+
+                DateTime dCurrent = new DateTime();
+                dCurrent = AppSettingsManager.GetCurrentDate();
+                double dCnt = 0;
+                TimeSpan ts;
+                ts = (dCurrent.Date - m_dDTIDtComp.Date);
+                dCnt = ts.TotalDays;
+
+                if (dCnt <= 1825) //1825 is 5 years
+                {
+                    if (m_sOrgnKind == "SINGLE PROPRIETORSHIP")
+                        sReq += "\nDTI No.: " + m_sDTIDt;
+                    else if (m_sOrgnKind == "COOPERATIVE")
+                        sReq += "\nCDA No.: " + m_sDTIDt;
+                    else //CORPORATION and PARTNERSHIP
+                        sReq += "\nSEC No.: " + m_sDTIDt;
+                }
+
+                //if (iCount >= 13)
+                //    this.axVSPrinter1.FontSize = (float)7;
+                //else if (iCount > 8)
+                //    this.axVSPrinter1.FontSize = (float)8;
+
+                //AFM 20200227 requested by sir jester - QR CODE (s) (for study)
+
+                //this.axVSPrinter1.DrawPicture(Properties.Resources.QR_malolos, ".5in", ".62in", "25%", "25%", 10, false); //AFM 20200220 MAO-20-12381 removed logo
+
+                //AFM 20200227 requested by sir jester and sir ryan (for presentation purposes) QR CODE (e)
+
+
+
+
+                this.axVSPrinter1.Table = string.Format("<7000;{0}", sReq);
+
             }
-            pSet.Close();
-
-            DateTime dCurrent = new DateTime();
-            dCurrent = AppSettingsManager.GetCurrentDate();
-            double dCnt = 0;
-            TimeSpan ts;
-            ts = (dCurrent.Date - m_dDTIDtComp.Date);
-            dCnt = ts.TotalDays;
-
-            if (dCnt <= 1825) //1825 is 5 years
-            {
-                if (m_sOrgnKind == "SINGLE PROPRIETORSHIP")
-                    sReq += "\nDTI No.: " + m_sDTIDt;
-                else if (m_sOrgnKind == "COOPERATIVE")
-                    sReq += "\nCDA No.: " + m_sDTIDt;
-                else //CORPORATION and PARTNERSHIP
-                    sReq += "\nSEC No.: " + m_sDTIDt;
-            }
-            //if (iCount >= 13)
-            //    this.axVSPrinter1.FontSize = (float)7;
-            //else if (iCount > 8)
-            //    this.axVSPrinter1.FontSize = (float)8;
-
-            //AFM 20200227 requested by sir jester - QR CODE (s) (for study)
-
-            //this.axVSPrinter1.DrawPicture(Properties.Resources.QR_malolos, ".5in", ".62in", "25%", "25%", 10, false); //AFM 20200220 MAO-20-12381 removed logo
-
-            //AFM 20200227 requested by sir jester and sir ryan (for presentation purposes) QR CODE (e)
-
-
-
-
-            this.axVSPrinter1.Table = string.Format("<7000;{0}", sReq);
-            
             this.axVSPrinter1.CurrentY = 11600;
             this.axVSPrinter1.MarginLeft = 6600;
 
@@ -5949,6 +5958,25 @@ namespace Amellar.Modules.BusinessPermit
             strData = AppSettingsManager.GetConfigValue("01") + " MAYOR";
             this.axVSPrinter1.Table = string.Format("^5000;{0}", strData);
             this.axVSPrinter1.FontItalic = false;
+
+
+            //AFM 20220103 MAO-21-16284 (s) QR in business permit as requested by Malolos
+            pSet.Query = "select status from soa_monitoring where bin = '" + m_sBIN + "' and status = 'APPROVED'";
+            if (pSet.Execute())
+                if (pSet.Read())
+                {
+                    byte[] blobData = null;
+                    pSet.Query = "select qr_code from BO_QR where bin = '" + m_sBIN + "'";
+                    if (pSet.Execute())
+                        if (pSet.Read())
+                        {
+                            blobData = pSet.GetBlob(0);
+                            Image image = (Bitmap)((new ImageConverter()).ConvertFrom(blobData));
+                            this.axVSPrinter1.DrawPicture(image, "6.1in", "2.7in", "50%", "50%", 11, false);
+                        }
+                    pSet.Close();
+                }
+            //AFM 20220103 MAO-21-16284 (e)
 
             this.axVSPrinter1.CurrentY = 14000;
 
@@ -6392,66 +6420,70 @@ namespace Amellar.Modules.BusinessPermit
             this.axVSPrinter1.Paragraph = "";
             this.axVSPrinter1.Paragraph = "";
             this.axVSPrinter1.Paragraph = "";
-            strData = "SUBMITTED REQUIREMENTS:";
-            this.axVSPrinter1.Table = string.Format("<7000;{0}", strData);
-            this.axVSPrinter1.FontBold = false;
-            string sReq = "";
-            int iCount = 0;
 
-            ArrayList arrWag = new ArrayList();
-            arrWag.Add("024"); //SSS CERTIFICATE
-            arrWag.Add("025"); //PHILHEALTH CERTIFICATE
-            arrWag.Add("026"); //PAGIBIG CERTIFICATE
-            arrWag.Add("045"); //SECRETARY'S CERTIFICATE AUTHORIZING THE REPRESENTATIVE TO TRANSACT
-
-            //MCR 20190724 MAO-19-10438 (s)
-            if (m_sBnsStat != "NEW")
-                arrWag.Add("038"); //SIGNAGE
-            if (!sBnsAddress.Contains("SUBD"))
-                arrWag.Add("030"); //HOME OWNERS CERTIFICATE
-            //MCR 20190724 MAO-19-10438 (e)
- 
-
-            pSet.Query = "select distinct a.req_code, req_desc from requirements_chklist a, requirements_tbl b ";
-            pSet.Query += "where bin = '" + m_sBIN + "' and tax_year = '" + m_sTaxYear + "' and a.req_code = b.req_code";
-            if (pSet.Execute())
+            if (AppSettingsManager.GetConfigValue("79") == "N") //AFM 20220103 requested to hide submitted requirements
             {
-                while (pSet.Read())
+                strData = "SUBMITTED REQUIREMENTS:";
+                this.axVSPrinter1.Table = string.Format("<7000;{0}", strData);
+                this.axVSPrinter1.FontBold = false;
+                string sReq = "";
+                int iCount = 0;
+
+                ArrayList arrWag = new ArrayList();
+                arrWag.Add("024"); //SSS CERTIFICATE
+                arrWag.Add("025"); //PHILHEALTH CERTIFICATE
+                arrWag.Add("026"); //PAGIBIG CERTIFICATE
+                arrWag.Add("045"); //SECRETARY'S CERTIFICATE AUTHORIZING THE REPRESENTATIVE TO TRANSACT
+
+                //MCR 20190724 MAO-19-10438 (s)
+                if (m_sBnsStat != "NEW")
+                    arrWag.Add("038"); //SIGNAGE
+                if (!sBnsAddress.Contains("SUBD"))
+                    arrWag.Add("030"); //HOME OWNERS CERTIFICATE
+                //MCR 20190724 MAO-19-10438 (e)
+
+
+                pSet.Query = "select distinct a.req_code, req_desc from requirements_chklist a, requirements_tbl b ";
+                pSet.Query += "where bin = '" + m_sBIN + "' and tax_year = '" + m_sTaxYear + "' and a.req_code = b.req_code";
+                if (pSet.Execute())
                 {
-                    if (!arrWag.Contains(pSet.GetString(0)))
+                    while (pSet.Read())
                     {
-                        iCount++;
-                        if (sReq != "")
-                            sReq += "\n";
-                        sReq += pSet.GetString(1);
+                        if (!arrWag.Contains(pSet.GetString(0)))
+                        {
+                            iCount++;
+                            if (sReq != "")
+                                sReq += "\n";
+                            sReq += pSet.GetString(1);
+                        }
                     }
                 }
+                pSet.Close();
+
+                DateTime dCurrent = new DateTime();
+                dCurrent = AppSettingsManager.GetCurrentDate();
+                double dCnt = 0;
+                TimeSpan ts;
+                ts = (dCurrent.Date - m_dDTIDtComp.Date);
+                dCnt = ts.TotalDays;
+
+                if (dCnt <= 1825) //1825 is 5 years
+                {
+                    if (m_sOrgnKind == "SINGLE PROPRIETORSHIP")
+                        sReq += "\nDTI No.: " + m_sDTIDt;
+                    else if (m_sOrgnKind == "COOPERATIVE")
+                        sReq += "\nCDA No.: " + m_sDTIDt;
+                    else //CORPORATION and PARTNERSHIP
+                        sReq += "\nSEC No.: " + m_sDTIDt;
+                }
+                //if (iCount >= 13)
+                //    this.axVSPrinter1.FontSize = (float)7;
+                //else if (iCount > 8)
+                //    this.axVSPrinter1.FontSize = (float)8;
+
+
+                this.axVSPrinter1.Table = string.Format("<7000;{0}", sReq);
             }
-            pSet.Close();
-
-            DateTime dCurrent = new DateTime();
-            dCurrent = AppSettingsManager.GetCurrentDate();
-            double dCnt = 0;
-            TimeSpan ts;
-            ts = (dCurrent.Date - m_dDTIDtComp.Date);
-            dCnt = ts.TotalDays;
-
-            if (dCnt <= 1825) //1825 is 5 years
-            {
-                if (m_sOrgnKind == "SINGLE PROPRIETORSHIP")
-                    sReq += "\nDTI No.: " + m_sDTIDt;
-                else if (m_sOrgnKind == "COOPERATIVE")
-                    sReq += "\nCDA No.: " + m_sDTIDt;
-                else //CORPORATION and PARTNERSHIP
-                    sReq += "\nSEC No.: " + m_sDTIDt;
-            }
-            //if (iCount >= 13)
-            //    this.axVSPrinter1.FontSize = (float)7;
-            //else if (iCount > 8)
-            //    this.axVSPrinter1.FontSize = (float)8;
-      
-
-            this.axVSPrinter1.Table = string.Format("<7000;{0}", sReq);
 
             this.axVSPrinter1.CurrentY = 12800;
             //AFM inserted for malolos new temp permit format (s)
