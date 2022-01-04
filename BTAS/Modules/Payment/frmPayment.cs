@@ -7280,7 +7280,8 @@ namespace Amellar.Modules.Payment
             pSet.Query = string.Format("update retired_bns_temp set or_no = '{0}' where bin = '{1}'", txtORNo.Text, m_sBIN);
             pSet.ExecuteNonQuery();
 
-            pSet.Query = string.Format("insert into retired_bns (bin,bns_code_main,capital,gross,tax_year,bns_stat,qtr,memoranda,main,apprvd_date,app_no,or_no) select * from retired_bns_temp where bin = '{0}'", m_sBIN);
+            //pSet.Query = string.Format("insert into retired_bns (bin,bns_code_main,capital,gross,tax_year,bns_stat,qtr,memoranda,main,apprvd_date,app_no,or_no) select * from retired_bns_temp where bin = '{0}'", m_sBIN);
+            pSet.Query = string.Format("insert into retired_bns (bin,bns_code_main,capital,gross,tax_year,bns_stat,qtr,memoranda,main,apprvd_date,app_no,or_no,bill_no) select * from retired_bns_temp where bin = '{0}'", m_sBIN); //AFM 20211222
             pSet.ExecuteNonQuery();
 
             pSet.Query = string.Format("delete from retired_bns_temp where bin = '{0}'", m_sBIN);

@@ -1963,8 +1963,12 @@ namespace Amellar.Common.AppSettings
                             {
                                 iCurrMonth = 1;
                                 int iDueYear = dCurrDate.Year + 1;
+
+                                sDate = iCurrMonth.ToString() + "/" + dDueDate.Day.ToString() + "/" + iDueYear.ToString(); //AFM 20211227 fixed year for end of december soa
+
                             }
-                            sDate = iCurrMonth.ToString() + "/" + dDueDate.Day.ToString() + "/" + dCurrDate.Year.ToString();
+                            else
+                                sDate = iCurrMonth.ToString() + "/" + dDueDate.Day.ToString() + "/" + dCurrDate.Year.ToString();
                             //sDate = string.Format("{0:MM/dd/yyyy}", dDueDate);
                             break;
                         }

@@ -216,8 +216,47 @@ namespace Amellar.Modules.HealthPermit
                 axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
                 PrintApprovalList();
             }
+            else if (m_sReportType == "HealthList") //AFM 20220103
+            {
+                axVSPrinter1.PaperSize = VSPrinter7Lib.PaperSizeSettings.pprLetter;
+                axVSPrinter1.Orientation = VSPrinter7Lib.OrientationSettings.orPortrait;
+                this.Text = "List of Employees";
+                axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paStartDoc;
+                axVSPrinter1.MarginLeft = 500;
+                axVSPrinter1.FontName = "Arial";
+                axVSPrinter1.FontSize = 10;
+                axVSPrinter1.TableBorder = VSPrinter7Lib.TableBorderSettings.tbNone;
+                HealthEmployees();
+            }
 
             axVSPrinter1.Action = VSPrinter7Lib.ActionSettings.paEndDoc;
+        }
+
+        private void HealthEmployees() //AFM 20220103
+        {
+            string sFormat = string.Empty;
+            string sObject = string.Empty;
+            axVSPrinter1.FontSize = 10;
+            axVSPrinter1.Paragraph = "No of Employees";
+            axVSPrinter1.Paragraph = "";
+
+            sFormat = "^2000|^3500;";
+            sObject = "BIN|No. of Employees";
+
+            axVSPrinter1.Table = sFormat + sObject;
+            axVSPrinter1.Paragraph = "";
+
+            sFormat = "<500|<2000;";
+
+            string sValue = string.Empty;
+            int iNumEmployees = 0;
+            OracleResultSet res = new OracleResultSet();
+            res.Query = "select nvl(num_employees,0) from business_que where bin = '" + m_sBin + "'";
+            int.TryParse(res.ExecuteScalar(), out iNumEmployees);
+
+            sValue = m_sBin + "|" + iNumEmployees.ToString();
+
+            this.axVSPrinter1.Table = string.Format("^2000|^3500;{0}", sValue);
         }
 
         private void PrintApprovalList()
@@ -1273,6 +1312,7 @@ namespace Amellar.Modules.HealthPermit
             axVSPrinter1.FontBold = false;
             axVSPrinter1.Table = "<10|<3000|<1300;| Recommending Approval: | Approved:";
 
+
             //DJAC-20150102 added o.r fields
             axVSPrinter1.MarginLeft = 1800;
             axVSPrinter1.SpaceBefore = 300;
@@ -1838,7 +1878,7 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
 
             sFormat = "^2000|^2000|^2000|^2000";
             sObject = "ENGINEERING|PLANNING|HEALTH|CENRO";
-            if (m_sBnsAdd.Contains("MARKET"))
+            if (m_sBnsAdd.Contains("PUBLIC MARKET") || m_sBnsAdd.Contains("MAPUMA"))
             {
                 sFormat += "|^2000;";
                 sObject += "|MARKET";
@@ -1942,7 +1982,7 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
             else
                 sObject += "|";
 
-            if (m_sBnsAdd.Contains("MARKET"))
+            if (m_sBnsAdd.Contains("PUBLIC MARKET") || m_sBnsAdd.Contains("MAPUMA"))
             {
                 sAppBy = ""; sAppDate = "";
                 pSet.Query = "select * from trans_approve where bin = '" + m_sBin + "' and tax_year = '" + m_sTaxYear + "'";
@@ -1969,7 +2009,7 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
             }
 
             sFormat = "<2000|<2000|<2000|<2000";
-            if (m_sBnsAdd.Contains("MARKET"))
+            if (m_sBnsAdd.Contains("PUBLIC MARKET") || m_sBnsAdd.Contains("MAPUMA"))
             {
                 sFormat += "|<2000;";
             }
@@ -2001,6 +2041,16 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
                 axVSPrinter1.Paragraph = "";
 
                 sFormat = "<500|<2000|<3500|<2000|<1500|>1200;";
+            }
+            else if (m_sOffice == "PLANNING") //AFM 20220103 MAO-21-1627
+            {
+                sFormat = "^2000|^2000|^2000|^3000|^2500|^1500;";
+                sObject = "BIN|Business Name|Business Address|Approved By|Approved Date";
+
+                axVSPrinter1.Table = sFormat + sObject;
+                axVSPrinter1.Paragraph = "";
+
+                sFormat = "<500|<2000|<2000|<3000|<2500|<1500;";
             }
             else
             {
@@ -2039,6 +2089,21 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
                         result.Close();
 
                         sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + sAppBy + "|" + sAppDt + "|" + dAssess.ToString("#,###.00");
+                    }
+                    else if (m_sOffice == "PLANNING") //AFM 20220103 MAO-21-1627
+                    {
+                        double dAssess = 0;
+                        result.Query = "select * from eps_assess_app where bin = '" + sBIN + "' and tax_year = '" + ConfigurationAttributes.CurrentYear + "'";
+                        if (result.Execute())
+                        {
+                            if (result.Read())
+                            {
+                                dAssess = result.GetDouble("annual_fee");
+                            }
+                        }
+                        result.Close();
+
+                        sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + AppSettingsManager.GetBnsAdd(sBIN, "") + "|" + sAppBy + "|" + sAppDt + "|" + dAssess.ToString("#,###.00");
                     }
                     else
                     {

@@ -732,9 +732,11 @@ namespace Amellar.Modules.Retirement
                                 }
 
                                 if (iRow == 0)
-                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ',:8)";
+                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ',:8,'')";
+                                    //pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ',:8)";
                                 else
-                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ',:8)";
+                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ',:8,'')";
+                                    //pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ',:8)";
                                 pSet.AddParameter(":1", strBin);
                                 pSet.AddParameter(":2", strBnsCode);
                                 pSet.AddParameter(":3", strGross);
@@ -847,9 +849,11 @@ namespace Amellar.Modules.Retirement
                                 strGross = string.Format("{0:##.00}", Convert.ToDouble(dgvList[3, iRow].Value.ToString()));
 
                                 if (iRow == 0)
-                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ')";
+                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ','')";
+                                    //pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'Y',:6,:7,' ')";
                                 else
-                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ')";
+                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ','')";
+                                    //pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET','F',:5,'N',:6,:7,' ')";
                                 pSet.AddParameter(":1", strBin);
                                 pSet.AddParameter(":2", strBnsCode);
                                 pSet.AddParameter(":3", strGross);
@@ -880,6 +884,8 @@ namespace Amellar.Modules.Retirement
 
                         }*/
                         // RMC 20110801 temp disabled auto-billing for retirement
+
+                        AppSettingsManager.InsertApplication(strBin, AppSettingsManager.GetSystemDate().Year.ToString()); //OTHER OFFICES
 
                         TransLog.UpdateLog(strBin, "RET", ConfigurationAttributes.CurrentYear, "AAE-WB", m_dTransLogIn, AppSettingsManager.GetSystemDate());  // RMC 20170822 added transaction log feature for tracking of transactions per bin
                         if (AuditTrail.InsertTrail("AAE-WB", "business_que, businesses", StringUtilities.HandleApostrophe(strBin)) == 0)
@@ -971,7 +977,8 @@ namespace Amellar.Modules.Retirement
                                     }
                                     pSet.Close();
 
-                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9)";
+                                    //pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9)";
+                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9,'')";
                                     pSet.AddParameter(":1", strBin);
                                     pSet.AddParameter(":2", strBnsCode);
                                     pSet.AddParameter(":3", strGross);
@@ -998,7 +1005,8 @@ namespace Amellar.Modules.Retirement
                                 }
                                 else
                                 {
-                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9)";
+                                   // pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9)";
+                                    pSet.Query = "insert into retired_bns values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ',:9,'')";
                                     pSet.AddParameter(":1", strBin);
                                     pSet.AddParameter(":2", strBnsCode);
                                     pSet.AddParameter(":3", strGross);
@@ -1087,9 +1095,11 @@ namespace Amellar.Modules.Retirement
                                 }
 
                                 if (iRow == 0)
-                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'Y',:7,:8,' ')";
+                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'Y',:7,:8,' ','')";
+                                    //pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'Y',:7,:8,' ')";
                                 else
-                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ')";
+                                    pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ','')";
+                                    //pSet.Query = "insert into retired_bns_temp values(:1,:2,0.00,:3,:4,'RET',:5,:6,'N',:7,:8,' ')";
                                 pSet.AddParameter(":1", strBin);
                                 pSet.AddParameter(":2", strBnsCode);
                                 pSet.AddParameter(":3", strGross);

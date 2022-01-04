@@ -88,6 +88,20 @@ namespace Amellar.Modules.BusinessReports.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap sanitary_clearance_e_sig {
+            get {
+                object obj = ResourceManager.GetObject("sanitary_clearance_e_sig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sanitary_rec_approval_e_sig {
+            get {
+                object obj = ResourceManager.GetObject("sanitary_rec_approval_e_sig", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap signature_placeholder {
             get {
                 object obj = ResourceManager.GetObject("signature_placeholder", resourceCulture);

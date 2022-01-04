@@ -130,6 +130,12 @@
   <data name="Ph_seal_bulacan_malolos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ph_seal_bulacan_malolos.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sanitary_clearance_e_sig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sanitary_clearance_e_sig.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sanitary_rec_approval_e_sig" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sanitary_rec_approval_e_sig.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="signature_placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\signature_placeholder.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

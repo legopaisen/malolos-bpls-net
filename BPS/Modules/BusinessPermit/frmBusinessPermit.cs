@@ -614,7 +614,8 @@ namespace Amellar.Modules.BusinessPermit
             //AFM 20211217 MAO-21-16197 paid business approval (s)
             if (!CheckMayorApproval())
             {
-                MessageBox.Show("BIN pending for Mayor's Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //MessageBox.Show("BIN pending for Mayor's Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("BIN pending for Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop); //AFM 20220104 requested by malolos - remove mayor's approval 
                 return;
             }
             //AFM 20211217 MAO-21-16197 paid business approval (s)
@@ -734,13 +735,14 @@ namespace Amellar.Modules.BusinessPermit
         {
             int cnt = 0;
             OracleResultSet res = new OracleResultSet();
-            res.Query = "select count(*) from business_approval where bin = " + bin1.GetBin() + ""; // bypass old BINs to only validate transactions after this update
+            res.Query = "select count(*) from business_approval where bin = '" + bin1.GetBin() + "'"; // bypass old BINs to only validate paid BINs after this update
             int.TryParse(res.ExecuteScalar(), out cnt);
             if (cnt == 0)
                 return true;
 
             cnt = 0;
-            res.Query = "select count(*) from business_approval where tax_year = '" + AppSettingsManager.GetSystemDate().Year.ToString() + "' and bin = '" + bin1.GetBin() + "' and mayor_approved = 'YES'";
+            //res.Query = "select count(*) from business_approval where tax_year = '" + AppSettingsManager.GetSystemDate().Year.ToString() + "' and bin = '" + bin1.GetBin() + "' and mayor_approved = 'YES'";
+            res.Query = "select count(*) from business_approval where tax_year = '" + AppSettingsManager.GetSystemDate().Year.ToString() + "' and bin = '" + bin1.GetBin() + "' and status = 'APPROVED'"; //AFM 20220104 requested by malolos - remove mayor's approval
             int.TryParse(res.ExecuteScalar(), out cnt);
             if (cnt > 0)
                 return true;

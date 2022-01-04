@@ -344,7 +344,7 @@ namespace BPLSBilling
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (s)
                  if (sUsrDiv == "ENGINEERING" || sUsrDiv == "ZONING" || sUsrDiv == "SANITARY" ||
-                  sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "SANITARY" || sUsrDiv == "MAPUMA" || sUsrDiv == "HEALTH" || sUsrDiv == "MARKET")
+                  sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "SANITARY" || sUsrDiv == "MAPUMA" || sUsrDiv == "MARKET")
                 {
                     tabRecords.Visible = false;
                     tabApplication.Visible = false;
@@ -370,13 +370,19 @@ namespace BPLSBilling
                         tabSanitary.Visible = false; //AFM 20200107
                     }
 
+                    if (sUsrDiv == "BPLO")
+                    {
+                        tabZoning.Visible = true;  //AFM 20220104 requested by malolos
+                        tabSanitary.Visible = true; //AFM 20220104 requested by malolos
+                    }
+
                     if (sUsrDiv == "CENRO")
                     {
                         tabCenro.Visible = true;
                         tabHealth.Visible = false;
                         tabMarket.Visible = false;
                     }
-                    else if(sUsrDiv == "HEALTH")
+                    else if(sUsrDiv == "CHO")
                     {
                         tabCenro.Visible = false;
                         tabHealth.Visible = true;
@@ -411,6 +417,12 @@ namespace BPLSBilling
                     tabEPS.Visible = false;
                     tabZoning.Visible = false; //AFM 20191219
                     tabSanitary.Visible = false; //AFM 20200107
+
+                    if (sUsrDiv == "BPLO")
+                    {
+                        tabZoning.Visible = true; //AFM 20220104 requested by malolos
+                        tabSanitary.Visible = true; //AFM 20220104 requested by malolos
+                    }
                 }
 
                 if (AppSettingsManager.SystemUser.UserCode == "SYS_PROG")
@@ -1812,7 +1824,7 @@ namespace BPLSBilling
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (s)
                 if (sUsrDiv == "ENGINEERING" || sUsrDiv == "ZONING" || sUsrDiv == "SANITARY" ||
-                    sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "MAPUMA" || sUsrDiv == "HEALTH" || sUsrDiv == "MARKET")
+                    sUsrDiv == "BFP" || sUsrDiv == "BENRO" || sUsrDiv == "CENRO" || sUsrDiv == "CHO" || sUsrDiv == "MAPUMA" || sUsrDiv == "MARKET")
                 {
                     tabRecords.Visible = false;
                     tabApplication.Visible = false;
@@ -1838,13 +1850,19 @@ namespace BPLSBilling
                         tabSanitary.Visible = false; //AFM 20200107
                     }
 
+                    if(sUsrDiv == "BPLO")
+                    {
+                        tabZoning.Visible = true; //AFM 20220104 requested by malolos
+                        tabSanitary.Visible = true; //AFM 20220104 requested by malolos
+                    }
+
                     if (sUsrDiv == "CENRO")
                     {
                         tabCenro.Visible = true;
                         tabHealth.Visible = false;
                         tabMarket.Visible = false;
                     }
-                    else if (sUsrDiv == "HEALTH")
+                    else if (sUsrDiv == "CHO")
                     {
                         tabCenro.Visible = false;
                         tabHealth.Visible = true;
@@ -1878,6 +1896,12 @@ namespace BPLSBilling
                     tabEPS.Visible = false;
                     tabZoning.Visible = false; //AFM 20191219
                     tabSanitary.Visible = false; //AFM 20200107
+
+                    if (sUsrDiv == "BPLO")
+                    {
+                        tabZoning.Visible = true; //AFM 20220104 requested by malolos
+                        tabSanitary.Visible = true; //AFM 20220104 requested by malolos
+                    }
                 }
 
                 if (AppSettingsManager.SystemUser.UserCode == "SYS_PROG")

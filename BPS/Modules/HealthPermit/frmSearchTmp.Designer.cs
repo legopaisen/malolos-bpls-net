@@ -73,6 +73,8 @@ namespace Amellar.Modules.HealthPermit
             this.label2 = new System.Windows.Forms.Label();
             this.txtTaxYear = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txtDti = new System.Windows.Forms.TextBox();
+            this.lblDti = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -191,6 +193,8 @@ namespace Amellar.Modules.HealthPermit
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtDti);
+            this.groupBox1.Controls.Add(this.lblDti);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.cmbBussLine);
             this.groupBox1.Controls.Add(this.label16);
@@ -633,6 +637,29 @@ namespace Amellar.Modules.HealthPermit
             this.timer1.Interval = 300000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // txtDti
+            // 
+            this.txtDti.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDti.Location = new System.Drawing.Point(563, 200);
+            this.txtDti.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDti.MaxLength = 100;
+            this.txtDti.Name = "txtDti";
+            this.txtDti.ReadOnly = true;
+            this.txtDti.Size = new System.Drawing.Size(143, 22);
+            this.txtDti.TabIndex = 56;
+            this.txtDti.Visible = false;
+            // 
+            // lblDti
+            // 
+            this.lblDti.AutoSize = true;
+            this.lblDti.Location = new System.Drawing.Point(502, 207);
+            this.lblDti.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDti.Name = "lblDti";
+            this.lblDti.Size = new System.Drawing.Size(54, 16);
+            this.lblDti.TabIndex = 57;
+            this.lblDti.Text = "DTI No.";
+            this.lblDti.Visible = false;
+            // 
             // frmSearchTmp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -649,8 +676,8 @@ namespace Amellar.Modules.HealthPermit
             this.Name = "frmSearchTmp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Search BIN";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSearchTmp_FormClosed);
             this.Load += new System.EventHandler(this.frmSearchTmp_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSearchTmp_FormClosed);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).EndInit();
@@ -706,6 +733,8 @@ namespace Amellar.Modules.HealthPermit
         private System.Windows.Forms.ComboBox cmbBussLine;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnPrintList;
+        private System.Windows.Forms.TextBox txtDti;
+        private System.Windows.Forms.Label lblDti;
     }
 }
 
