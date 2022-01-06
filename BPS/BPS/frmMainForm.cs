@@ -432,7 +432,7 @@ namespace BPLSBilling
                     tabSanitary.Visible = true; //AFM 20200107
                     tabHealth.Visible = true;
                     tabMarket.Visible = true;
-                    tabCenro.Visible = true;
+                    tabCenro.Visible = false;
                 }
 
                 // RMC 20170322 added module Eng'g Tool for business, this is LGU-Specific and not configurable (Binan) (e)
@@ -1911,7 +1911,7 @@ namespace BPLSBilling
                     tabSanitary.Visible = true; //AFM 20200107
                     tabMarket.Visible = true;
                     tabHealth.Visible = true;
-                    tabCenro.Visible = true;
+                    tabCenro.Visible = false;
                 }
             }
         }

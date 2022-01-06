@@ -59,6 +59,8 @@ namespace Amellar.Modules.BusinessReports
             this.txtDueTo = new System.Windows.Forms.TextBox();
             this.rdbIndividual = new System.Windows.Forms.RadioButton();
             this.rdbCorp = new System.Windows.Forms.RadioButton();
+            this.txtSeriesYr = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -368,11 +370,32 @@ namespace Amellar.Modules.BusinessReports
             this.rdbCorp.Text = "Corporation";
             this.rdbCorp.UseVisualStyleBackColor = true;
             // 
+            // txtSeriesYr
+            // 
+            this.txtSeriesYr.Location = new System.Drawing.Point(286, 209);
+            this.txtSeriesYr.MaxLength = 4;
+            this.txtSeriesYr.Name = "txtSeriesYr";
+            this.txtSeriesYr.Size = new System.Drawing.Size(55, 20);
+            this.txtSeriesYr.TabIndex = 35;
+            this.txtSeriesYr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSeriesYr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSeriesYr_KeyPress);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(231, 212);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 34;
+            this.label12.Text = "Series of";
+            // 
             // frmRetCert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(396, 389);
+            this.Controls.Add(this.txtSeriesYr);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.rdbCorp);
             this.Controls.Add(this.rdbIndividual);
             this.Controls.Add(this.txtDueTo);
@@ -450,5 +473,7 @@ namespace Amellar.Modules.BusinessReports
         private System.Windows.Forms.TextBox txtDueTo;
         private System.Windows.Forms.RadioButton rdbIndividual;
         private System.Windows.Forms.RadioButton rdbCorp;
+        private System.Windows.Forms.TextBox txtSeriesYr;
+        private System.Windows.Forms.Label label12;
     }
 }

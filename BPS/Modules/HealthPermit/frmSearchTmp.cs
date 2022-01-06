@@ -682,15 +682,6 @@ namespace Amellar.Modules.HealthPermit
             pRec.Query += " where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "'";
             pRec.Query += " and bin not in (select bin from trans_for_approve_tmp where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = '" + m_sOffice + "') ";
             pRec.Query += " and bin not in (select bin from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = '" + m_sOffice + "') ";
-            // add hierarchy of approval
-            //if (m_sOffice == "HEALTH") //AFM 20211224 removed - moved validation below
-            //{
-            //    pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'PLANNING' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
-            //}
-            //if (m_sOffice == "CENRO") //AFM 20211224 removed - moved validation below
-            //{
-            //    pRec.Query += " and bin in (select bin from trans_approve where office_nm = 'HEALTH' and tax_year = '" + AppSettingsManager.GetConfigValue("12") + "')";
-            //}
             pRec.Query += " order by app_id";
             bool bDisplay = true;
             if (pRec.Execute())
@@ -759,14 +750,13 @@ namespace Amellar.Modules.HealthPermit
                             {
                                 if (m_sOffice == "ENGINEERING")
                                 {
-                                    //if (!ValidateApproval(sBIN, "PLANNING"))
-                                    //    bDisplay = false;
                                     bDisplay = true;
                                 }
                                 else if (m_sOffice == "PLANNING")
                                 {
-                                    if (!ValidateApproval(sBIN, "ENGINEERING"))
-                                        bDisplay = false;
+                                    //if (!ValidateApproval(sBIN, "ENGINEERING")) //AFM 20220105 removed - requested by Malolos to have Zoning approve NEW bns without engr approval
+                                    //    bDisplay = false;
+                                    bDisplay = true;
                                 }
                             }
                             else
@@ -779,18 +769,26 @@ namespace Amellar.Modules.HealthPermit
                                         bDisplay = false;
                                 }
                                 else if (m_sOffice == "ENGINEERING") // AFM 20220103 MAO-21-16280
-                                    bDisplay = false;
+                                {
+                                    if (CheckNegativeList(sBIN, "ENGINEERING"))
+                                        bDisplay = true;
+                                    else
+                                        bDisplay = false;
+                                }
                             }
 
                             if (m_sOffice == "HEALTH") // AFM 20211224 MAO-21-16249
                             {
                                 if (sBnsStat == "NEW")
                                 {
-                                    if (!ValidateApproval(sBIN, "PLANNING") && !ValidateBusinessType(sBIN))
+                                    if ((!ValidateApproval(sBIN, "PLANNING") || !ValidateApproval(sBIN, "ENGINEERING")) || !ValidateBusinessType(sBIN))
                                         bDisplay = false;
+                                    else if ((ValidateApproval(sBIN, "PLANNING") && ValidateApproval(sBIN, "ENGINEERING")) && ValidateBusinessType(sBIN))
+                                        bDisplay = true;
                                 }
-
-                                if ((!ValidateApproval(sBIN, "PLANNING") && CheckNegativeList(sBIN, "SANITARY")) && ValidateBusinessType(sBIN))
+                                else if (sBnsStat == "RET")
+                                    bDisplay = false;
+                                else if ((!ValidateApproval(sBIN, "PLANNING") && CheckNegativeList(sBIN, "SANITARY")) || !ValidateBusinessType(sBIN))
                                 {
                                     bDisplay = false;
                                 }
@@ -1409,7 +1407,7 @@ namespace Amellar.Modules.HealthPermit
                 pSet.Close();
             }
 
-            if (ValidateBusinessType(sBin) && CheckNegativeList(sBin, "SANITARY") && sBnsStat == "NEW") // only lists of business types are validated for HEALTH //AFM 20220104 MAO-21-16282 added NEW status
+            if ((ValidateBusinessType(sBin) && CheckNegativeList(sBin, "SANITARY")) || (ValidateBusinessType(sBin)) && sBnsStat == "NEW") // only lists of business types are validated for HEALTH //AFM 20220104 MAO-21-16282 added NEW status
             {
                 pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'HEALTH' and bin = '" + sBin + "'";
                 if (pSet.Execute())

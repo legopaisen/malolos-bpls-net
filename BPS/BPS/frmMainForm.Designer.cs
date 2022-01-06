@@ -441,6 +441,7 @@ namespace BPLSBilling
             this.tabMarket,
             this.tabSanitary,
             this.tabOtherOffices});
+            this.flmFileMenu.SelectedContext = null;
             this.flmFileMenu.SelectedTab = this.tabRecords;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;
@@ -1042,6 +1043,7 @@ namespace BPLSBilling
             this.kryptonRibbonGroup37.Tag = null;
             this.kryptonRibbonGroup37.TextLine1 = "Mayor\'s";
             this.kryptonRibbonGroup37.TextLine2 = "Approval";
+            this.kryptonRibbonGroup37.Visible = false;
             // 
             // kryptonRibbonGroupTriple75
             // 

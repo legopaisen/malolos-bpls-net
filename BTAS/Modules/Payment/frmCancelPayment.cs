@@ -9,6 +9,7 @@ using Amellar.Common.AppSettings;
 using Amellar.Common.DataConnector;
 using Amellar.Common.LogIn;
 using Amellar.Common.StringUtilities;
+using Amellar.Common.AuditTrail;
 
 namespace Amellar.Modules.Payment
 {
@@ -135,7 +136,7 @@ namespace Amellar.Modules.Payment
 
             ComputeMainItems();
 
-            result2.Query = "select distinct * from pay_hist where bin = '" + strBin.Trim() + "' order by tax_year desc, or_date desc, qtr_paid desc";
+            result2.Query = "select distinct * from pay_hist where bin = '" + strBin.Trim() + "' order by tax_year desc, or_date desc, time_posted desc, qtr_paid desc"; //AFM 20220106 added time_posted order
             result2.Query += ", or_no desc";    // RMC 20151229 merged multiple OR use from Mati
             if (result2.Execute())
             {
@@ -436,7 +437,8 @@ namespace Amellar.Modules.Payment
                 result.Close();
                 // RMC 20151229 merged multiple OR use from Mati (e)
 
-                
+
+                AuditTrail.InsertTrail("CTCP", "multiple tables", txtORNo.Text.Trim() + "/" + strUserCode); //AFM 20220106
 
                 //pApp->AuditTrail("CTCP", "multiple tables", mv_sORNo);
                 MessageBox.Show("Payments Cancelled.");

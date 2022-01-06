@@ -334,6 +334,9 @@ namespace Amellar.Modules.BusinessReports
             form.ORDate = sOrDt;
             form.ORAmount = sOrAmount;
             // RMC 20171123 enable capturing of certification payment if retirement certificate is reprinted (e)
+            form.SeriesYr = txtSeriesYr.Text.Trim(); //AFM 20220106 MAO-22-16337
+
+
             
             form.ShowDialog();
 
@@ -423,6 +426,14 @@ namespace Amellar.Modules.BusinessReports
         private void dtpIssuedDate_ValueChanged(object sender, EventArgs e)
         {
             dtpChecker(dtpIssuedDate);
+        }
+
+        private void txtSeriesYr_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
