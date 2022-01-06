@@ -750,13 +750,23 @@ namespace Amellar.Modules.HealthPermit
                             {
                                 if (m_sOffice == "ENGINEERING")
                                 {
+<<<<<<< HEAD
+=======
+                                    //if (!ValidateApproval(sBIN, "PLANNING"))
+                                    //    bDisplay = false;
+>>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
                                     bDisplay = true;
                                 }
                                 else if (m_sOffice == "PLANNING")
                                 {
+<<<<<<< HEAD
                                     //if (!ValidateApproval(sBIN, "ENGINEERING")) //AFM 20220105 removed - requested by Malolos to have Zoning approve NEW bns without engr approval
                                     //    bDisplay = false;
                                     bDisplay = true;
+=======
+                                    if (!ValidateApproval(sBIN, "ENGINEERING"))
+                                        bDisplay = false;
+>>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
                                 }
                             }
                             else
@@ -766,6 +776,7 @@ namespace Amellar.Modules.HealthPermit
                                     if (CheckNegativeList(sBIN, "ZONING"))
                                         bDisplay = true;
                                     else
+<<<<<<< HEAD
                                         bDisplay = false;
                                 }
                                 else if (m_sOffice == "ENGINEERING") // AFM 20220103 MAO-21-16280
@@ -773,8 +784,36 @@ namespace Amellar.Modules.HealthPermit
                                     if (CheckNegativeList(sBIN, "ENGINEERING"))
                                         bDisplay = true;
                                     else
+=======
+>>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
                                         bDisplay = false;
                                 }
+                                else if (m_sOffice == "ENGINEERING") // AFM 20220103 MAO-21-16280
+                                    bDisplay = false;
+                            }
+
+                            if (m_sOffice == "HEALTH") // AFM 20211224 MAO-21-16249
+                            {
+                                if (sBnsStat == "NEW")
+                                {
+                                    if (!ValidateApproval(sBIN, "PLANNING") && !ValidateBusinessType(sBIN))
+                                        bDisplay = false;
+                                }
+
+                                if ((!ValidateApproval(sBIN, "PLANNING") && CheckNegativeList(sBIN, "SANITARY")) && ValidateBusinessType(sBIN))
+                                {
+                                    bDisplay = false;
+                                }
+                                else
+                                    bDisplay = true;
+                            }
+
+                            if (m_sOffice == "CENRO")
+                            {
+                                if (CheckNegativeList(sBIN, "SANITARY") && !ValidateApproval(sBIN, "HEALTH"))
+                                    bDisplay = false;
+                                else
+                                    bDisplay = true;
                             }
 
                             if (m_sOffice == "HEALTH") // AFM 20211224 MAO-21-16249
@@ -1407,7 +1446,11 @@ namespace Amellar.Modules.HealthPermit
                 pSet.Close();
             }
 
+<<<<<<< HEAD
             if ((ValidateBusinessType(sBin) && CheckNegativeList(sBin, "SANITARY")) || (ValidateBusinessType(sBin)) && sBnsStat == "NEW") // only lists of business types are validated for HEALTH //AFM 20220104 MAO-21-16282 added NEW status
+=======
+            if (ValidateBusinessType(sBin) && CheckNegativeList(sBin, "SANITARY") && sBnsStat == "NEW") // only lists of business types are validated for HEALTH //AFM 20220104 MAO-21-16282 added NEW status
+>>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
             {
                 pSet.Query = "select * from trans_approve where tax_year = '" + AppSettingsManager.GetConfigValue("12") + "' and office_nm = 'HEALTH' and bin = '" + sBin + "'";
                 if (pSet.Execute())

@@ -441,7 +441,6 @@ namespace BPLSBilling
             this.tabMarket,
             this.tabSanitary,
             this.tabOtherOffices});
-            this.flmFileMenu.SelectedContext = null;
             this.flmFileMenu.SelectedTab = this.tabRecords;
             this.flmFileMenu.Size = new System.Drawing.Size(1016, 143);
             this.flmFileMenu.TabIndex = 22;
@@ -1044,6 +1043,29 @@ namespace BPLSBilling
             this.kryptonRibbonGroup37.TextLine1 = "Mayor\'s";
             this.kryptonRibbonGroup37.TextLine2 = "Approval";
             this.kryptonRibbonGroup37.Visible = false;
+            // 
+            // kryptonRibbonGroupTriple75
+            // 
+            this.kryptonRibbonGroupTriple75.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
+            this.btnPaidBnsApproval,
+            this.btnMayorApproval});
+            this.kryptonRibbonGroupTriple75.Tag = null;
+            // 
+            // btnPaidBnsApproval
+            // 
+            this.btnPaidBnsApproval.ImageLarge = global::BPLSBilling.Properties.Resources.checklist;
+            this.btnPaidBnsApproval.Tag = null;
+            this.btnPaidBnsApproval.TextLine1 = "Business";
+            this.btnPaidBnsApproval.TextLine2 = "Approval";
+            this.btnPaidBnsApproval.Click += new System.EventHandler(this.btnPaidBnsApproval_Click);
+            // 
+            // btnMayorApproval
+            // 
+            this.btnMayorApproval.ImageLarge = global::BPLSBilling.Properties.Resources.checklist;
+            this.btnMayorApproval.Tag = null;
+            this.btnMayorApproval.TextLine1 = "Mayor\'s";
+            this.btnMayorApproval.TextLine2 = "Approval";
+            this.btnMayorApproval.Click += new System.EventHandler(this.btnMayorApproval_Click);
             // 
             // kryptonRibbonGroupTriple75
             // 
