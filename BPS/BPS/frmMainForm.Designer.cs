@@ -1067,13 +1067,6 @@ namespace BPLSBilling
             this.btnMayorApproval.TextLine2 = "Approval";
             this.btnMayorApproval.Click += new System.EventHandler(this.btnMayorApproval_Click);
             // 
-            // kryptonRibbonGroupTriple75
-            // 
-            this.kryptonRibbonGroupTriple75.Items.AddRange(new ComponentFactory.Krypton.Ribbon.KryptonRibbonGroupItem[] {
-            this.btnPaidBnsApproval,
-            this.btnMayorApproval});
-            this.kryptonRibbonGroupTriple75.Tag = null;
-            // 
             // btnPaidBnsApproval
             // 
             this.btnPaidBnsApproval.ImageLarge = global::BPLSBilling.Properties.Resources.checklist;

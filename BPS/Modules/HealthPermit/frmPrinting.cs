@@ -2044,22 +2044,13 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
             }
             else if (m_sOffice == "PLANNING") //AFM 20220103 MAO-21-1627
             {
-<<<<<<< HEAD
                 sFormat = "^2000|^2000|^2000|^2000|^2000|^2000|^1500;";
                 sObject = "BIN|Business Name|Business Address|Business Type|Approved By|Approved Date"; //AFM 20220105 requested new column - business type
-=======
-                sFormat = "^2000|^2000|^2000|^3000|^2500|^1500;";
-                sObject = "BIN|Business Name|Business Address|Approved By|Approved Date";
->>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
+
 
                 axVSPrinter1.Table = sFormat + sObject;
                 axVSPrinter1.Paragraph = "";
-
-<<<<<<< HEAD
                 sFormat = "<500|<2000|<2000|<2000|<2000|<2000|<2000|<1500;";
-=======
-                sFormat = "<500|<2000|<2000|<3000|<2500|<1500;";
->>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
             }
             else
             {
@@ -2112,11 +2103,7 @@ from emp_names where (bin = '" + m_sBin + "' or temp_bin  = '" + m_sBin + "') an
                         }
                         result.Close();
 
-<<<<<<< HEAD
                         sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + AppSettingsManager.GetBnsAdd(sBIN, "") + "|" + AppSettingsManager.GetBnsDesc(AppSettingsManager.GetBnsCodeMain(sBIN)) +"|" + sAppBy + "|" + sAppDt + "|" + dAssess.ToString("#,###.00");
-=======
-                        sObject = iCnt.ToString() + "|" + sBIN + "|" + AppSettingsManager.GetBnsName(sBIN) + "|" + AppSettingsManager.GetBnsAdd(sBIN, "") + "|" + sAppBy + "|" + sAppDt + "|" + dAssess.ToString("#,###.00");
->>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
                     }
                     else
                     {

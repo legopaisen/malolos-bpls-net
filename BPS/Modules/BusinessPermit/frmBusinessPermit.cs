@@ -613,7 +613,7 @@ namespace Amellar.Modules.BusinessPermit
 
             // AFM 20220106 requested to remove business approval by malolos :/
             //AFM 20211217 MAO-21-16197 paid business approval (s)
-<<<<<<< HEAD
+
             //if (!CheckMayorApproval())
             //{
                 //MessageBox.Show("BIN pending for Mayor's Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -621,15 +621,6 @@ namespace Amellar.Modules.BusinessPermit
                 //return;
             //}
             ////AFM 20211217 MAO-21-16197 paid business approval (s)
-=======
-            if (!CheckMayorApproval())
-            {
-                //MessageBox.Show("BIN pending for Mayor's Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                MessageBox.Show("BIN pending for Approval", "", MessageBoxButtons.OK, MessageBoxIcon.Stop); //AFM 20220104 requested by malolos - remove mayor's approval 
-                return;
-            }
-            //AFM 20211217 MAO-21-16197 paid business approval (s)
->>>>>>> a34ddfe620421eafac8eaefb91bc08313955e268
 
             bool bPrintTempPermit = false;  // RMC 20171110 added configurable option to print temporary permit - requested by Malolos
 
